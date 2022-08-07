@@ -35,9 +35,15 @@ let package = Package(
             appCategory: .reference
         )
     ],
+    dependencies: [
+        .package(url: "https://github.com/crane-hiromu/CombineStorable.git", "1.1.0"..<"1.2.0")
+    ],
     targets: [
         .executableTarget(
             name: "AppModule",
+            dependencies: [
+                .product(name: "CombineStorable", package: "combinestorable")
+            ],
             path: "."
         )
     ]

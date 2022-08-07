@@ -1,5 +1,7 @@
 import Foundation
 
+// MARK: - Model
+
 struct SessionModel: Identifiable {
     let id: UUID
     let track: TrackType
@@ -7,6 +9,7 @@ struct SessionModel: Identifiable {
     let description: String?
     let user: SessionUser?
     let isSponsor: Bool
+    let isLT: Bool
     
     init(
         id: UUID = .init(),
@@ -14,7 +17,8 @@ struct SessionModel: Identifiable {
         title: String,
         description: String? = nil, 
         user: SessionUser? = nil,
-        isSponsor: Bool = false
+        isSponsor: Bool = false,
+        isLT: Bool = false
     ) {
         self.id = id
         self.track = track
@@ -22,5 +26,6 @@ struct SessionModel: Identifiable {
         self.description = description
         self.user = user
         self.isSponsor = isSponsor
+        self.isLT = isLT
     }
 }

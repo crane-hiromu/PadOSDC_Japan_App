@@ -1,4 +1,5 @@
 import SwiftUI
+import UIKit
 
 struct SessionView: View {
     
@@ -10,7 +11,8 @@ struct SessionView: View {
                 SessionSection(sessionType: $0)
             }
         }
-        .navigationBarTitle("", displayMode: .inline) // remove top space
+        .navigationBarTitle("iOSDC Japan 2020", displayMode: .inline) // remove top space
+        .background(.black)
         .tabItem { 
             ScheduleTabItem(scheduleType: scheduleType) 
         }

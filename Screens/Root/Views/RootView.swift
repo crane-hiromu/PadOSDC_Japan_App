@@ -2,6 +2,10 @@ import SwiftUI
 
 struct RootView: View {
     
+    init() {
+        Configurator.configure()
+    }
+    
     var body: some View {
         NavigationView {
             TabView {

@@ -12,19 +12,23 @@ struct SessionRow: View {
                     if model.isSponsor {
                         SessionTag(text: "Sponsor", color: .green)
                     }
+                    if model.isLT {
+                        SessionTag(text: "LT", color: .yellow)
+                    }
                     if let user = model.user {
                         SessionTag(text: user.name, color: .blue)
                     }
-                }
+                }.padding(.bottom, 4)
+                
                 Text(model.title)
                     .font(.body)
                     .lineLimit(1)
                     .foregroundColor(.white)
-            }
+            }.padding(.all, 2)
             Spacer()
         }
         .padding(.all, 8)
-        .background(Color(UIColor.secondarySystemGroupedBackground))
+        .background(Color.secondarySystemBackground)
         .cornerRadius(12)
     }
 }
