@@ -29,3 +29,10 @@ struct SessionModel: Identifiable {
         self.isLT = isLT
     }
 }
+
+extension SessionModel: Hashable {
+    
+    static func == (lhs: SessionModel, rhs: SessionModel) -> Bool {
+        lhs.id == rhs.id && lhs.title == rhs.title
+    }
+}

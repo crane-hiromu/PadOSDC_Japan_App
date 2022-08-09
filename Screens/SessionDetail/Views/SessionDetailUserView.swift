@@ -27,13 +27,14 @@ private struct SessionDetailUserImage: View {
         if let img = icon {
             Image(img)
                 .resizable()
-                .frame(width: 24, height: 24)
+                .frame(width: 20, height: 20)
                 .cornerRadius(12)
         } else {
             Image(systemName: "person.circle")
                 .resizable()
-                .frame(width: 24, height: 24)
+                .frame(width: 20, height: 20)
                 .cornerRadius(12)
+                .foregroundColor(.white)
         }
     }
 }
@@ -44,7 +45,7 @@ private struct SessionDetailUserNameLabel: View {
     
     var body: some View {
         Text(name)
-            .font(.title3)
+            .font(.headline)
             .foregroundColor(.white)
             .padding(.trailing, 4)
     }
@@ -61,10 +62,10 @@ private struct SessionDetailUserSnsButton: View {
                 HStack(spacing: 8) {
                     Image("logo_twitter")
                         .resizable()
-                        .frame(width: 22, height: 22)
+                        .frame(width: 20, height: 20)
                     Text(account)
-                        .font(.title3)
-                        .foregroundColor(.white)
+                        .font(.headline)
+                        .foregroundColor(.cyan)
                 }
             }
         }

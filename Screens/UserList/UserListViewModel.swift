@@ -1,16 +1,15 @@
 import Foundation
-import SwiftUI
 import Combine
 import CombineStorable
 
-final class SessionDetailViewModel: NSObject, Storable {
+final class UserListViewModel: NSObject, Storable {
     
     let input: Input
     let output: Output
     
     init(
         input: Input = .init(),
-        output: Output
+        output: Output = .init()
     ) {
         self.input = input
         self.output = output
@@ -19,41 +18,36 @@ final class SessionDetailViewModel: NSObject, Storable {
     }
 }
 
-extension SessionDetailViewModel {
+extension UserListViewModel {
     
     final class Input {
-        let didTapSns: PassthroughSubject<Void, Never>
-        let didTapClose: PassthroughSubject<Void, Never>
+        let didTapSns: PassthroughSubject<SessionUser?, Never>
         
-        init(
-            didTapSns: PassthroughSubject<Void, Never> = .init(),
-            didTapClose: PassthroughSubject<Void, Never> = .init()
-        ) {
+        init(didTapSns: PassthroughSubject<SessionUser?, Never> = .init()) {
             self.didTapSns = didTapSns
-            self.didTapClose = didTapClose
         }
     }
     
     final class Output {
-        let model: SessionModel
+        let models: [SessionUser]
         let openSns: PassthroughSubject<URL, Never>
         
         init(
-            model: SessionModel, 
+            models: [SessionUser] = SessionUserType.allCases.map(\.user), 
             openSns: PassthroughSubject<URL, Never> = .init()
         ) {
-            self.model = model
+            self.models = models.sorted { $0.name < $1.name }
             self.openSns = openSns
         }
     }
 }
 
-extension SessionDetailViewModel {
+extension UserListViewModel {
     
     func bind(input: Input, output: Output) {
         input
             .didTapSns
-            .compactMap { output.model.user?.twAccount }
+            .compactMap { $0?.twAccount }
             .compactMap { URL(string: "\(Constants.twitterBaseUrl)/\($0)") }
             .sink { output.openSns.send($0) }
             .store(in: &cancellables)

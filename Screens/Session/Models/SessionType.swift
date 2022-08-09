@@ -338,7 +338,7 @@ enum SessionDay1Type: Int, CaseIterable, SessionType {
                 .init(track: .a,
                       title: "手で触れずにアプリを動かす技術 ",
                       description: "iPhoneがスマートフォンと称されてはや数年。巨大なタッチスクリーンを備えたiPhoneはその操作性でたくさんの人に受け入れられてきました。\n\nでも、ちょっと待ってください。タッチしないと動かないって、いまいちスマートじゃなくないですか？\n\nそんなわけで、iPhoneを触らずともアプリをなんとか動かすことができないか、様々な技術を駆使してアプリを動かせないかを検討してみます。\n\n例えバッキバキに割れたiPhoneでも、見事動かしてみせましょう。",
-                      user: SessionUserType.user51.user,
+                      user: SessionUserType.user17.user,
                       isLT: true)
             ]
         case .t1650_1710:
@@ -571,7 +571,7 @@ enum SessionDay2Type: Int, CaseIterable, SessionType {
                 .init(track: .a,
                       title: "iPhoneでサッカースタジアムをスキャンしVPSを動作させるには",
                       description: "Visual Positioning Systemは周りの風景の情報を元に現実空間の中で自身の位置を特定する技術です。\n\n私はサッカーJ2リーグの町田ゼルビアのホームスタジアム「町田GIONスタジアム」にてiPhoneで数百枚画像撮影して点群作成し、VPS機能を用いてAR表現を実現しました。\n\n・Immersal での点群作成\n・実際のスキャンの様子\n・数回の実作業を経て得た生成物\n・VPSを用いて実現したAR表現\n\nそもそもiPhoneでスタジアムに立ち向かえるのか！\n\nスタジアムでの現地作業という貴重な経験から得た知見を共有し、そこでどんな表現が実現できたのか画像と映像と共に熱く解説します。",
-                      user: SessionUserType.user88.user,
+                      user: SessionUserType.user25.user,
                       isLT: true)
             ]
         case .t1555_1640: 

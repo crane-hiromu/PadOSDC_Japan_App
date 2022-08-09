@@ -2,6 +2,7 @@ import SwiftUI
 
 struct SessionDetailView: View {
     
+    @Environment(\.presentationMode) var presentation
     let viewModel: SessionDetailViewModel
     
     var body: some View {
@@ -20,6 +21,11 @@ struct SessionDetailView: View {
             }
             .padding()
         }
+        .toolbar {
+            ToolbarItem(placement: .navigationBarLeading) {
+                CloseToolbarItem { presentation.wrappedValue.dismiss() }
+            }
+        }
         .onReceive(viewModel.output.openSns) {
             UIApplication.shared.open($0)
         }
@@ -34,7 +40,7 @@ private struct SessionDetailNameLabel: View {
     
     var body: some View {
         Text(text)
-            .font(.title)
+            .font(.title3)
             .foregroundColor(.white)
             .frame(maxWidth: .infinity)
     }
@@ -52,6 +58,18 @@ private struct SessionDetailDescriptionLabel: View {
                 .padding(.all, 16)
                 .background(Color.secondarySystemBackground)
                 .cornerRadius(12)
+        }
+    }
+}
+
+private struct CloseToolbarItem: View {
+    
+    let didTapClose: () -> Void
+    
+    var body: some View {
+        Button(action: didTapClose) {
+            Image(systemName: "xmark.circle")
+                .foregroundColor(.white)
         }
     }
 }

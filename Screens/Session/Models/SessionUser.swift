@@ -4,6 +4,7 @@ import SwiftUI
 // MARK: - Model
 
 struct SessionUser {
+    let id = UUID()
     let icon: String?
     let name: String
     let twAccount: String?
@@ -15,9 +16,16 @@ struct SessionUser {
     }
 }
 
+extension SessionUser: Hashable {
+    
+    static func == (lhs: SessionUser, rhs: SessionUser) -> Bool {
+        lhs.id == rhs.id && lhs.name == rhs.name
+    }
+}
+
 // MARK: - Type
 
-enum SessionUserType: String {
+enum SessionUserType: String, CaseIterable {
     case user1, user2, user3, user4, user5, 
          user6, user7, user8, user9, user10,
          user11, user12, user13, user14, user15, 
@@ -28,14 +36,14 @@ enum SessionUserType: String {
          user36, user37, user38, user39, user40,
          user41, user42, user43, user44, user45,
          user46, user47, user48, user49, user50,
-         user51, user52, user53, user54, user55,
+         user52, user53, user54, user55,
          user56, user57, user58, user59, user60,
          user61, user62, user63, user64, user65,
          user66, user67, user68, user69, user70,
          user71, user72, user73, user74, user75,
          user76, user77, user78, user79, user80,
          user81, user82, user83, user84, user85,
-         user86, user87, user88, user89, user90,
+         user86, user87,         user89, user90,
          user91, user92, user93, user94, user95
     
     
@@ -91,7 +99,6 @@ enum SessionUserType: String {
         case .user48: return "杉本 至"
         case .user49: return "Yutaro Muta"
         case .user50: return "所友太"
-        case .user51: return "日向強"
         case .user52: return "大塚 悠貴"
         case .user53: return "motoshima1150"
         case .user54: return "川辺 裕太、石井 潤"
@@ -128,7 +135,6 @@ enum SessionUserType: String {
         case .user85: return "Hiroshi Shikata"
         case .user86: return "akatsuki174"
         case .user87: return "Park Byungjun"
-        case .user88: return "服部 智"
         case .user89: return "FromAtom"
         case .user90: return "kntkymt"
         case .user91: return "しもとり"
@@ -191,7 +197,6 @@ enum SessionUserType: String {
         case .user48: return "itaru_sugimoto"
         case .user49: return "yutailang0119"
         case .user50: return "tokorom"
-        case .user51: return "coffeegyunyu"
         case .user52: return "moguaiyuki"
         case .user53: return nil
         case .user54: return nil
@@ -228,7 +233,6 @@ enum SessionUserType: String {
         case .user85: return "dotrikun"
         case .user86: return "akatsuki174"
         case .user87: return "hexarf"
-        case .user88: return "shmdevelop"
         case .user89: return "FromAtom"
         case .user90: return "kntk47502405"
         case .user91: return "S_Shimotori_pub"
