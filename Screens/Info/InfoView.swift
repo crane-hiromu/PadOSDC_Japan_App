@@ -22,6 +22,7 @@ struct InfoView: View {
         .onReceive(viewModel.output.openSns) {
             UIApplication.shared.open($0)
         }
+        .accentColor(.gray)
     }
 }
 

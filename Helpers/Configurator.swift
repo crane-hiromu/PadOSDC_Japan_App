@@ -23,6 +23,7 @@ enum Configurator {
         UINavigationBar.appearance().scrollEdgeAppearance = appearance // ラージタイトルの場合の外見
         UINavigationBar.appearance().standardAppearance = appearance // 通常の外見
         UINavigationBar.appearance().compactAppearance = appearance //横向きの場合
+        
     }
     
     private static func configureSearchBar() {
