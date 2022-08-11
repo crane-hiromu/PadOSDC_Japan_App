@@ -10,6 +10,7 @@ struct UserListRow: View {
             user: user,
             didTapSns: didTap
         )
-        .padding(.init(top: 6, leading: 16, bottom: 6, trailing: 16))
+        .padding([.leading, .trailing], 8)
+        .frame(height: 40)
     }
 }

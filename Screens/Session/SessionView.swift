@@ -35,4 +35,3 @@ private struct ScheduleTabItem: View {
         Text(scheduleType.day)
     }
 }
-

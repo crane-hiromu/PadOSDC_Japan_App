@@ -19,7 +19,7 @@ struct RootView: View {
                     didTapInfo: { viewModel.binding.isShownInfo = true }
                 )
             }
-            .navigationBarTitle("iOSDC Japan 2020", displayMode: .inline)
+            .navigationBarTitle("iOSDC Japan 2022", displayMode: .inline)
         }
         .fullScreenCover(
             isPresented: $viewModel.binding.isShownSessionList,

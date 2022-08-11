@@ -46,7 +46,7 @@ private struct SessionList: View {
         if models.isEmpty {
             SessionEmptyView(size: size)
         } else {
-            VStack(spacing: 8) {
+            LazyVStack(spacing: 8) {
                 ForEach(models, id: \.self) { model in
                     SessionRow(model: model) {
                         didTapRow(model)

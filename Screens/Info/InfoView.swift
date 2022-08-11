@@ -31,7 +31,7 @@ private struct InfoListView: View {
     let didTapButton: (InfoType) -> Void
     
     var body: some View {
-        VStack(spacing: 8) {
+        LazyVStack(spacing: 8) {
             InfoButtonRow(
                 type: .about,
                 action: { didTapButton(.about) }
