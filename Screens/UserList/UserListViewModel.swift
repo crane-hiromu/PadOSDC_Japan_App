@@ -2,14 +2,14 @@ import Foundation
 import Combine
 import CombineStorable
 
-final class UserListViewModel: NSObject, Storable {
+final class UserListViewModel: NSObject, Storable, ObservableObject {
     
     let input: Input
     let output: Output
     
     init(
         input: Input = .init(),
-        output: Output = .init()
+        output: Output
     ) {
         self.input = input
         self.output = output
@@ -21,22 +21,22 @@ final class UserListViewModel: NSObject, Storable {
 extension UserListViewModel {
     
     final class Input {
-        let didTapSns: PassthroughSubject<SessionUser?, Never>
+        let didTapSns: PassthroughSubject<User?, Never>
         
-        init(didTapSns: PassthroughSubject<SessionUser?, Never> = .init()) {
+        init(didTapSns: PassthroughSubject<User?, Never> = .init()) {
             self.didTapSns = didTapSns
         }
     }
     
     final class Output {
-        let models: [SessionUser]
+        let models: [User]
         let openSns: PassthroughSubject<URL, Never>
         
         init(
-            models: [SessionUser] = SessionUserType.allCases.map(\.user), 
+            models: [User], 
             openSns: PassthroughSubject<URL, Never> = .init()
         ) {
-            self.models = models.sorted { $0.name < $1.name }
+            self.models = models
             self.openSns = openSns
         }
     }

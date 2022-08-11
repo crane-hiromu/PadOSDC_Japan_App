@@ -14,28 +14,15 @@ struct SessionView: View {
                 )
             }
         }
-        .sheet(
-            isPresented: $viewModel.binding.isShownModal,
-            onDismiss: { viewModel.input.didCloseModal.send(()) },
-            content: { SessionSheetView(model: viewModel.output.modalModel) }
-        )
         .tabItem { 
             ScheduleTabItem(scheduleType: viewModel.output.scheduleType) 
         }
+        .sheet(
+            item: $viewModel.binding.modalModel,
+            onDismiss: { viewModel.input.didCloseModal.send(()) },
+            content: { SessionSheetView(model: $0) }
+        )
         .background(.black)
-    }
-}
-
-private struct SessionSheetView: View {
-    
-    let model: SessionModel?
-    
-    var body: some View {
-        if let model = model {
-            SessionModalView(model: model)
-        } else {
-            EmptyView() // todo error
-        }
     }
 }
 

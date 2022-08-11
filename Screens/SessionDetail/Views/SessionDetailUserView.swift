@@ -2,7 +2,7 @@ import SwiftUI
 
 struct SessionDetailUserView: View {
     
-    let user: SessionUser?
+    let user: User?
     let didTapSns: () -> Void
     
     var body: some View {

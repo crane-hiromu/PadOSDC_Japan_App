@@ -2,6 +2,8 @@ import SwiftUI
 
 struct RootView: View {
     
+    @ObservedObject var viewModel: RootViewModel
+    
     var body: some View {
         NavigationView {
             TabView {
@@ -12,46 +14,63 @@ struct RootView: View {
                 }
             }
             .toolbar {
-                ToolbarItem(placement: .navigationBarLeading) {
-                    RootLeadingToolbarItem() 
-                }
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    RootTrailingToolbarItem() 
-                }
+                RootToolbarContent(
+                    didTapSessionList: { viewModel.binding.isShownSessionList = true },
+                    didTapInfo: { viewModel.binding.isShownInfo = true }
+                )
             }
             .navigationBarTitle("iOSDC Japan 2020", displayMode: .inline)
         }
+        .fullScreenCover(
+            isPresented: $viewModel.binding.isShownSessionList,
+            onDismiss: { viewModel.input.didCloseSessionList.send(()) },
+            content: { SessionListView(viewModel: .init()) }
+        )
+        .fullScreenCover(
+            isPresented: $viewModel.binding.isShownInfo,
+            onDismiss: { viewModel.input.didCloseInfo.send(()) },
+            content: { InfoView(viewModel: .init()) }
+        )
         .foregroundColor(.white) // update navigation color
         .navigationViewStyle(.stack)
     }
 }
 
-private struct RootLeadingToolbarItem: View {
+private struct RootToolbarContent: ToolbarContent {
     
-    var body: some View {
-        NavigationLink(
-            destination: UserListView(viewModel: .init()),
-            label: { toolbarItemImage }
-        )
-    }
+    let didTapSessionList: () -> Void
+    let didTapInfo: () -> Void
     
-    private var toolbarItemImage: some View {
-        Image(systemName: "person.crop.rectangle.stack")
-            .foregroundColor(.white)
+    var body: some ToolbarContent {
+        ToolbarItem(placement: .navigationBarLeading) {
+            RootSessionListToolbarItem(didTapItem: didTapSessionList)
+        }
+        ToolbarItem(placement: .navigationBarTrailing) {
+            RootInfoToolbarItem(didTapItem: didTapInfo)
+        }
     }
 }
 
-private struct RootTrailingToolbarItem: View {
+private struct RootSessionListToolbarItem: View {
+    
+    let didTapItem: () -> Void
     
     var body: some View {
-        NavigationLink(
-            destination: SessionListView(viewModel: .init()),
-            label: { toolbarItemImage }
-        )
+        Button(action: didTapItem) {
+            Image(systemName: "magnifyingglass")
+                .foregroundColor(.white)
+        }
     }
+}
+
+private struct RootInfoToolbarItem: View {
     
-    private var toolbarItemImage: some View {
-        Image(systemName: "magnifyingglass")
-            .foregroundColor(.white)
+    let didTapItem: () -> Void
+    
+    var body: some View {
+        Button(action: didTapItem) {
+            Image(systemName: "info.circle")
+                .foregroundColor(.white)
+        }
     }
 }

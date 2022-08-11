@@ -39,19 +39,14 @@ extension SessionViewModel {
     
     final class Output: ObservableObject {
         let scheduleType: ScheduleType
-        var modalModel: SessionModel?
         
-        init(
-            scheduleType: ScheduleType,
-            modalModel: SessionModel? = nil
-        ) {
+        init(scheduleType: ScheduleType) {
             self.scheduleType = scheduleType
-            self.modalModel = modalModel
         }
     }
     
     final class Binding: ObservableObject {
-        @Published var isShownModal = false
+        @Published var modalModel: SessionModel?
     }
 }
 
@@ -67,18 +62,12 @@ extension SessionViewModel {
         
         input
             .didTapSession
-            .sink {
-                output.modalModel = $0
-                binding.isShownModal = true
-            }
+            .sink { binding.modalModel = $0 }
             .store(in: &cancellables)
         
         input
             .didCloseModal
-            .sink { 
-                output.modalModel = nil
-                binding.isShownModal = false 
-            }
+            .sink { binding.modalModel = nil }
             .store(in: &cancellables)
     }
 }

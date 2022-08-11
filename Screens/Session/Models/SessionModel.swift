@@ -30,6 +30,16 @@ struct SessionModel: Identifiable {
     }
 }
 
+extension SessionModel {
+    
+    func contains(query: String) -> Bool {
+        title.lowercased().contains(query)
+        || (description?.lowercased() ?? "").contains(query)
+        || (user?.name.lowercased() ?? "").contains(query)
+        || (user?.twAccount?.lowercased() ?? "").contains(query)
+    }
+}
+
 extension SessionModel: Hashable {
     
     static func == (lhs: SessionModel, rhs: SessionModel) -> Bool {

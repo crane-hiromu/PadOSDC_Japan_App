@@ -22,9 +22,7 @@ struct SessionDetailView: View {
             .padding()
         }
         .toolbar {
-            ToolbarItem(placement: .navigationBarLeading) {
-                CloseToolbarItem { presentation.wrappedValue.dismiss() }
-            }
+            CloseToolbarContent { presentation.wrappedValue.dismiss() }
         }
         .onReceive(viewModel.output.openSns) {
             UIApplication.shared.open($0)
@@ -58,18 +56,6 @@ private struct SessionDetailDescriptionLabel: View {
                 .padding(.all, 16)
                 .background(Color.secondarySystemBackground)
                 .cornerRadius(12)
-        }
-    }
-}
-
-private struct CloseToolbarItem: View {
-    
-    let didTapClose: () -> Void
-    
-    var body: some View {
-        Button(action: didTapClose) {
-            Image(systemName: "xmark.circle")
-                .foregroundColor(.white)
         }
     }
 }

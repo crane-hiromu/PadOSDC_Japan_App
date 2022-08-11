@@ -1,9 +1,16 @@
 import Foundation
 import SwiftUI
 
+protocol User {
+    var id: UUID { get }
+    var icon: String? { get }
+    var name: String { get }
+    var twAccount: String? { get }
+}
+
 // MARK: - Model
 
-struct SessionUser {
+struct SessionUser: User {
     let id = UUID()
     let icon: String?
     let name: String
@@ -86,13 +93,13 @@ enum SessionUserType: String, CaseIterable {
         case .user35: return "ばんじゅん🍓"
         case .user36: return "entaku"
         case .user37: return "Yosuke Imairi"
-        case .user38: return "treastrain / Tanaka Ryoga"
+        case .user38: return "Tanaka Ryoga"
         case .user39: return "Apurin Mikhail"
         case .user40: return "ta_ka_tsu"
         case .user41: return "Roku"
         case .user42: return "tsuboyan"
         case .user43: return "リルオッサ"
-        case .user44: return "赤田　進（Sam Akada）"
+        case .user44: return "赤田 進(Sam Akada)"
         case .user45: return "大庭 慎一郎"
         case .user46: return "freddi"
         case .user47: return "ShoMasegi"
@@ -110,7 +117,7 @@ enum SessionUserType: String, CaseIterable {
         case .user60: return "今泉智博"
         case .user61: return "あおい"
         case .user62: return "Hiromu Tsuruta"
-        case .user63: return "續橋　涼"
+        case .user63: return "續橋 涼"
         case .user64: return "たまねぎ"
         case .user65: return "Ogijun"
         case .user66: return "izumi"
@@ -129,7 +136,7 @@ enum SessionUserType: String, CaseIterable {
         case .user79: return "まつじ"
         case .user80: return "岩名 勇輝"
         case .user81: return "yamannnu"
-        case .user82: return "なめき　ちはる"
+        case .user82: return "なめき ちはる"
         case .user83: return "darquro"
         case .user84: return "haseken"
         case .user85: return "Hiroshi Shikata"

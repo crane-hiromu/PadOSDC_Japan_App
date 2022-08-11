@@ -2,7 +2,7 @@ import SwiftUI
 
 struct UserListRow: View {
     
-    let user: SessionUser
+    let user: User
     let didTap: () -> Void
     
     var body: some View {
@@ -10,7 +10,6 @@ struct UserListRow: View {
             user: user,
             didTapSns: didTap
         )
-//        .frame(maxWidth: .infinity) // fix me for ipad
         .padding(.init(top: 6, leading: 16, bottom: 6, trailing: 16))
     }
 }

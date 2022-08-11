@@ -5,9 +5,9 @@ enum ScheduleType: Int, CaseIterable {
     
     var icon: String {
         switch self {
-        case .day0: return "leaf"
-        case .day1: return "ladybug"
-        case .day2: return "tortoise"
+        case .day0: return "square.3.stack.3d.top.fill"
+        case .day1: return "square.3.stack.3d.middle.fill"
+        case .day2: return "square.3.stack.3d.bottom.fill"
         }
     }
     

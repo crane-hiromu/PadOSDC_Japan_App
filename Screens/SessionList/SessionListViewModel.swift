@@ -25,15 +25,29 @@ final class SessionListViewModel: NSObject, ObservableObject, Storable {
 extension SessionListViewModel {
     
     final class Input {
-        // nop
+        let didTapSession: PassthroughSubject<SessionModel, Never>
+        let didCloseModal: PassthroughSubject<(), Never>
+        
+        init(
+            didTapSession: PassthroughSubject<SessionModel, Never> = .init(),
+            didCloseModal: PassthroughSubject<(), Never> = .init()
+        ) {
+            self.didTapSession = didTapSession
+            self.didCloseModal = didCloseModal
+        }
     }
     
     final class Output: ObservableObject {
-        // nop
+        var modalModel: SessionModel?
+        
+        init(modalModel: SessionModel? = nil) {
+            self.modalModel = modalModel
+        }
     }
     
     final class Binding: ObservableObject {
         @State var searchText = CurrentValueSubject<String, Never>("")
+        @Published var isShownModal = false
         @Published var models = Constants.allSessions.sorted {
             $0.track.name < $1.track.name 
         }
@@ -50,18 +64,30 @@ extension SessionListViewModel {
             }
             .store(in: &cancellables)
         
+        input
+            .didTapSession
+            .sink {
+                output.modalModel = $0
+                binding.isShownModal = true
+            }
+            .store(in: &cancellables)
+        
+        input
+            .didCloseModal
+            .sink { 
+                output.modalModel = nil
+                binding.isShownModal = false 
+            }
+            .store(in: &cancellables)
+        
         binding.searchText
-            .debounce(for: 0.5, scheduler: DispatchQueue.main)
-            .map { $0.lowercased() }
+            .debounce(for: 0.2, scheduler: DispatchQueue.main)
             .map { text -> [SessionModel] in
                 guard !text.isEmpty else {
                     return Constants.allSessions
                 }
                 return Constants.allSessions.filter {
-                    $0.title.lowercased().contains(text) 
-                    || ($0.description?.lowercased() ?? "").contains(text)
-                    || ($0.user?.name.lowercased() ?? "").contains(text)
-                    || ($0.user?.twAccount?.lowercased() ?? "").contains(text)
+                    $0.contains(query: text.lowercased())
                 }
             }
             .assign(to: \.models, on: binding)

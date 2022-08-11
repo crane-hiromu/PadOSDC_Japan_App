@@ -2,7 +2,7 @@ import SwiftUI
 
 struct UserListView: View {
     
-    let viewModel: UserListViewModel
+    @ObservedObject var viewModel: UserListViewModel
     
     var body: some View {
         ScrollView {
@@ -14,14 +14,17 @@ struct UserListView: View {
                     )
                     Spacer()
                 }
+                .padding(.all, 4)
+                .background(Color.secondarySystemBackground)
+                .cornerRadius(12)
             }
-            .padding([.top, .bottom], 24)
+            .padding(.all, 16)
         }
         .frame(maxWidth: .infinity)
         .background(.black)
+        .navigationBarTitle("Speaker", displayMode: .inline)
         .onReceive(viewModel.output.openSns) {
             UIApplication.shared.open($0)
         }
-        .navigationTitle("登壇者一覧")
     }
 }
