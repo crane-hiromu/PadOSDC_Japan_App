@@ -44,6 +44,10 @@ private extension InfoView {
                 type: .blog,
                 action: { viewModel.input.didTapButton.send(.blog) }
             )
+            InfoButtonRow(
+                type: .privacyPolicy,
+                action: { viewModel.input.didTapButton.send(.privacyPolicy) }
+            )
             Spacer()
         }
         .padding()
