@@ -1,7 +1,7 @@
 import SwiftUI
 
+// MARK: - ToolbarContent
 struct CloseToolbarContent: ToolbarContent {
-    
     let didTapClose: () -> Void
     
     var body: some ToolbarContent {

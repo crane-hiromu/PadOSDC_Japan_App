@@ -1,0 +1,84 @@
+import SwiftUI
+
+// MARK: - Protocol
+protocol RouterProtocol {
+    // View
+    static func routeToRoot() -> RootView
+    static func routeToSession(with scheduleType: ScheduleType) -> SessionView
+    static func routeToSessionList() -> SessionListView
+    static func routeToInfo() -> InfoView
+    static func routeToSessionDetail(with model: SessionModel) -> SessionDetailView
+    static func routeToUserList(with models: [User]) -> UserListView
+    // Web
+    static func routeToSns(with url: URL)
+}
+
+// MARK: - Router
+enum Router: RouterProtocol {
+    
+    // MARK: View
+    
+    static func routeToRoot() -> RootView {
+        .init(
+            viewModel: .init(),
+            environment: .init()
+        )
+    }
+    
+    static func routeToSession(with scheduleType: ScheduleType) -> SessionView {
+        .init(
+            viewModel: .init(
+                output: .init(scheduleType: scheduleType), 
+                binding: .init(scheduleType: scheduleType)
+            ), 
+            environment: .init()
+        )
+    }
+    
+    static func routeToSessionList() -> SessionListView {
+        .init(
+            viewModel: .init(),
+            environment: .init()
+        )
+    }
+    
+    static func routeToInfo() -> InfoView {
+        .init(
+            viewModel: .init(),
+            environment: .init()
+        )
+    }
+    
+    static func routeToSessionDetail(with model: SessionModel) -> SessionDetailView {
+        .init(
+            viewModel: .init(output: .init(model: model)), 
+            environment: .init()
+        )
+    }
+    
+    static func routeToUserList(with models: [User]) -> UserListView {
+        .init(
+            viewModel: .init(output: .init(models: models)), 
+            environment: .init()
+        )
+    }
+    
+    // MARK: Web
+    
+    static func routeToSns(with url: URL) {
+        UIApplication.shared.open(url)
+    }
+}
+
+// MARK: - Internal Extension
+extension EnvironmentValues {
+    
+    private struct RouterProtocolKey: EnvironmentKey {
+        static var defaultValue: RouterProtocol.Type = Router.self
+    }
+    
+    var router: RouterProtocol.Type {
+        get { self[RouterProtocolKey.self] }
+        set { self[RouterProtocolKey.self] = newValue }
+    }
+}

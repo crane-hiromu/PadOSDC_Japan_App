@@ -1,7 +1,6 @@
 import SwiftUI
 
 // MARK: - Model
-
 struct StaffUser: User {
     let id = UUID()
     let icon: String?
@@ -15,12 +14,11 @@ struct StaffUser: User {
     }
 }
 
-// MARK: - Type
-
 /*
- 画像名とCaseを一致させている都合で`SessionUser`と重複しないように500番代から始める
+ 画像名とCaseを一致させている都合で`SessionUser`と重複しないように500番代から始める 
  */
 
+// MARK: - Type
 enum StaffUserType: String, CaseIterable {
     case user501, user502, user503, user504, user505,
          user506, user507, user508, user509, user510, 

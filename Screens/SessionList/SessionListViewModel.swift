@@ -3,11 +3,17 @@ import Foundation
 import Combine
 import CombineStorable
 
+// MARK: - ViewModel
 final class SessionListViewModel: NSObject, ObservableObject, Storable {
-    
     let input: Input
     let output: Output
     @ObservedObject var binding: Binding
+    
+    static let allSessions: [SessionModel] = [
+        SessionDay0Type.allCases.flatMap { $0.models }
+        + SessionDay1Type.allCases.flatMap { $0.models }
+        + SessionDay2Type.allCases.flatMap { $0.models }
+    ].flatMap { $0 }.filter { $0.user != nil }
     
     init(
         input: Input = .init(),
@@ -22,39 +28,49 @@ final class SessionListViewModel: NSObject, ObservableObject, Storable {
     }
 }
 
+// MARK: - Property
 extension SessionListViewModel {
     
     final class Input {
         let didTapSession: PassthroughSubject<SessionModel, Never>
         let didCloseModal: PassthroughSubject<(), Never>
+        let didTapClose: PassthroughSubject<Void, Never>
         
         init(
             didTapSession: PassthroughSubject<SessionModel, Never> = .init(),
-            didCloseModal: PassthroughSubject<(), Never> = .init()
+            didCloseModal: PassthroughSubject<(), Never> = .init(),
+            didTapClose: PassthroughSubject<Void, Never> = .init()
         ) {
             self.didTapSession = didTapSession
             self.didCloseModal = didCloseModal
+            self.didTapClose = didTapClose
         }
     }
     
     final class Output: ObservableObject {
         var modalModel: SessionModel?
+        let dismissView: PassthroughSubject<Void, Never>
         
-        init(modalModel: SessionModel? = nil) {
+        init(
+            modalModel: SessionModel? = nil,
+            dismissView: PassthroughSubject<Void, Never> = .init()
+        ) {
             self.modalModel = modalModel
+            self.dismissView = dismissView
         }
     }
     
     final class Binding: ObservableObject {
         @State var searchText = CurrentValueSubject<String, Never>("")
         @Published var isShownModal = false
-        @Published var models = Constants.allSessions.sorted {
+        @Published var models = SessionListViewModel.allSessions.sorted {
             $0.track.name < $1.track.name 
         }
     }
 }
 
-extension SessionListViewModel {
+// MARK: - Private
+private extension SessionListViewModel {
     
     func bind(input: Input, output: Output, binding: Binding) {
         // 親孫でのbindを可能にする
@@ -80,13 +96,18 @@ extension SessionListViewModel {
             }
             .store(in: &cancellables)
         
+        input
+            .didTapClose
+            .sink { output.dismissView.send($0) }
+            .store(in: &cancellables)
+        
         binding.searchText
             .debounce(for: 0.2, scheduler: DispatchQueue.main)
             .map { text -> [SessionModel] in
                 guard !text.isEmpty else {
-                    return Constants.allSessions
+                    return SessionListViewModel.allSessions
                 }
-                return Constants.allSessions.filter {
+                return SessionListViewModel.allSessions.filter {
                     $0.contains(query: text.lowercased())
                 }
             }

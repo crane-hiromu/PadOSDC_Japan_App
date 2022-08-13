@@ -1,5 +1,6 @@
 import SwiftUI
 
+// MARK: - Type
 enum InfoType {
     case about, staff, speaker, blog
     
@@ -23,10 +24,10 @@ enum InfoType {
     
     var url: String? {
         switch self {
-        case .about: return "https://iosdc.jp/2022/"
+        case .about: return Constants.iosdcUrl
         case .staff: return nil
         case .speaker: return nil
-        case .blog: return "https://blog.iosdc.jp/"
+        case .blog: return Constants.blogUrl
         }
     }
 }

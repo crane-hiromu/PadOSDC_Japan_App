@@ -1,11 +1,10 @@
 import SwiftUI
 
+// MARK: - Section
 struct SessionSection: View {
-    
+    @Binding var isExpanded: Bool
     let sessionType: SessionType
     let didTapRow: (SessionModel) -> Void
-    // 各セクションで持つ必要があるのでVMでは管理しない
-    @State private var isExpanded = true
     
     var body: some View {
         DisclosureGroup(isExpanded: $isExpanded) {
@@ -21,8 +20,8 @@ struct SessionSection: View {
     }
 }
 
+// MARK: - Private View
 private struct SessionSectionLabel: View {
-    
     let time: String
     
     var body: some View {

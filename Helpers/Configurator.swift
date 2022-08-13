@@ -1,6 +1,11 @@
 import SwiftUI
 import UIKit
 
+/*
+ 今回は小規模のアプリなので、`appearance`による変更を許容としている。
+ */
+
+// MARK: - Configurator
 enum Configurator {
     
     static func configure() {
@@ -20,17 +25,18 @@ enum Configurator {
         appearance.backgroundColor = .black
         appearance.titleTextAttributes = [.foregroundColor: UIColor.white]
         
-        UINavigationBar.appearance().scrollEdgeAppearance = appearance // ラージタイトルの場合の外見
-        UINavigationBar.appearance().standardAppearance = appearance // 通常の外見
-        UINavigationBar.appearance().compactAppearance = appearance //横向きの場合
+        UINavigationBar.appearance().scrollEdgeAppearance = appearance
+        UINavigationBar.appearance().standardAppearance = appearance
+        UINavigationBar.appearance().compactAppearance = appearance
         
     }
     
     private static func configureSearchBar() {
-        let image = UIImage(systemName: "magnifyingglass")?
-            .withTintColor(.white, renderingMode: .alwaysOriginal)
-        
+        let _image = UIImage(systemName: "magnifyingglass")
+        let image = _image?.withTintColor(.white, renderingMode: .alwaysOriginal)
         UISearchBar.appearance().setImage(image, for: .search, state: .normal)
-        UITextField.appearance(whenContainedInInstancesOf: [UISearchBar.self]).backgroundColor = UIColor._secondarySystemBackground
+        
+        let color = UIColor._secondarySystemBackground
+        UITextField.appearance(whenContainedInInstancesOf: [UISearchBar.self]).backgroundColor = color
     }
 }

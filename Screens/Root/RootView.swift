@@ -1,74 +1,60 @@
 import SwiftUI
 
+// MARK: - View
 struct RootView: View {
-    
     @ObservedObject var viewModel: RootViewModel
+    let environment: RootEnvironment
     
     var body: some View {
         NavigationView {
-            TabView {
-                ForEach(ScheduleType.allCases, id: \.rawValue) {
-                    SessionView(viewModel: .init(
-                        output: .init(scheduleType: $0)
-                    ))
-                }
-            }
-            .toolbar {
-                RootToolbarContent(
-                    didTapSessionList: { viewModel.binding.isShownSessionList = true },
-                    didTapInfo: { viewModel.binding.isShownInfo = true }
-                )
-            }
-            .navigationBarTitle("iOSDC Japan 2022", displayMode: .inline)
+            TabView { tabViews }
+                .toolbar { rootToolbarContent }
+                .navigationBarTitle("iOSDC Japan 2022", displayMode: .inline)
         }
         .fullScreenCover(
             isPresented: $viewModel.binding.isShownSessionList,
             onDismiss: { viewModel.input.didCloseSessionList.send(()) },
-            content: { SessionListView(viewModel: .init()) }
+            content: { environment.router.routeToSessionList() }
         )
         .fullScreenCover(
             isPresented: $viewModel.binding.isShownInfo,
             onDismiss: { viewModel.input.didCloseInfo.send(()) },
-            content: { InfoView(viewModel: .init()) }
+            content: { environment.router.routeToInfo() }
         )
         .foregroundColor(.white) // update navigation color
         .navigationViewStyle(.stack)
     }
 }
 
-private struct RootToolbarContent: ToolbarContent {
+// MARK: - Private
+private extension RootView {
     
-    let didTapSessionList: () -> Void
-    let didTapInfo: () -> Void
-    
-    var body: some ToolbarContent {
-        ToolbarItem(placement: .navigationBarLeading) {
-            RootSessionListToolbarItem(didTapItem: didTapSessionList)
-        }
-        ToolbarItem(placement: .navigationBarTrailing) {
-            RootInfoToolbarItem(didTapItem: didTapInfo)
+    var tabViews: some View {
+        ForEach(ScheduleType.allCases, id: \.rawValue) {
+            environment.router.routeToSession(with: $0)
         }
     }
-}
-
-private struct RootSessionListToolbarItem: View {
     
-    let didTapItem: () -> Void
+    var rootToolbarContent: some ToolbarContent {
+        RootToolbarContent(
+            leading: { leadingBarItem }, 
+            trailing: { trailingBarItem }
+        )
+    }
     
-    var body: some View {
-        Button(action: didTapItem) {
+    var leadingBarItem: some View {
+        Button(action: { 
+            viewModel.binding.isShownSessionList = true 
+        }) {
             Image(systemName: "magnifyingglass")
                 .foregroundColor(.white)
         }
     }
-}
-
-private struct RootInfoToolbarItem: View {
     
-    let didTapItem: () -> Void
-    
-    var body: some View {
-        Button(action: didTapItem) {
+    var trailingBarItem: some View {
+        Button(action: { 
+            viewModel.binding.isShownInfo = true 
+        }) {
             Image(systemName: "info.circle")
                 .foregroundColor(.white)
         }

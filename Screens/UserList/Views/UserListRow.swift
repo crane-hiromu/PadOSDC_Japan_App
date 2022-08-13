@@ -1,7 +1,7 @@
 import SwiftUI
 
+// MARK: - Row
 struct UserListRow: View {
-    
     let user: User
     let didTap: () -> Void
     

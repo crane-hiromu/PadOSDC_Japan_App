@@ -1,11 +1,8 @@
 import Foundation
 
+// MARK: - Constants
 enum Constants {
     static let twitterBaseUrl = "https://twitter.com"
-    
-    static let allSessions: [SessionModel] = [
-        SessionDay0Type.allCases.flatMap { $0.models }
-        + SessionDay1Type.allCases.flatMap { $0.models }
-        + SessionDay2Type.allCases.flatMap { $0.models }
-    ].flatMap { $0 }.filter { $0.user != nil }
+    static let iosdcUrl = "https://iosdc.jp/2022/"
+    static let blogUrl = "https://blog.iosdc.jp/"
 }

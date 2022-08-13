@@ -1,7 +1,6 @@
 import Foundation
 
 // MARK: - Model
-
 struct SessionModel: Identifiable {
     let id: UUID
     let track: TrackType
@@ -30,6 +29,7 @@ struct SessionModel: Identifiable {
     }
 }
 
+// MARK: - Internal
 extension SessionModel {
     
     func contains(query: String) -> Bool {
@@ -40,6 +40,7 @@ extension SessionModel {
     }
 }
 
+// MARK: - Hashable
 extension SessionModel: Hashable {
     
     static func == (lhs: SessionModel, rhs: SessionModel) -> Bool {

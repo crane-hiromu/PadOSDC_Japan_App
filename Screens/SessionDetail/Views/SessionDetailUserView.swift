@@ -1,7 +1,7 @@
 import SwiftUI
 
+// MARK: - View
 struct SessionDetailUserView: View {
-    
     let user: User?
     let didTapSns: () -> Void
     
@@ -19,8 +19,8 @@ struct SessionDetailUserView: View {
     }
 }
 
+// MARK: - Image
 private struct SessionDetailUserImage: View {
-    
     let icon: String?
     
     var body: some View {
@@ -39,8 +39,8 @@ private struct SessionDetailUserImage: View {
     }
 }
 
+// MARK: - Label
 private struct SessionDetailUserNameLabel: View {
-    
     let name: String
     
     var body: some View {
@@ -51,8 +51,8 @@ private struct SessionDetailUserNameLabel: View {
     }
 }
 
+// MARK: - Button
 private struct SessionDetailUserSnsButton: View {
-    
     let account: String?
     let didTap: () -> Void
     

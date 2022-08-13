@@ -2,6 +2,7 @@ import Foundation
 import Combine
 import CombineStorable
 
+// MARK: - ViewModel
 final class UserListViewModel: NSObject, Storable, ObservableObject {
     
     let input: Input
@@ -18,6 +19,7 @@ final class UserListViewModel: NSObject, Storable, ObservableObject {
     }
 }
 
+// MARK: - Property
 extension UserListViewModel {
     
     final class Input {
@@ -45,7 +47,8 @@ extension UserListViewModel {
     }
 }
 
-extension UserListViewModel {
+// MARK: - Private
+private extension UserListViewModel {
     
     func bind(input: Input, output: Output) {
         input

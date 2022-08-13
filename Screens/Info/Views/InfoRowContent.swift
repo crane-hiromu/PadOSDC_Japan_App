@@ -1,7 +1,7 @@
 import SwiftUI
 
+// MARK: - Row Content
 struct InfoRowContent: View {
-    
     let type: InfoType
     
     var body: some View {

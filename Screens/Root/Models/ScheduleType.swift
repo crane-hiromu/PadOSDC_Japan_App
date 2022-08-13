@@ -1,5 +1,6 @@
 import SwiftUI
 
+// MARK: - Type
 enum ScheduleType: Int, CaseIterable {
     case day0, day1, day2
     

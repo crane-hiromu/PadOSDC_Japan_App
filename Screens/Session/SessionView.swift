@@ -1,37 +1,40 @@
 import SwiftUI
 import UIKit
 
+// MARK: - View
 struct SessionView: View {
-    
     @ObservedObject var viewModel: SessionViewModel
+    let environment: SessionEnvironment
     
     var body: some View {
-        ScrollView {
-            ForEach(viewModel.output.scheduleType.sessions, id: \.id) { type in
-                SessionSection(
-                    sessionType: type, 
-                    didTapRow: { viewModel.input.didTapSession.send($0) }
-                )
-            }
-        }
-        .tabItem { 
-            ScheduleTabItem(scheduleType: viewModel.output.scheduleType) 
-        }
-        .sheet(
-            item: $viewModel.binding.modalModel,
-            onDismiss: { viewModel.input.didCloseModal.send(()) },
-            content: { SessionSheetView(model: $0) }
-        )
-        .background(.black)
+        ScrollView { sessionList }
+            .tabItem { scheduleTabItem }
+            .sheet(
+                item: $viewModel.binding.modalModel,
+                onDismiss: { viewModel.input.didCloseModal.send(()) },
+                content: { SessionSheetWrapperView(model: $0, router: environment.router) }
+            )
+            .background(.black)
     }
 }
 
-private struct ScheduleTabItem: View {
+// MARK: - Private
+private extension SessionView {
     
-    let scheduleType: ScheduleType
+    var sessionList: some View {
+        ForEach(viewModel.output.scheduleType.sessions, id: \.id) { type in
+            SessionSection(
+                isExpanded: $viewModel.binding.expandFlags[type.index],
+                sessionType: type, 
+                didTapRow: { viewModel.input.didTapSession.send($0) }
+            )
+        }
+    }
     
-    var body: some View {
-        Image(systemName: scheduleType.icon)
-        Text(scheduleType.day)
+    var scheduleTabItem: some View {
+        VStack(spacing: 0) {
+            Image(systemName: viewModel.output.scheduleType.icon)
+            Text(viewModel.output.scheduleType.day)
+        }
     }
 }

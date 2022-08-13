@@ -1,7 +1,7 @@
 import SwiftUI
 
+// MARK: - Tag
 struct SessionTag: View {
-    
     let text: String
     let color: Color
     

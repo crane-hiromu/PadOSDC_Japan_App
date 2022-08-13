@@ -1,6 +1,6 @@
 import Foundation
-import SwiftUI
 
+// MARK: - Type
 enum TrackType: String, CaseIterable {
     case a, b, c, d, e
     

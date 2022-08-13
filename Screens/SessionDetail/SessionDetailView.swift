@@ -1,39 +1,52 @@
 import SwiftUI
 
+// MARK: - View
 struct SessionDetailView: View {
-    
-    @Environment(\.presentationMode) var presentation
     let viewModel: SessionDetailViewModel
+    let environment: SessionDetailEnvironment
     
     var body: some View {
-        ScrollView {
-            VStack(alignment: .leading, spacing: 12) {
-                SessionDetailNameLabel(
-                    text: viewModel.output.model.title
-                )
-                SessionDetailUserView(
-                    user: viewModel.output.model.user,
-                    didTapSns: { viewModel.input.didTapSns.send(()) }
-                )
-                SessionDetailDescriptionLabel(
-                    text: viewModel.output.model.description
-                )
+        ScrollView { content }
+            .toolbar { closeToolbarContent }
+            .onReceive(viewModel.output.openSns) {
+                environment.router.routeToSns(with: $0)
             }
-            .padding()
-        }
-        .toolbar {
-            CloseToolbarContent { presentation.wrappedValue.dismiss() }
-        }
-        .onReceive(viewModel.output.openSns) {
-            UIApplication.shared.open($0)
-        }
-        .frame(maxWidth: .infinity)
-        .background(.black)
+            .onReceive(viewModel.output.dismissView) {
+                environment.dismiss()
+            }
+            .frame(maxWidth: .infinity)
+            .background(.black)
     }
 }
 
-private struct SessionDetailNameLabel: View {
+// MARK: - Private
+private extension SessionDetailView {
     
+    var content: some View {
+        VStack(alignment: .leading, spacing: 12) {
+            SessionDetailNameLabel(
+                text: viewModel.output.model.title
+            )
+            SessionDetailUserView(
+                user: viewModel.output.model.user,
+                didTapSns: { viewModel.input.didTapSns.send(()) }
+            )
+            SessionDetailDescriptionLabel(
+                text: viewModel.output.model.description
+            )
+        }
+        .padding()
+    }
+    
+    var closeToolbarContent: CloseToolbarContent {
+        .init { 
+            viewModel.input.didTapClose.send(())
+        }
+    }
+}
+
+// MARK: - Label
+private struct SessionDetailNameLabel: View {
     let text: String
     
     var body: some View {
@@ -44,8 +57,8 @@ private struct SessionDetailNameLabel: View {
     }
 }
 
+// MARK: - Label
 private struct SessionDetailDescriptionLabel: View {
-    
     let text: String?
     
     var body: some View {

@@ -1,9 +1,9 @@
 import Foundation
 
 // MARK: - SessionType Protocol
-
 protocol SessionType {
     var id: UUID { get }
+    var index: Int { get }
     var time: String { get }
     var models: [SessionModel] { get }
 }
@@ -12,8 +12,7 @@ extension SessionType {
     var id: UUID { .init() }
 }
 
-// MARK: - SessionType
-
+// MARK: - SessionType 0
 enum SessionDay0Type: Int, CaseIterable, SessionType {
     case t1620_1635,
          t1640_1700, 
@@ -22,6 +21,10 @@ enum SessionDay0Type: Int, CaseIterable, SessionType {
          t1845_1905, 
          t1920_1940,
          t1950_2000
+    
+    var index: Int { 
+        rawValue
+    }
     
     var time: String {
         switch self {
@@ -153,6 +156,7 @@ enum SessionDay0Type: Int, CaseIterable, SessionType {
     }
 }
 
+// MARK: - SessionType 1
 enum SessionDay1Type: Int, CaseIterable, SessionType {
     case t1000_1040, 
          t1105_1145, 
@@ -164,6 +168,10 @@ enum SessionDay1Type: Int, CaseIterable, SessionType {
          t1555_1640, 
          t1650_1710, 
          t1720_1730
+    
+    var index: Int { 
+        rawValue
+    }
     
     var time: String { 
         switch self {
@@ -368,6 +376,7 @@ enum SessionDay1Type: Int, CaseIterable, SessionType {
     }
 }
 
+// MARK: - SessionType 2
 enum SessionDay2Type: Int, CaseIterable, SessionType {
     case t1000_1010, 
          t1015_1035, 
@@ -381,6 +390,10 @@ enum SessionDay2Type: Int, CaseIterable, SessionType {
          t1555_1640,
          t1650_1710,
          t1720_1800
+    
+    var index: Int { 
+        rawValue
+    }
     
     var time: String { 
         switch self {

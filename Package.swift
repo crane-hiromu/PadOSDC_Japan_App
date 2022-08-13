@@ -8,18 +8,18 @@ import PackageDescription
 import AppleProductTypes
 
 let package = Package(
-    name: "PadOSDC Japan",
+    name: "PadOSDC",
     platforms: [
         .iOS("15.2")
     ],
     products: [
         .iOSApplication(
-            name: "PadOSDC Japan",
+            name: "PadOSDC",
             targets: ["AppModule"],
             bundleIdentifier: "hcrane.padosdc.japan.2022",
             teamIdentifier: "R82WJ5W3TV",
-            displayVersion: "0.5.1",
-            bundleVersion: "3",
+            displayVersion: "1.0",
+            bundleVersion: "5",
             appIcon: .asset("AppIcon"),
             accentColor: .presetColor(.orange),
             supportedDeviceFamilies: [

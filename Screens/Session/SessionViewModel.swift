@@ -4,7 +4,6 @@ import Combine
 import CombineStorable
 
 final class SessionViewModel: NSObject, ObservableObject, Storable {
-    
     let input: Input
     let output: Output
     @ObservedObject var binding: Binding
@@ -12,7 +11,7 @@ final class SessionViewModel: NSObject, ObservableObject, Storable {
     init(
         input: Input = .init(),
         output: Output,
-        binding: Binding = .init()
+        binding: Binding
     ) {
         self.input = input
         self.output = output
@@ -47,6 +46,19 @@ extension SessionViewModel {
     
     final class Binding: ObservableObject {
         @Published var modalModel: SessionModel?
+        @AppStorage var expandFlags: [Bool]
+        
+        init(
+            modalModel: SessionModel? = nil,
+            scheduleType: ScheduleType,
+            userDefaults: UserDefaults = UserDefaults.standard
+        ) {
+            self.modalModel = modalModel
+
+            let key = "expandFlags_\(scheduleType.day)"
+            let value = Array(repeating: true, count: scheduleType.sessions.count)
+            self._expandFlags = AppStorage(wrappedValue: value, key, store: userDefaults)
+        }
     }
 }
 
@@ -71,3 +83,4 @@ extension SessionViewModel {
             .store(in: &cancellables)
     }
 }
+

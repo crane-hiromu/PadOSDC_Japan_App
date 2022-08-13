@@ -3,6 +3,7 @@ import Foundation
 import Combine
 import CombineStorable
 
+// MARK: - ViewModel
 final class RootViewModel: NSObject, ObservableObject, Storable {
     
     let input: Input
@@ -22,6 +23,7 @@ final class RootViewModel: NSObject, ObservableObject, Storable {
     }
 }
 
+// MARK: - Property
 extension RootViewModel {
     
     final class Input {
@@ -47,7 +49,8 @@ extension RootViewModel {
     }
 }
 
-extension RootViewModel {
+// MARK: - Private
+private extension RootViewModel {
     
     func bind(input: Input, output: Output, binding: Binding) {
         // 親孫でのbindを可能にする

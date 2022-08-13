@@ -1,6 +1,7 @@
 import Foundation
 import SwiftUI
 
+// MARK: - User Protocol
 protocol User {
     var id: UUID { get }
     var icon: String? { get }
@@ -9,7 +10,6 @@ protocol User {
 }
 
 // MARK: - Model
-
 struct SessionUser: User {
     let id = UUID()
     let icon: String?
@@ -23,6 +23,7 @@ struct SessionUser: User {
     }
 }
 
+// MARK: - Hashable
 extension SessionUser: Hashable {
     
     static func == (lhs: SessionUser, rhs: SessionUser) -> Bool {
@@ -31,7 +32,6 @@ extension SessionUser: Hashable {
 }
 
 // MARK: - Type
-
 enum SessionUserType: String, CaseIterable {
     case user1, user2, user3, user4, user5, 
          user6, user7, user8, user9, user10,

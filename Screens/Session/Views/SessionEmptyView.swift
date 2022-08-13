@@ -1,5 +1,6 @@
 import SwiftUI
 
+// MARK: - View
 struct SessionEmptyView: View {
     
     let size: CGSize

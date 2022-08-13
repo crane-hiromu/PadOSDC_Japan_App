@@ -3,8 +3,8 @@ import SwiftUI
 import Combine
 import CombineStorable
 
+// MARK: - ViewModel
 final class SessionDetailViewModel: NSObject, Storable {
-    
     let input: Input
     let output: Output
     
@@ -19,6 +19,7 @@ final class SessionDetailViewModel: NSObject, Storable {
     }
 }
 
+// MARK: - Property
 extension SessionDetailViewModel {
     
     final class Input {
@@ -37,18 +38,22 @@ extension SessionDetailViewModel {
     final class Output {
         let model: SessionModel
         let openSns: PassthroughSubject<URL, Never>
+        let dismissView: PassthroughSubject<Void, Never>
         
         init(
             model: SessionModel, 
-            openSns: PassthroughSubject<URL, Never> = .init()
+            openSns: PassthroughSubject<URL, Never> = .init(),
+            dismissView: PassthroughSubject<Void, Never> = .init()
         ) {
             self.model = model
             self.openSns = openSns
+            self.dismissView = dismissView
         }
     }
 }
 
-extension SessionDetailViewModel {
+// MARK: - Private
+private extension SessionDetailViewModel {
     
     func bind(input: Input, output: Output) {
         input
@@ -56,6 +61,11 @@ extension SessionDetailViewModel {
             .compactMap { output.model.user?.twAccount }
             .compactMap { URL(string: "\(Constants.twitterBaseUrl)/\($0)") }
             .sink { output.openSns.send($0) }
+            .store(in: &cancellables)
+        
+        input
+            .didTapClose
+            .sink { output.dismissView.send($0) }
             .store(in: &cancellables)
     }
 }
