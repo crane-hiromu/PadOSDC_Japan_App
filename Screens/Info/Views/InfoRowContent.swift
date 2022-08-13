@@ -7,6 +7,7 @@ struct InfoRowContent: View {
     var body: some View {
         HStack(spacing: 12) {
             Image(systemName: type.icon)
+                .frame(width: 24, height: 24)
             Text(type.label)
                 .font(.title2)
             Spacer()
