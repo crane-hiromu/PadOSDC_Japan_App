@@ -36,15 +36,20 @@ let package = Package(
         )
     ],
     dependencies: [
-        .package(url: "https://github.com/crane-hiromu/CombineStorable.git", "1.1.0"..<"1.2.0")
+        .package(url: "https://github.com/crane-hiromu/CombineStorable.git", "1.1.0"..<"1.2.0"),
+        .package(url: "https://github.com/Losiowaty/PlaygroundTester.git", "0.2.1"..<"1.0.0")
     ],
     targets: [
         .executableTarget(
             name: "AppModule",
             dependencies: [
-                .product(name: "CombineStorable", package: "combinestorable")
+                .product(name: "CombineStorable", package: "combinestorable"),
+                .product(name: "PlaygroundTester", package: "playgroundtester")
             ],
-            path: "."
+            path: ".",
+            swiftSettings: [
+                .define("TESTING_ENABLED", .when(configuration: .debug))
+            ]
         )
     ]
 )

@@ -54,7 +54,8 @@ private extension RootViewModel {
     
     func bind(input: Input, output: Output, binding: Binding) {
         // 親孫でのbindを可能にする
-        binding.objectWillChange
+        binding
+            .objectWillChange
             .sink { [weak self] _ in
                 self?.objectWillChange.send()
             }
