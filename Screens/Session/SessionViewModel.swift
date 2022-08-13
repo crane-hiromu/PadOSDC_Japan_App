@@ -3,6 +3,7 @@ import Foundation
 import Combine
 import CombineStorable
 
+// MARK: - ViewModel
 final class SessionViewModel: NSObject, ObservableObject, Storable {
     let input: Input
     let output: Output
@@ -21,6 +22,7 @@ final class SessionViewModel: NSObject, ObservableObject, Storable {
     }
 }
 
+// MARK: - Property
 extension SessionViewModel {
     
     final class Input {
@@ -62,7 +64,8 @@ extension SessionViewModel {
     }
 }
 
-extension SessionViewModel {
+// MARK: - Private
+private extension SessionViewModel {
     
     func bind(input: Input, output: Output, binding: Binding) {
         // 親孫でのbindを可能にする
