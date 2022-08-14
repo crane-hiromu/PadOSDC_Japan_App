@@ -5,6 +5,8 @@
 
 Install [here](https://apps.apple.com/us/app/padosdc/id1637969392).
 
+<br>
+
 # Description
 
 This is an unofficial application for conference of [iOSDC Japan 2022](https://iosdc.jp/2022/).
@@ -12,4 +14,20 @@ This is an unofficial application for conference of [iOSDC Japan 2022](https://i
 You can check and search the timetable of the conference.
 
 It's built with *SwiftUI only*, using [Swift Playgrounds](https://www.apple.com/jp/swift/playgrounds/) instead of Xcode.
+
+<br>
+
+# Architecture
+
+<img src="https://user-images.githubusercontent.com/24838521/184556411-be2fe12a-f9d1-4698-8984-cbf001d4539c.png" width=1000>
+
+The architecture is based on `MVVM`.
+
+Screen transitions are made via `Environment`.
+
+<br>
+
+# Test
+
+Testing is performed using a library called [PlaygroundTester](https://github.com/Losiowaty/PlaygroundTester).
 
