@@ -31,6 +31,7 @@ final class InfoViewModelTest: TestCase {
             
             AssertExpectations([expectation], timeout: 1)
         }
+        
         // type: .staff
         do {
             let expectation = Expectation(name: "Wait for didTapButton, type: .staff")
@@ -49,6 +50,7 @@ final class InfoViewModelTest: TestCase {
             }
             AssertExpectations([expectation], timeout: 1)
         }
+        
         // type: .speaker
         do {
             let expectation = Expectation(name: "Wait for didTapButton, type: .speaker")
@@ -67,6 +69,7 @@ final class InfoViewModelTest: TestCase {
             }
             AssertExpectations([expectation], timeout: 1)
         }
+        
         // type: .blog
         do {
             let expectation = Expectation(name: "Wait for didTapButton, type: .blog")
@@ -83,6 +86,7 @@ final class InfoViewModelTest: TestCase {
             
             AssertExpectations([expectation], timeout: 1)
         }
+        
         // type: .privacyPolicy
         do {
             let expectation = Expectation(name: "Wait for didTapButton, type: .privacyPolicy")

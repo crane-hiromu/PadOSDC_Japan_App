@@ -33,10 +33,10 @@ struct SessionModel: Identifiable {
 extension SessionModel {
     
     func contains(query: String) -> Bool {
-        title.lowercased().contains(query)
-        || (description?.lowercased() ?? "").contains(query)
-        || (user?.name.lowercased() ?? "").contains(query)
-        || (user?.twAccount?.lowercased() ?? "").contains(query)
+        title.lowercased().contains(query.lowercased())
+        || (description?.lowercased() ?? "").contains(query.lowercased())
+        || (user?.name.lowercased() ?? "").contains(query.lowercased())
+        || (user?.twAccount?.lowercased() ?? "").contains(query.lowercased())
     }
 }
 

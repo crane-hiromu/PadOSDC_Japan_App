@@ -3,18 +3,26 @@ import PlaygroundTester
 #endif
 import SwiftUI
 
+// MARK: - APP
 @main
 struct MainApp: App {
     
-    @Environment(\.router) var router
+    // MARK: Property
+    
+    @Environment(\.router) private var router
+    
+    // MARK: Initializer
     
     init() {
         Configurator.configure()
     }
     
+    // MARK: View
+    
     var body: some Scene {
         WindowGroup {
-            router.routeToRoot()
+            PlaygroundTester.PlaygroundTesterView()
+//            router.routeToRoot()
         }
     }
 }

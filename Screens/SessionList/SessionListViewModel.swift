@@ -108,7 +108,7 @@ private extension SessionListViewModel {
                     return SessionListViewModel.allSessions
                 }
                 return SessionListViewModel.allSessions.filter {
-                    $0.contains(query: text.lowercased())
+                    $0.contains(query: text)
                 }
             }
             .assign(to: \.models, on: binding)
