@@ -1,5 +1,7 @@
-import SwiftUI
+#if TESTING_ENABLED
 import PlaygroundTester
+#endif
+import SwiftUI
 
 @main
 struct MainApp: App {
@@ -12,8 +14,7 @@ struct MainApp: App {
     
     var body: some Scene {
         WindowGroup {
-            PlaygroundTester.PlaygroundTesterView()
-//            router.routeToRoot()
+            router.routeToRoot()
         }
     }
 }

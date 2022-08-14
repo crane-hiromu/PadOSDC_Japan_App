@@ -7,17 +7,11 @@ struct SessionListView: View {
     
     var body: some View {
         NavigationView {
-            GeometryReader { proxy in
-                SessionListWrapper(
-                    models: viewModel.binding.models, 
-                    size: proxy.size,
-                    didTapRow: { viewModel.input.didTapSession.send($0) }
-                )
-            }
-            .toolbar { closeToolbarContent }
-            .frame(maxWidth: .infinity)
-            .background(.black)
-            .navigationBarTitle("Search", displayMode: .inline)
+            sessionListWrapper
+                .toolbar { closeToolbarContent }
+                .frame(maxWidth: .infinity)
+                .background(.black)
+                .navigationBarTitle("Search", displayMode: .inline)
         }
         .searchable(
             text: $viewModel.binding.searchText.value, 
@@ -33,47 +27,41 @@ struct SessionListView: View {
             environment.dismiss()
         }
     }
-    
-    private var sessionSheetView: SessionSheetWrapperView {
-        .init(model: viewModel.output.modalModel, router: environment.router)
-    }
 }
 
 // MARK: - Private
 private extension SessionListView {
     
-    var closeToolbarContent: CloseToolbarContent {
-        .init { 
-            viewModel.input.didTapClose.send(())
-        }
-    }
-}
-
-// MARK: - Private View
-private struct SessionListWrapper: View {
-    
-    let models: [SessionModel]
-    let size: CGSize
-    let didTapRow: (SessionModel) -> Void
-    
-    var body: some View {
-        ScrollView {
-            if models.isEmpty {
-                EmptyView(type: .session, size: size)
+    var sessionListWrapper: some View {
+        GeometryReader { proxy in
+            if viewModel.binding.models.isEmpty {
+                EmptyView(type: .session, size: proxy.size)
             } else {
                 sessionList
             }
         }
     }
     
-    private var sessionList: some View {
-        LazyVStack(spacing: 8) {
-            ForEach(models, id: \.self) { model in
-                SessionRow(model: model) {
-                    didTapRow(model)
+    var sessionList: some View {
+        ScrollView {
+            LazyVStack(spacing: 8) {
+                ForEach(viewModel.binding.models, id: \.self) { model in
+                    SessionRow(model: model) {
+                        viewModel.input.didTapSession.send(model)
+                    }
                 }
             }
+            .padding(.all, 16)
         }
-        .padding(.all, 16)
+    }
+    
+    var closeToolbarContent: CloseToolbarContent {
+        .init { 
+            viewModel.input.didTapClose.send(())
+        }
+    }
+    
+    var sessionSheetView: SessionSheetWrapperView {
+        .init(model: viewModel.output.modalModel, router: environment.router)
     }
 }

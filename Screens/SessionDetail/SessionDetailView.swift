@@ -6,7 +6,7 @@ struct SessionDetailView: View {
     let environment: SessionDetailEnvironment
     
     var body: some View {
-        ScrollView { content }
+        ScrollView { sessionDetailList }
             .toolbar { closeToolbarContent }
             .onReceive(viewModel.output.openSns) {
                 environment.router.routeToSns(with: $0)
@@ -22,7 +22,7 @@ struct SessionDetailView: View {
 // MARK: - Private
 private extension SessionDetailView {
     
-    var content: some View {
+    var sessionDetailList: some View {
         VStack(alignment: .leading, spacing: 12) {
             SessionDetailNameLabel(
                 text: viewModel.output.model.title
