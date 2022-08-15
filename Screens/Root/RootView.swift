@@ -18,6 +18,7 @@ struct RootView: View {
             content: { environment.router.routeToInfo() }
         )
         .navigationViewStyle(.stack)
+        .preferredColorScheme(viewModel.binding.appearanceMode.colorScheme)
     }
 }
 
