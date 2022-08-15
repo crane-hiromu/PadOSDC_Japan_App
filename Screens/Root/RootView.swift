@@ -1,4 +1,5 @@
 import SwiftUI
+import SwiftUIWorkaround
 
 // MARK: - View
 struct RootView: View {
@@ -18,7 +19,7 @@ struct RootView: View {
             content: { environment.router.routeToInfo() }
         )
         .navigationViewStyle(.stack)
-        .preferredColorScheme(viewModel.binding.appearanceMode.colorScheme)
+        .workaround.preferredAppearanceMode(viewModel.binding.$appearanceMode)
     }
 }
 

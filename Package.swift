@@ -18,6 +18,7 @@ let package = Package(
             targets: ["AppModule"],
             bundleIdentifier: "hcrane.padosdc.japan.2022",
             teamIdentifier: "R82WJ5W3TV",
+            teamIdentifier: "FBQ6Z8AF3U",
             displayVersion: "1.1",
             bundleVersion: "5",
             appIcon: .asset("AppIcon"),
@@ -37,14 +38,16 @@ let package = Package(
     ],
     dependencies: [
         .package(url: "https://github.com/crane-hiromu/CombineStorable.git", "1.1.0"..<"1.2.0"),
-        .package(url: "https://github.com/Losiowaty/PlaygroundTester.git", "0.2.1"..<"1.0.0")
+        .package(url: "https://github.com/Losiowaty/PlaygroundTester.git", "0.2.1"..<"1.0.0"),
+        .package(url: "https://github.com/noppefoxwolf/SwiftUIWorkaround", "0.0.2"..<"1.0.0")
     ],
     targets: [
         .executableTarget(
             name: "AppModule",
             dependencies: [
                 .product(name: "CombineStorable", package: "combinestorable"),
-                .product(name: "PlaygroundTester", package: "playgroundtester")
+                .product(name: "PlaygroundTester", package: "playgroundtester"),
+                .product(name: "SwiftUIWorkaround", package: "swiftuiworkaround")
             ],
             path: ".",
             swiftSettings: [

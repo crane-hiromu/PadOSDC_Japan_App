@@ -20,3 +20,16 @@ extension AppearanceMode {
         }
     }
 }
+
+extension Optional where Wrapped == ColorScheme {
+    var appearanceMode: AppearanceMode {
+        switch self {
+        case .light:
+            return .light
+        case .dark:
+            return .dark
+        default:
+            return .auto
+        }
+    }
+}

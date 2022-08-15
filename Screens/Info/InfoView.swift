@@ -1,4 +1,5 @@
 import SwiftUI
+import SwiftUIWorkaround
 
 // MARK: - View
 struct InfoView: View {
@@ -19,7 +20,7 @@ struct InfoView: View {
             environment.dismiss()
         }
         .accentColor(.gray)
-        .preferredColorScheme(viewModel.binding.appearanceMode.colorScheme)
+        .workaround.preferredAppearanceMode(viewModel.binding.$appearanceMode)
     }
 }
 
