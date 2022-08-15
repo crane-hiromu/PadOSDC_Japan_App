@@ -14,7 +14,6 @@ struct EmptyView: View {
             Text(type.message)
             Spacer()
         }
-        .foregroundColor(.white)
         .frame(width: size.width, height: size.height)
     }
 }
