@@ -6,4 +6,5 @@ enum Constants {
     static let iosdcUrl = "https://iosdc.jp/2022/"
     static let blogUrl = "https://blog.iosdc.jp/"
     static let privacyPolicyUrl = "https://crane-hiromu.github.io/PadOSDC-iOS-App-Privacy-Policy.io/"
+    static let github = "https://github.com/crane-hiromu/PadOSDC_Japan_App"
 }
