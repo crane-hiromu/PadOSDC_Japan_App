@@ -14,7 +14,6 @@ struct SessionView: View {
                 onDismiss: { viewModel.input.didCloseModal.send(()) },
                 content: { SessionSheetWrapperView(model: $0, router: environment.router) }
             )
-            .background(.black)
     }
 }
 

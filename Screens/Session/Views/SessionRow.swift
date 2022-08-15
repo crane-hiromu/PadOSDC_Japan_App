@@ -85,6 +85,6 @@ private struct SessionRowTitleLabel: View {
         Text(title)
             .font(.body)
             .lineLimit(1)
-            .foregroundColor(.white)
+            .foregroundColor(.primary)
     }
 }

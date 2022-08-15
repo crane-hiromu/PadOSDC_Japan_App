@@ -8,7 +8,6 @@ struct UserListView: View {
     var body: some View {
         ScrollView { userList }
             .frame(maxWidth: .infinity)
-            .background(.black)
             .navigationBarTitle(viewModel.output.title, displayMode: .inline)
             .onReceive(viewModel.output.openSns) {
                 environment.router.routeToSns(with: $0)

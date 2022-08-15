@@ -21,7 +21,6 @@ struct RootView: View {
             onDismiss: { viewModel.input.didCloseInfo.send(()) },
             content: { environment.router.routeToInfo() }
         )
-        .foregroundColor(.white) // update navigation color
         .navigationViewStyle(.stack)
     }
 }
@@ -47,7 +46,6 @@ private extension RootView {
             viewModel.binding.isShownSessionList = true 
         }) {
             Image(systemName: "magnifyingglass")
-                .foregroundColor(.white)
         }
     }
     
@@ -56,7 +54,6 @@ private extension RootView {
             viewModel.binding.isShownInfo = true 
         }) {
             Image(systemName: "info.circle")
-                .foregroundColor(.white)
         }
     }
 }

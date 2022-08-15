@@ -10,7 +10,6 @@ struct InfoView: View {
             ScrollView { infoListView }
                 .toolbar { closeToolbarContent }
                 .frame(maxWidth: .infinity)
-                .background(.black)
                 .navigationBarTitle("Infomation", displayMode: .inline)
         }
         .onReceive(viewModel.output.openSns) {

@@ -15,7 +15,6 @@ struct SessionDetailView: View {
                 environment.dismiss()
             }
             .frame(maxWidth: .infinity)
-            .background(.black)
     }
 }
 
@@ -52,7 +51,6 @@ private struct SessionDetailNameLabel: View {
     var body: some View {
         Text(text)
             .font(.title3)
-            .foregroundColor(.white)
             .frame(maxWidth: .infinity)
     }
 }
@@ -65,7 +63,6 @@ private struct SessionDetailDescriptionLabel: View {
         if let text = text {
             Text(text)
                 .font(.body)
-                .foregroundColor(.white)
                 .padding(.all, 16)
                 .background(Color.secondarySystemBackground)
                 .cornerRadius(12)
