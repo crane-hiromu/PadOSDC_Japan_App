@@ -9,6 +9,7 @@ protocol RouterProtocol {
     static func routeToInfo() -> InfoView
     static func routeToSessionDetail(with model: SessionModel) -> SessionDetailView
     static func routeToUserList(with models: [User]) -> UserListView
+    static func routeToAppearanceSettings() -> AppearanceSettingsView
     // Web
     static func routeToSns(with url: URL)
 }
@@ -59,6 +60,13 @@ enum Router: RouterProtocol {
     static func routeToUserList(with models: [User]) -> UserListView {
         .init(
             viewModel: .init(output: .init(models: models)), 
+            environment: .init()
+        )
+    }
+    
+    static func routeToAppearanceSettings() -> AppearanceSettingsView {
+        .init(
+            viewModel: .init(output: .init(), binding: .init()),
             environment: .init()
         )
     }

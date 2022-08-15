@@ -34,7 +34,6 @@ private struct SessionDetailUserImage: View {
                 .resizable()
                 .frame(width: 20, height: 20)
                 .cornerRadius(12)
-                .foregroundColor(.white)
         }
     }
 }
@@ -46,7 +45,6 @@ private struct SessionDetailUserNameLabel: View {
     var body: some View {
         Text(name)
             .font(.headline)
-            .foregroundColor(.white)
             .padding(.trailing, 4)
     }
 }

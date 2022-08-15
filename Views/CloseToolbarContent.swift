@@ -8,7 +8,6 @@ struct CloseToolbarContent: ToolbarContent {
         ToolbarItem(placement: .navigationBarLeading) {
             Button(action: didTapClose) {
                 Image(systemName: "xmark")
-                    .foregroundColor(.white)
             }
         }
     }

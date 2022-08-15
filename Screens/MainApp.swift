@@ -11,12 +11,6 @@ struct MainApp: App {
     
     @Environment(\.router) private var router
     
-    // MARK: Initializer
-    
-    init() {
-        Configurator.configure()
-    }
-    
     // MARK: View
     
     var body: some Scene {

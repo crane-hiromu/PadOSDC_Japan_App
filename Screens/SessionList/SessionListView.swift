@@ -10,7 +10,6 @@ struct SessionListView: View {
             sessionListWrapper
                 .toolbar { closeToolbarContent }
                 .frame(maxWidth: .infinity)
-                .background(.black)
                 .navigationBarTitle("Search", displayMode: .inline)
         }
         .searchable(

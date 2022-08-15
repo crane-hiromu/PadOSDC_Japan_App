@@ -1,8 +1,9 @@
 import SwiftUI
+import SwiftUIWorkaround
 
 // MARK: - View
 struct InfoView: View {
-    let viewModel: InfoViewModel
+    @ObservedObject var viewModel: InfoViewModel
     let environment: InfoEnvironment
     
     var body: some View {
@@ -10,7 +11,6 @@ struct InfoView: View {
             ScrollView { infoListView }
                 .toolbar { closeToolbarContent }
                 .frame(maxWidth: .infinity)
-                .background(.black)
                 .navigationBarTitle("Infomation", displayMode: .inline)
         }
         .onReceive(viewModel.output.openSns) {
@@ -20,6 +20,7 @@ struct InfoView: View {
             environment.dismiss()
         }
         .accentColor(.gray)
+        .workaround.preferredAppearanceMode(viewModel.binding.$appearanceMode)
     }
 }
 
@@ -28,6 +29,10 @@ private extension InfoView {
     
     var infoListView: some View {
         LazyVStack(spacing: 8) {
+            InfoNavigationRow(
+                type: .appearance,
+                destination: appearanceView
+            )
             InfoButtonRow(
                 type: .about,
                 action: { viewModel.input.didTapButton.send(.about) }
@@ -67,6 +72,10 @@ private extension InfoView {
         environment.router.routeToUserList(
             with: SessionUserType.allCases.map(\.user).sorted { $0.name < $1.name }
         )
+    }
+    
+    var appearanceView: some View {
+        environment.router.routeToAppearanceSettings()
     }
     
     var closeToolbarContent: CloseToolbarContent {

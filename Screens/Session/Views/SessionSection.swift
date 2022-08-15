@@ -27,6 +27,6 @@ private struct SessionSectionLabel: View {
     var body: some View {
         Text(time)
             .font(.title2)
-            .foregroundColor(.white)
+            .foregroundColor(.primary)
     }
 }
