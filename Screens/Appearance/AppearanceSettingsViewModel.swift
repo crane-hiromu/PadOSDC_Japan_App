@@ -11,8 +11,8 @@ final class AppearanceSettingsViewModel: NSObject, Storable, ObservableObject {
     
     init(
         input: Input = .init(),
-        output: Output,
-        binding: Binding
+        output: Output = .init(),
+        binding: Binding = .init()
     ) {
         self.input = input
         self.output = output
@@ -34,8 +34,18 @@ extension AppearanceSettingsViewModel {
     }
     
     final class Binding: ObservableObject {
-        @AppStorage(.appearanceMode)
-        var appearanceMode: AppearanceMode = .default
+        @AppStorage var appearanceMode: AppearanceMode
+        
+        init(
+            appearanceMode: AppearanceMode = .default,
+            userDefaults: UserDefaults = UserDefaults.standard
+        ) {
+            self._appearanceMode = AppStorage(
+                wrappedValue: appearanceMode,
+                .appearanceMode,
+                store: userDefaults
+            )
+        }
     }
 }
 
