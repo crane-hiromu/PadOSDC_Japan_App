@@ -66,7 +66,7 @@ enum Router: RouterProtocol {
     
     static func routeToAppearanceSettings() -> AppearanceSettingsView {
         .init(
-            viewModel: .init(output: .init(), binding: .init()),
+            viewModel: .init(),
             environment: .init()
         )
     }

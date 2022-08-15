@@ -1,5 +1,6 @@
 import SwiftUI
 
+// MARK: - Type
 enum AppearanceMode: Int {
     case light
     case dark
@@ -21,6 +22,7 @@ extension AppearanceMode {
     }
 }
 
+// MARK: - Optional Extension
 extension Optional where Wrapped == ColorScheme {
     var appearanceMode: AppearanceMode {
         switch self {
