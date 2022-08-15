@@ -8,7 +8,6 @@ struct SessionView: View {
     
     var body: some View {
         ScrollView { sessionList }
-            .tabItem { scheduleTabItem }
             .sheet(
                 item: $viewModel.binding.modalModel,
                 onDismiss: { viewModel.input.didCloseModal.send(()) },
@@ -27,13 +26,6 @@ private extension SessionView {
                 sessionType: type, 
                 didTapRow: { viewModel.input.didTapSession.send($0) }
             )
-        }
-    }
-    
-    var scheduleTabItem: some View {
-        VStack(spacing: 0) {
-            Image(systemName: viewModel.output.scheduleType.icon)
-            Text(viewModel.output.scheduleType.day)
         }
     }
 }

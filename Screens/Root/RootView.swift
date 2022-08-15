@@ -6,11 +6,7 @@ struct RootView: View {
     let environment: RootEnvironment
     
     var body: some View {
-        NavigationView {
-            TabView { tabViews }
-                .toolbar { rootToolbarContent }
-                .navigationBarTitle("iOSDC Japan 2022", displayMode: .inline)
-        }
+        TabView { tabViews }
         .fullScreenCover(
             isPresented: $viewModel.binding.isShownSessionList,
             onDismiss: { viewModel.input.didCloseSessionList.send(()) },
@@ -29,8 +25,19 @@ struct RootView: View {
 private extension RootView {
     
     var tabViews: some View {
-        ForEach(ScheduleType.allCases, id: \.rawValue) {
-            environment.router.routeToSession(with: $0)
+        ForEach(ScheduleType.allCases, id: \.rawValue) { scheduleType in
+            NavigationView {
+                environment.router.routeToSession(with: scheduleType)
+                    .toolbar { rootToolbarContent }
+                    .navigationBarTitle("iOSDC Japan 2022", displayMode: .inline)
+            }.tabItem { scheduleTabItem(scheduleType) }
+        }
+    }
+    
+    func scheduleTabItem(_ scheduleType: ScheduleType) -> some View {
+        VStack(spacing: 0) {
+            Image(systemName: scheduleType.icon)
+            Text(scheduleType.day)
         }
     }
     
