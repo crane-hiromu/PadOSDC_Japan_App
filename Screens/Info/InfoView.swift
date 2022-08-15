@@ -45,6 +45,10 @@ private extension InfoView {
                 action: { viewModel.input.didTapButton.send(.blog) }
             )
             InfoButtonRow(
+                type: .code,
+                action: { viewModel.input.didTapButton.send(.code) }
+            )
+            InfoButtonRow(
                 type: .privacyPolicy,
                 action: { viewModel.input.didTapButton.send(.privacyPolicy) }
             )
