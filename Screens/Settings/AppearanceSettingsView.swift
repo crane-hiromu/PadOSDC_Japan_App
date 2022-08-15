@@ -13,7 +13,7 @@ struct AppearanceSettingsView: View {
                 Text("自動").tag(AppearanceMode.auto)
             } label: {
                 Text("外観モード")
-            }
+            }.pickerStyle(.inline)
         }
         .navigationBarTitle("外観モード", displayMode: .inline)
     }
