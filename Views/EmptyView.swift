@@ -12,9 +12,9 @@ struct EmptyView: View {
                 .resizable()
                 .frame(width: 60, height: 60)
             Text(type.message)
-                .foregroundColor(.white)
             Spacer()
         }
+        .foregroundColor(.white)
         .frame(width: size.width, height: size.height)
     }
 }
