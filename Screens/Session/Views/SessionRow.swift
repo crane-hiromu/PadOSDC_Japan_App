@@ -84,7 +84,7 @@ private struct SessionRowTitleLabel: View {
     var body: some View {
         Text(title)
             .font(.body)
-            .lineLimit(1)
             .foregroundColor(.primary)
+            .multilineTextAlignment(.leading)
     }
 }
