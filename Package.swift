@@ -18,7 +18,7 @@ let package = Package(
             targets: ["AppModule"],
             bundleIdentifier: "hcrane.padosdc.japan.2022",
             teamIdentifier: "R82WJ5W3TV",
-            teamIdentifier: "FBQ6Z8AF3U",
+            teamIdentifier: "R82WJ5W3TV",
             displayVersion: "1.1",
             bundleVersion: "5",
             appIcon: .asset("AppIcon"),
