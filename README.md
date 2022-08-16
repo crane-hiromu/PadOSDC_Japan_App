@@ -35,6 +35,8 @@ Install [Swift Playgrounds](https://www.apple.com/jp/swift/playgrounds/) and ope
 git clone https://github.com/crane-hiromu/PadOSDC_Japan_App PadOSDC.swiftpm
 ```
 
+<br>
+
 # Test
 
 Testing is performed using a library called [PlaygroundTester](https://github.com/Losiowaty/PlaygroundTester).
