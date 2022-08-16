@@ -8,18 +8,18 @@ struct RootView: View {
     
     var body: some View {
         TabView { tabViews }
-        .fullScreenCover(
-            isPresented: $viewModel.binding.isShownSessionList,
-            onDismiss: { viewModel.input.didCloseSessionList.send(()) },
-            content: { environment.router.routeToSessionList() }
-        )
-        .fullScreenCover(
-            isPresented: $viewModel.binding.isShownInfo,
-            onDismiss: { viewModel.input.didCloseInfo.send(()) },
-            content: { environment.router.routeToInfo() }
-        )
-        .navigationViewStyle(.stack)
-        .workaround.preferredAppearanceMode(viewModel.binding.$appearanceMode)
+            .fullScreenCover(
+                isPresented: $viewModel.binding.isShownSessionList,
+                onDismiss: { viewModel.input.didCloseSessionList.send(()) },
+                content: { environment.router.routeToSessionList() }
+            )
+            .fullScreenCover(
+                isPresented: $viewModel.binding.isShownInfo,
+                onDismiss: { viewModel.input.didCloseInfo.send(()) },
+                content: { environment.router.routeToInfo() }
+            )
+            .navigationViewStyle(.stack)
+            .workaround.preferredAppearanceMode(viewModel.binding.$appearanceMode)
     }
 }
 
@@ -32,7 +32,8 @@ private extension RootView {
                 environment.router.routeToSession(with: scheduleType)
                     .toolbar { rootToolbarContent }
                     .navigationBarTitle("iOSDC Japan 2022", displayMode: .inline)
-            }.tabItem { scheduleTabItem(scheduleType) }
+            }
+            .tabItem { scheduleTabItem(scheduleType) }
         }
     }
     
