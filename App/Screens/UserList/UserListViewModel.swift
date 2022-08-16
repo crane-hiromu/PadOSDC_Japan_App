@@ -1,6 +1,7 @@
 import Foundation
 import Combine
 import CombineStorable
+import SwiftUI
 
 // MARK: - ViewModel
 final class UserListViewModel: NSObject, Storable, ObservableObject {
@@ -33,8 +34,8 @@ extension UserListViewModel {
     final class Output {
         let models: [User]
         let openSns: PassthroughSubject<URL, Never>
-        var title: String {
-            models.first is StaffUser ? "Staff" : "Speaker"
+        var localizedKey: LocalizedStringKey {
+            models.first is StaffUser ? "UserList_Nav_Title_Staff" : "UserList_Nav_Title_Speaker"
         }
         
         init(

@@ -1,0 +1,8 @@
+// MARK: - Screens
+
+// MARK: UserList
+"UserList_Nav_Title_Staff" = "Staff";
+"UserList_Nav_Title_Speaker" = "Speaker";
+
+// MARK: - Views
+"EmptyView_Label_Text" = "No matching session found.";

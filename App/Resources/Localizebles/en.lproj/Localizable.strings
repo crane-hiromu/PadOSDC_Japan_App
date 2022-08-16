@@ -1,0 +1,8 @@
+// MARK: - Screens
+
+// MARK: UserList
+"UserList_Nav_Title_Staff" = "スタッフ";
+"UserList_Nav_Title_Speaker" = "スピーカー";
+
+// MARK: - Views
+"EmptyView_Label_Text" = "該当するセッションが見つかりませんでした。";

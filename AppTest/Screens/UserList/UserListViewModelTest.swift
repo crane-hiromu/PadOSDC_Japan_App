@@ -35,14 +35,24 @@ final class UserListViewModelTest: TestCase {
         do {
             let user = StaffUser(name: "")
             let viewModel = UserListViewModel(output: .init(models: [user]))
-            AssertEqual(viewModel.output.title, other: "Staff")
+            
+            if Locale.current.languageCode == "ja" {
+                AssertEqual(viewModel.output.localizedKey, other: "スタッフ")
+            } else {
+                AssertEqual(viewModel.output.localizedKey, other: "Staff")
+            }
         }
         
         // user is SessionUser
         do {
             let user = SessionUser(name: "")
             let viewModel = UserListViewModel(output: .init(models: [user]))
-            AssertEqual(viewModel.output.title, other: "Speaker")
+            
+            if Locale.current.languageCode == "ja" {
+                AssertEqual(viewModel.output.localizedKey, other: "スピーカー")
+            } else {
+                AssertEqual(viewModel.output.localizedKey, other: "Speaker")
+            }
         }
     }
 }
