@@ -1,11 +1,6 @@
 #if TESTING_ENABLED
 
-/*
- Combineのテストが対応していないので、Expectationで代用する。
- */
-
 import PlaygroundTester
-import Combine
 import Foundation
 
 // MARK: - Test
