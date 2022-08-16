@@ -27,6 +27,14 @@ Screen transitions are made via `Environment`.
 
 <br>
 
+# Contributing
+
+Install [Swift Playgrounds](https://www.apple.com/jp/swift/playgrounds/) and open `PadOSDC.swiftpm` that cloned following step.
+
+```bash
+git clone https://github.com/crane-hiromu/PadOSDC_Japan_App PadOSDC.swiftpm
+```
+
 # Test
 
 Testing is performed using a library called [PlaygroundTester](https://github.com/Losiowaty/PlaygroundTester).
