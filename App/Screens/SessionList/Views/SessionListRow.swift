@@ -40,7 +40,8 @@ private struct SessionListRowTitleLabel: View {
     
     var attributedText: AttributedString {
         var attributedText = AttributedString(title)
-        if let range = attributedText.range(of: highlightText) {
+        var lowercasedAttributedText = AttributedString(title.lowercased())
+        if let range = lowercasedAttributedText.range(of: highlightText.lowercased()) {
             attributedText[range].foregroundColor = .blue
         }
         return attributedText
@@ -66,7 +67,8 @@ private struct SessionListRowBodyLabel: View {
         var attributedLines: [AttributedString] = []
         bodyText.enumerateLines { line, stop in
             var attributedLine = AttributedString(line)
-            let ranges = attributedLine.ranges(of: highlightText)
+            var lowercasedAttributedLine = AttributedString(line.lowercased())
+            let ranges = lowercasedAttributedLine.ranges(of: highlightText.lowercased())
             for range in ranges {
                 attributedLine[range].foregroundColor = highlightTextColor
             }
@@ -98,7 +100,6 @@ private struct SessionListRowBodyLabel: View {
             Text(attributedText)
                 .font(.body)
                 .foregroundColor(.primary)
-                .lineLimit(3)
                 .multilineTextAlignment(.leading)
         }
     }
