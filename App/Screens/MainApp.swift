@@ -15,8 +15,7 @@ struct MainApp: App {
     
     var body: some Scene {
         WindowGroup {
-            PlaygroundTester.PlaygroundTesterView()
-//            router.routeToRoot()
+            router.routeToRoot()
         }
     }
 }
