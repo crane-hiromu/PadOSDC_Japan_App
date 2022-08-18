@@ -36,10 +36,10 @@ final class UserListViewModelTest: TestCase {
             let user = StaffUser(name: "")
             let viewModel = UserListViewModel(output: .init(models: [user]))
             
-            if Locale.current.languageCode == "ja" {
-                AssertEqual(viewModel.output.localizedKey, other: "スタッフ")
-            } else {
-                AssertEqual(viewModel.output.localizedKey, other: "Staff")
+            switch Constants.LanguageType.current {
+            case .en: AssertEqual(viewModel.output.title, other: "Staff")
+            case .ja: AssertEqual(viewModel.output.title, other: "スタッフ")
+            case .none: assertionFailure("non supported")
             }
         }
         
@@ -48,10 +48,10 @@ final class UserListViewModelTest: TestCase {
             let user = SessionUser(name: "")
             let viewModel = UserListViewModel(output: .init(models: [user]))
             
-            if Locale.current.languageCode == "ja" {
-                AssertEqual(viewModel.output.localizedKey, other: "スピーカー")
-            } else {
-                AssertEqual(viewModel.output.localizedKey, other: "Speaker")
+            switch Constants.LanguageType.current {
+            case .en: AssertEqual(viewModel.output.title, other: "Speaker")
+            case .ja: AssertEqual(viewModel.output.title, other: "スピーカー")
+            case .none: assertionFailure("non supported")
             }
         }
     }
