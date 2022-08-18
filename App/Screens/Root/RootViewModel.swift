@@ -44,10 +44,24 @@ extension RootViewModel {
     }
     
     final class Binding: ObservableObject {
-        @Published var isShownSessionList: Bool = false
-        @Published var isShownInfo: Bool = false
-        @AppStorage(.appearanceMode)
-        var appearanceMode: AppearanceMode = .default
+        @Published var isShownSessionList: Bool
+        @Published var isShownInfo: Bool
+        @AppStorage var appearanceMode: AppearanceMode
+        
+        init(
+            isShownSessionList: Bool = false,
+            isShownInfo: Bool = false,
+            appearanceMode: AppearanceMode = .default,
+            userDefaults: UserDefaults = UserDefaults.standard
+        ) {
+            self.isShownSessionList = isShownSessionList
+            self.isShownInfo = isShownInfo
+            self._appearanceMode = AppStorage(
+                wrappedValue: appearanceMode,
+                .appearanceMode,
+                store: userDefaults
+            )
+        }
     }
 }
 

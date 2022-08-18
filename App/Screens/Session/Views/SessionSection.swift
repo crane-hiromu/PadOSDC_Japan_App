@@ -14,7 +14,7 @@ struct SessionSection: View {
                 }
             }
         } label: { 
-            SessionSectionLabel(time: sessionType.time) 
+            SessionSectionLabel(time: sessionType.time)
         }
         .padding(.init(top: 8, leading: 16, bottom: 4, trailing: 16))
     }
@@ -28,5 +28,6 @@ private struct SessionSectionLabel: View {
         Text(time)
             .font(.title2)
             .foregroundColor(.primary)
+            .padding([.leading, .trailing], 8)
     }
 }

@@ -2,23 +2,30 @@ import SwiftUI
 
 // MARK: - Type
 enum InfoType {
-    case appearance, about, staff, speaker, blog, code, privacyPolicy
+    case appearance, language
+    case about, staff, speaker, blog, code, privacyPolicy
+    
+    private var key: String {
+        switch self {
+        case .appearance: return "Info_Type_Appearance"
+        case .language: return "Info_Type_Language"
+        case .about: return "Info_Type_About"
+        case .staff: return "Info_Type_Staff"
+        case .speaker: return "Info_Type_Speaker"
+        case .blog: return "Info_Type_Blog"
+        case .code: return "Info_Type_Source"
+        case .privacyPolicy: return "Info_Type_Privacy"
+        }
+    }
     
     var label: String {
-        switch self {
-        case .appearance: return "Appearance"
-        case .about: return "About"
-        case .staff: return "Staff"
-        case .speaker: return "Speaker"
-        case .blog: return "Blog"
-        case .code: return "Source code"
-        case .privacyPolicy: return "Privacy Policy"
-        }
+        NSLocalizedString(key, comment: "")
     }
     
     var icon: String {
         switch self {
         case .appearance: return "moon.circle"
+        case .language: return "character.book.closed.hi"
         case .about: return "smiley"
         case .staff: return "person.crop.rectangle.stack"
         case .speaker: return "swift"
@@ -31,6 +38,7 @@ enum InfoType {
     var url: String? {
         switch self {
         case .appearance: return nil
+        case .language: return UIApplication.openSettingsURLString
         case .about: return Constants.iosdcUrl
         case .staff: return nil
         case .speaker: return nil

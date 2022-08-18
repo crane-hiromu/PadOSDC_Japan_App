@@ -12,10 +12,16 @@ import Foundation
 @objcMembers
 final class RootViewModelTest: TestCase {
     
+    // MARK: Property
+    
+    private let userDefaults: UserDefaults = .init(suiteName: "test_root") ?? .standard
+    
+    // MARK: Test
+    
     func testDidCloseSessionList() {
         var cancellables: Set<AnyCancellable> = []
         let expectation = Expectation(name: "Wait for didCloseSessionList")
-        let viewModel = RootViewModel()
+        let viewModel = RootViewModel(binding: .init(userDefaults: userDefaults))
         
         viewModel.binding.isShownSessionList = true
         Assert(viewModel.binding.isShownSessionList)
@@ -36,7 +42,7 @@ final class RootViewModelTest: TestCase {
     func testDidCloseInfo() {
         var cancellables: Set<AnyCancellable> = []
         let expectation = Expectation(name: "Wait for didCloseSessionList")
-        let viewModel = RootViewModel()
+        let viewModel = RootViewModel(binding: .init(userDefaults: userDefaults))
         
         viewModel.binding.isShownInfo = true
         Assert(viewModel.binding.isShownInfo)

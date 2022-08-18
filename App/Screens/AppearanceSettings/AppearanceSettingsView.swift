@@ -8,13 +8,13 @@ struct AppearanceSettingsView: View {
     var body: some View {
         List {
             Picker(selection: $viewModel.binding.appearanceMode) {
-                Text("ライト").tag(AppearanceMode.light)
-                Text("ダーク").tag(AppearanceMode.dark)
-                Text("自動").tag(AppearanceMode.auto)
+                Text("AppearanceSettings_Picker_Light").tag(AppearanceMode.light)
+                Text("AppearanceSettings_Picker_Dark").tag(AppearanceMode.dark)
+                Text("AppearanceSettings_Picker_Automatic").tag(AppearanceMode.auto)
             } label: {
-                Text("外観モード")
+                // NOP
             }.pickerStyle(.inline)
         }
-        .navigationBarTitle("外観モード", displayMode: .inline)
+        .navigationBarTitle(Text("AppearanceSettings_Nav_Title"), displayMode: .inline)
     }
 }

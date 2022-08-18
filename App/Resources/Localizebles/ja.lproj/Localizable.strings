@@ -1,0 +1,35 @@
+// MARK: - Screens
+
+// MARK: AppearanceSettings
+"AppearanceSettings_Nav_Title" = "外観";
+"AppearanceSettings_Picker_Light" = "ライト";
+"AppearanceSettings_Picker_Dark" = "ダーク";
+"AppearanceSettings_Picker_Automatic" = "自動";
+
+// MARK: Info
+"Info_Type_Appearance" = "外観";
+"Info_Type_Language" = "言語";
+"Info_Type_About" = "iOSDC について";
+"Info_Type_Staff" = "スタッフ";
+"Info_Type_Speaker" = "スピーカー";
+"Info_Type_Blog" = "ブログ";
+"Info_Type_Source" = "ソースコード";
+"Info_Type_Privacy" = "プライバシーポリシー";
+"Info_Nav_Title" = "情報";
+"Info_Section_Setting" = "設定";
+"Info_Section_Infomation" = "情報";
+
+// MARK: Session
+"Session_Row_Tag_Track" = "トラック";
+"Session_Row_Tag_Sponsor" = "スポンサー";
+"Session_Row_Tag_LT" = "LT";
+
+// MARK: SessionList
+"SessionList_Search_Placeholder" = "タイトル、説明、登壇者";
+
+// MARK: UserList
+"UserList_Nav_Title_Staff" = "スタッフ";
+"UserList_Nav_Title_Speaker" = "スピーカー";
+
+// MARK: - Views
+"EmptyView_Label_Text" = "該当するセッションが見つかりませんでした。";

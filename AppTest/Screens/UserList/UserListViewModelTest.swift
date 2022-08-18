@@ -35,14 +35,24 @@ final class UserListViewModelTest: TestCase {
         do {
             let user = StaffUser(name: "")
             let viewModel = UserListViewModel(output: .init(models: [user]))
-            AssertEqual(viewModel.output.title, other: "Staff")
+            
+            switch Constants.LanguageType.current {
+            case .en: AssertEqual(viewModel.output.title, other: "Staff")
+            case .ja: AssertEqual(viewModel.output.title, other: "スタッフ")
+            case .none: assertionFailure("non supported")
+            }
         }
         
         // user is SessionUser
         do {
             let user = SessionUser(name: "")
             let viewModel = UserListViewModel(output: .init(models: [user]))
-            AssertEqual(viewModel.output.title, other: "Speaker")
+            
+            switch Constants.LanguageType.current {
+            case .en: AssertEqual(viewModel.output.title, other: "Speaker")
+            case .ja: AssertEqual(viewModel.output.title, other: "スピーカー")
+            case .none: assertionFailure("non supported")
+            }
         }
     }
 }

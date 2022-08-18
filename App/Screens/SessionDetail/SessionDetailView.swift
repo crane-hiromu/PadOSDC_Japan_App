@@ -9,7 +9,7 @@ struct SessionDetailView: View {
         ScrollView { sessionDetailList }
             .toolbar { closeToolbarContent }
             .onReceive(viewModel.output.openSns) {
-                environment.router.routeToSns(with: $0)
+                environment.router.routeToWeb(with: $0)
             }
             .onReceive(viewModel.output.dismissView) {
                 environment.dismiss()

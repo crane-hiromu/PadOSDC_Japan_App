@@ -11,7 +11,7 @@ protocol RouterProtocol {
     static func routeToUserList(with models: [User]) -> UserListView
     static func routeToAppearanceSettings() -> AppearanceSettingsView
     // Web
-    static func routeToSns(with url: URL)
+    static func routeToWeb(with url: URL)
 }
 
 // MARK: - Router
@@ -73,7 +73,7 @@ enum Router: RouterProtocol {
     
     // MARK: Web
     
-    static func routeToSns(with url: URL) {
+    static func routeToWeb(with url: URL) {
         UIApplication.shared.open(url)
     }
 }

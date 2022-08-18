@@ -9,6 +9,7 @@ import AppleProductTypes
 
 let package = Package(
     name: "PadOSDC",
+    defaultLocalization: "en",
     platforms: [
         .iOS("15.2")
     ],
