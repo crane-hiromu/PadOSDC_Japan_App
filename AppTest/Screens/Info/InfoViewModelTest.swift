@@ -13,13 +13,19 @@ import UIKit
 @objcMembers
 final class InfoViewModelTest: TestCase {
     
+    // MARK: Property
+    
+    private let userDefaults: UserDefaults = .init(suiteName: "test_info") ?? .standard
+    
+    // MARK: Test
+    
     func testDidTapButton() {
         var cancellables: Set<AnyCancellable> = []
         
         // type: .appearance
         do {
             let expectation = Expectation(name: "Wait for didTapButton, type: .appearance")
-            let viewModel = InfoViewModel()
+            let viewModel = InfoViewModel(binding: .init(userDefaults: userDefaults))
             
             viewModel.output.openSns
                 .sink { _ in
@@ -38,7 +44,7 @@ final class InfoViewModelTest: TestCase {
         // type: .language
         do {
             let expectation = Expectation(name: "Wait for didTapButton, type: .language")
-            let viewModel = InfoViewModel()
+            let viewModel = InfoViewModel(binding: .init(userDefaults: userDefaults))
             
             viewModel.output.openSns
                 .sink { url in
@@ -55,7 +61,7 @@ final class InfoViewModelTest: TestCase {
         // type: .about
         do {
             let expectation = Expectation(name: "Wait for didTapButton, type: .about")
-            let viewModel = InfoViewModel()
+            let viewModel = InfoViewModel(binding: .init(userDefaults: userDefaults))
             
             viewModel.output.openSns
                 .sink { url in
@@ -72,7 +78,7 @@ final class InfoViewModelTest: TestCase {
         // type: .staff
         do {
             let expectation = Expectation(name: "Wait for didTapButton, type: .staff")
-            let viewModel = InfoViewModel()
+            let viewModel = InfoViewModel(binding: .init(userDefaults: userDefaults))
             
             viewModel.output.openSns
                 .sink { _ in
@@ -91,7 +97,7 @@ final class InfoViewModelTest: TestCase {
         // type: .speaker
         do {
             let expectation = Expectation(name: "Wait for didTapButton, type: .speaker")
-            let viewModel = InfoViewModel()
+            let viewModel = InfoViewModel(binding: .init(userDefaults: userDefaults))
             
             viewModel.output.openSns
                 .sink { _ in
@@ -110,7 +116,7 @@ final class InfoViewModelTest: TestCase {
         // type: .blog
         do {
             let expectation = Expectation(name: "Wait for didTapButton, type: .blog")
-            let viewModel = InfoViewModel()
+            let viewModel = InfoViewModel(binding: .init(userDefaults: userDefaults))
             
             viewModel.output.openSns
                 .sink { url in
@@ -127,7 +133,7 @@ final class InfoViewModelTest: TestCase {
         // type: .privacyPolicy
         do {
             let expectation = Expectation(name: "Wait for didTapButton, type: .privacyPolicy")
-            let viewModel = InfoViewModel()
+            let viewModel = InfoViewModel(binding: .init(userDefaults: userDefaults))
             
             viewModel.output
                 .openSns
@@ -145,7 +151,7 @@ final class InfoViewModelTest: TestCase {
     
     func testDidTapClose() {
         let expectation = Expectation(name: "Wait for didTapClose")
-        let viewModel = InfoViewModel()
+        let viewModel = InfoViewModel(binding: .init(userDefaults: userDefaults))
         
         viewModel.output
             .dismissView

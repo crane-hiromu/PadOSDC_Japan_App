@@ -14,7 +14,7 @@ final class SessionViewModelTest: TestCase {
     
     // MARK: Property
     
-    private let userDefaults: UserDefaults = .init(suiteName: "test") ?? .standard
+    private let userDefaults: UserDefaults = .init(suiteName: "test_session") ?? .standard
     
     // MARK: Test
     
