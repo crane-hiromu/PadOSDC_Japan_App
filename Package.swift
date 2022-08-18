@@ -19,7 +19,7 @@ let package = Package(
             targets: ["AppModule"],
             bundleIdentifier: "hcrane.padosdc.japan.2022",
             teamIdentifier: "R82WJ5W3TV",
-            displayVersion: "1.2",
+            displayVersion: "1.2.1",
             bundleVersion: "6",
             appIcon: .asset("AppIcon"),
             accentColor: .presetColor(.blue),

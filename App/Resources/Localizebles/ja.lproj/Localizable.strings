@@ -1,8 +1,17 @@
 // MARK: - Screens
 
+// MARK: Session
+"Session_Row_Tag_Track" = "トラック";
+"Session_Row_Tag_Sponsor" = "スポンサー";
+"Session_Row_Tag_LT" = "LT";
+
+// MARK: SessionList
+"SessionList_Nav_Title" = "検索する";
+"SessionList_Search_Placeholder" = "タイトル、説明、登壇者";
+
 // MARK: UserList
-"UserList_Nav_Title_Staff" = "Staff";
-"UserList_Nav_Title_Speaker" = "Speaker";
+"UserList_Nav_Title_Staff" = "スタッフ";
+"UserList_Nav_Title_Speaker" = "スピーカー";
 
 // MARK: - Views
-"EmptyView_Label_Text" = "No matching session found.";
+"EmptyView_Label_Text" = "該当するセッションが見つかりませんでした。";
