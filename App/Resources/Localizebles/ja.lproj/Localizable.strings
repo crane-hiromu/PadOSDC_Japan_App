@@ -1,7 +1,15 @@
 // MARK: - Screens
 
+// MARK: AppearanceSettings
+"AppearanceSettings_Nav_Title" = "外観";
+"AppearanceSettings_Picker_Light" = "ライト";
+"AppearanceSettings_Picker_Dark" = "ダーク";
+"AppearanceSettings_Picker_Automatic" = "自動";
+
+
 // MARK: Info
 "Info_Type_Appearance" = "外観";
+"Info_Type_Language" = "言語";
 "Info_Type_About" = "iOSDC について";
 "Info_Type_Staff" = "スタッフ";
 "Info_Type_Speaker" = "スピーカー";
@@ -18,7 +26,6 @@
 "Session_Row_Tag_LT" = "LT";
 
 // MARK: SessionList
-"SessionList_Nav_Title" = "検索する";
 "SessionList_Search_Placeholder" = "タイトル、説明、登壇者";
 
 // MARK: UserList

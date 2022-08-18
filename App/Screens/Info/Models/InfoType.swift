@@ -5,17 +5,21 @@ enum InfoType {
     case appearance, language
     case about, staff, speaker, blog, code, privacyPolicy
     
-    var label: String {
+    private var key: String {
         switch self {
-        case .appearance: return "Appearance"
-        case .language: return "Language"
-        case .about: return "About"
-        case .staff: return "Staff"
-        case .speaker: return "Speaker"
-        case .blog: return "Blog"
-        case .code: return "Source code"
-        case .privacyPolicy: return "Privacy Policy"
+        case .appearance: return "Info_Type_Appearance"
+        case .language: return "Info_Type_Language"
+        case .about: return "Info_Type_About"
+        case .staff: return "Info_Type_Staff"
+        case .speaker: return "Info_Type_Speaker"
+        case .blog: return "Info_Type_Blog"
+        case .code: return "Info_Type_Source"
+        case .privacyPolicy: return "Info_Type_Privacy"
         }
+    }
+    
+    var label: String {
+        NSLocalizedString(key, comment: "")
     }
     
     var icon: String {
@@ -34,7 +38,7 @@ enum InfoType {
     var url: String? {
         switch self {
         case .appearance: return nil
-        case .language: return nil
+        case .language: return UIApplication.openSettingsURLString
         case .about: return Constants.iosdcUrl
         case .staff: return nil
         case .speaker: return nil

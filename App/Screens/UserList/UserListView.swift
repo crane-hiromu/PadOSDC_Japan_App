@@ -10,7 +10,7 @@ struct UserListView: View {
             .frame(maxWidth: .infinity)
             .navigationBarTitle(Text(viewModel.output.localizedKey), displayMode: .inline)
             .onReceive(viewModel.output.openSns) {
-                environment.router.routeToSns(with: $0)
+                environment.router.routeToWeb(with: $0)
             }
     }
 }

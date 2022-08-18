@@ -71,6 +71,7 @@ private extension InfoViewModel {
             .didTapButton
             .compactMap { $0.url }
             .compactMap { URL(string: "\($0)") }
+            .filter { UIApplication.shared.canOpenURL($0) }
             .sink { output.openSns.send($0) }
             .store(in: &cancellables)
         

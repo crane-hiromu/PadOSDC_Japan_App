@@ -10,7 +10,7 @@ struct SessionListView: View {
             sessionListWrapper
                 .toolbar { closeToolbarContent }
                 .frame(maxWidth: .infinity)
-                .navigationBarTitle(Text("SessionList_Nav_Title"), displayMode: .inline)
+                .navigationBarTitle(Text(""), displayMode: .inline)
         }
         .searchable(
             text: $viewModel.binding.searchText.value, 

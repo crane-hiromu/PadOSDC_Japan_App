@@ -14,7 +14,7 @@ struct InfoView: View {
                 .navigationBarTitle("", displayMode: .inline)
         }
         .onReceive(viewModel.output.openSns) {
-            environment.router.routeToSns(with: $0)
+            environment.router.routeToWeb(with: $0)
         }
         .onReceive(viewModel.output.dismissView) {
             environment.dismiss()
@@ -44,9 +44,9 @@ private extension InfoView {
                 type: .appearance,
                 destination: appearanceView
             )
-            InfoNavigationRow(
+            InfoButtonRow(
                 type: .language,
-                destination: appearanceView
+                action: { viewModel.input.didTapButton.send(.language) }
             )
         }
     }

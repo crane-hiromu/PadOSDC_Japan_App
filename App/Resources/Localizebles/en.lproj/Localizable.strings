@@ -1,7 +1,14 @@
 // MARK: - Screens
 
+// MARK: AppearanceSettings
+"AppearanceSettings_Nav_Title" = "Appearance";
+"AppearanceSettings_Picker_Light" = "Light";
+"AppearanceSettings_Picker_Dark" = "Dark";
+"AppearanceSettings_Picker_Automatic" = "Automatic";
+
 // MARK: Info
 "Info_Type_Appearance" = "Appearance";
+"Info_Type_Language" = "Language";
 "Info_Type_About" = "About";
 "Info_Type_Staff" = "Staff";
 "Info_Type_Speaker" = "Speaker";
@@ -18,7 +25,6 @@
 "Session_Row_Tag_LT" = "LT";
 
 // MARK: SessionList
-"SessionList_Nav_Title" = "Search";
 "SessionList_Search_Placeholder" = "Title, Description, Speaker";
 
 // MARK: UserList
