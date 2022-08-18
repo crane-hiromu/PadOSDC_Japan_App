@@ -1,7 +1,5 @@
-#if TESTING_ENABLED
-import PlaygroundTester
-#endif
 import SwiftUI
+import PlaygroundTester
 
 // MARK: - APP
 @main
@@ -11,12 +9,19 @@ struct MainApp: App {
     
     @Environment(\.router) private var router
     
+    // MARK: Initializer
+    
+    init() {
+        PlaygroundTester.PlaygroundTesterConfiguration.isTesting = false
+    }
+    
     // MARK: View
     
     var body: some Scene {
         WindowGroup {
-            PlaygroundTester.PlaygroundTesterView()
-//            router.routeToRoot()
+            PlaygroundTester.PlaygroundTesterWrapperView {
+                router.routeToRoot()
+            }
         }
     }
 }
