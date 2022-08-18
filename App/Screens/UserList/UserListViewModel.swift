@@ -1,7 +1,6 @@
 import Foundation
 import Combine
 import CombineStorable
-import SwiftUI
 
 // MARK: - ViewModel
 final class UserListViewModel: NSObject, Storable, ObservableObject {
