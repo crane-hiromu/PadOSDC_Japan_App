@@ -46,8 +46,7 @@ extension RootViewModel {
     final class Binding: ObservableObject {
         @Published var isShownSessionList: Bool = false
         @Published var isShownInfo: Bool = false
-        @AppStorage(.appearanceMode)
-        var appearanceMode: AppearanceMode = .default
+        @AppStorage(.appearanceMode) var appearanceMode: AppearanceMode = .default
     }
 }
 

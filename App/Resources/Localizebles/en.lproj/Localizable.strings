@@ -1,5 +1,17 @@
 // MARK: - Screens
 
+// MARK: Info
+"Info_Type_Appearance" = "Appearance";
+"Info_Type_About" = "About";
+"Info_Type_Staff" = "Staff";
+"Info_Type_Speaker" = "Speaker";
+"Info_Type_Blog" = "Blog";
+"Info_Type_Source" = "Source code";
+"Info_Type_Privacy" = "Privacy Policy";
+"Info_Nav_Title" = "Infomation";
+"Info_Section_Setting" = "Setting";
+"Info_Section_Infomation" = "Infomation";
+
 // MARK: Session
 "Session_Row_Tag_Track" = "Track";
 "Session_Row_Tag_Sponsor" = "Sponsor";

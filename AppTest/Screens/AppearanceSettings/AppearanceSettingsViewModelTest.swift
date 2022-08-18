@@ -1,26 +1,16 @@
 #if TESTING_ENABLED
 
-/*
- Combineのテストが対応していないので、Expectationで代用する。
- */
-
 import PlaygroundTester
-import Combine
 import Foundation
 
 // MARK: - Test
 @objcMembers
 final class AppearanceSettingsViewModelTest: TestCase {
     
-    // MARK: Property
-    
-    private let userDefaults: UserDefaults = .init(suiteName: "test") ?? .standard
-    
-    // MARK: Test
-    
     func testAppearanceMode() {
         // type: .light
         do {
+            let userDefaults: UserDefaults = .init(suiteName: "test_light") ?? .standard
             let viewModel = AppearanceSettingsViewModel(binding: .init(
                 appearanceMode: .light,
                 userDefaults: userDefaults
@@ -30,6 +20,7 @@ final class AppearanceSettingsViewModelTest: TestCase {
         
         // type: .dark
         do {
+            let userDefaults: UserDefaults = .init(suiteName: "test_dark") ?? .standard
             let viewModel = AppearanceSettingsViewModel(binding: .init(
                 appearanceMode: .dark,
                 userDefaults: userDefaults
@@ -39,6 +30,7 @@ final class AppearanceSettingsViewModelTest: TestCase {
         
         // type: .auto
         do {
+            let userDefaults: UserDefaults = .init(suiteName: "test_auto") ?? .standard
             let viewModel = AppearanceSettingsViewModel(binding: .init(
                 appearanceMode: .auto,
                 userDefaults: userDefaults

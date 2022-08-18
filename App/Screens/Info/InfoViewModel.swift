@@ -52,8 +52,7 @@ extension InfoViewModel {
     }
     
     final class Binding: ObservableObject {
-        @AppStorage(.appearanceMode)
-        var appearanceMode: AppearanceMode = .default
+        @AppStorage(.appearanceMode) var appearanceMode: AppearanceMode = .default
     }
 }
 

@@ -11,7 +11,7 @@ struct InfoView: View {
             ScrollView { infoListView }
                 .toolbar { closeToolbarContent }
                 .frame(maxWidth: .infinity)
-                .navigationBarTitle("Infomation", displayMode: .inline)
+                .navigationBarTitle("", displayMode: .inline)
         }
         .onReceive(viewModel.output.openSns) {
             environment.router.routeToSns(with: $0)
@@ -28,11 +28,33 @@ struct InfoView: View {
 private extension InfoView {
     
     var infoListView: some View {
+        Group {
+            settingListView
+            infomationListView
+            Spacer()
+        }
+        .padding()
+    }
+    
+    var settingListView: some View {
         LazyVStack(spacing: 8) {
+            InfoSection(key: "Info_Section_Setting")
+            
             InfoNavigationRow(
                 type: .appearance,
                 destination: appearanceView
             )
+            InfoNavigationRow(
+                type: .language,
+                destination: appearanceView
+            )
+        }
+    }
+    
+    var infomationListView: some View {
+        LazyVStack(spacing: 8) {
+            InfoSection(key: "Info_Section_Infomation")
+            
             InfoButtonRow(
                 type: .about,
                 action: { viewModel.input.didTapButton.send(.about) }
@@ -57,9 +79,7 @@ private extension InfoView {
                 type: .privacyPolicy,
                 action: { viewModel.input.didTapButton.send(.privacyPolicy) }
             )
-            Spacer()
         }
-        .padding()
     }
     
     var staffListView: UserListView {

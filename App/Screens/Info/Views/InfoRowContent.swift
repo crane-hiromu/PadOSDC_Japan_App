@@ -16,5 +16,6 @@ struct InfoRowContent: View {
         .padding(.all, 16)
         .background(Color.secondarySystemBackground)
         .cornerRadius(12)
+        .foregroundColor(.white)
     }
 }
