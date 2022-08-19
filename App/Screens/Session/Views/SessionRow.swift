@@ -31,7 +31,7 @@ struct SessionRow: View {
 }
 
 // MARK: - Track Tag
-private struct SessionRowTrackTag: View {
+struct SessionRowTrackTag: View {
     
     let name: String
     
@@ -41,7 +41,7 @@ private struct SessionRowTrackTag: View {
 }
 
 // MARK: - Sponsor Tag
-private struct SessionRowSponsorTag: View {
+struct SessionRowSponsorTag: View {
     
     let isSponsor: Bool
     
@@ -53,7 +53,7 @@ private struct SessionRowSponsorTag: View {
 }
 
 // MARK: - LT Tag
-private struct SessionRowLtTag: View {
+struct SessionRowLtTag: View {
     
     let isLT: Bool
     
@@ -65,7 +65,7 @@ private struct SessionRowLtTag: View {
 }
 
 // MARK: - User Tag
-private struct SessionRowUserTag: View {
+struct SessionRowUserTag: View {
     
     let user: SessionUser?
     
