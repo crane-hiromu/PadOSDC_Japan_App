@@ -43,11 +43,15 @@ extension SessionModel {
 // MARK: - SessionListRowTitleLabel & SessionListRowBodyLabel
 extension SessionModel {
     
+    private var highlightTextColor: AttributeScopes.SwiftUIAttributes.ForegroundColorAttribute.Value {
+        .blue
+    }
+    
     func attributedText(with text: String,  and highlightText: String) -> AttributedString {
         var attributedText = AttributedString(text)
         let lowercasedAttributedText = AttributedString(text.lowercased())
         if let range = lowercasedAttributedText.range(of: highlightText.lowercased()) {
-            attributedText[range].foregroundColor = .blue
+            attributedText[range].foregroundColor = highlightTextColor
         }
         return attributedText
     }
@@ -66,9 +70,7 @@ extension SessionModel {
         }
         
         let firstAttributedIndex = attributedLines.firstIndex { attributedString in
-            attributedString.runs.contains { run in
-                run.foregroundColor == .blue
-            }
+            attributedString.runs.contains { $0.foregroundColor == highlightTextColor }
         }
         /// ハイライトテキストが存在しなければnilを返す
         guard let firstAttributedIndex = firstAttributedIndex else { return nil }
