@@ -18,8 +18,8 @@ struct SessionListRow: View {
                     }
                     .padding(.bottom, 4)
                     
-                    SessionListRowTitleLabel(model: model, searchText: $searchText)
-                    SessionListRowBodyLabel(model: model, searchText: $searchText)
+                    SessionListRowTitleLabel(text: model.attributedTitleText(with: searchText))
+                    SessionListRowBodyLabel(text: model.attributedBodyText(with: searchText))
                 }
                 .padding(.all, 2)
                 
@@ -34,11 +34,10 @@ struct SessionListRow: View {
 
 // MARK: - Title Label
 private struct SessionListRowTitleLabel: View {
-    let model: SessionModel
-    @Binding var searchText: String
+    let text: AttributedString
 
     var body: some View {
-        Text(model.attributedTitleText(with: searchText))
+        Text(text)
             .font(.headline)
             .foregroundColor(.primary)
             .multilineTextAlignment(.leading)
@@ -47,11 +46,10 @@ private struct SessionListRowTitleLabel: View {
 
 // MARK: - Body Label
 private struct SessionListRowBodyLabel: View {
-    let model: SessionModel
-    @Binding var searchText: String
+    let text: AttributedString?
     
     var body: some View {
-        if let attributedText = model.attributedBodyText(with: searchText) {
+        if let attributedText = text {
             Text(attributedText)
                 .font(.body)
                 .foregroundColor(.primary)
