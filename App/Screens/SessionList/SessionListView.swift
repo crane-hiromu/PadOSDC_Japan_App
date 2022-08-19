@@ -10,12 +10,12 @@ struct SessionListView: View {
             sessionListWrapper
                 .toolbar { closeToolbarContent }
                 .frame(maxWidth: .infinity)
-                .navigationBarTitle("Search", displayMode: .inline)
+                .navigationBarTitle(Text(""), displayMode: .inline)
         }
         .searchable(
             text: $viewModel.binding.searchText.value, 
             placement: .navigationBarDrawer(displayMode: .always),
-            prompt: Text("タイトル、説明、登壇者")
+            prompt: Text("SessionList_Search_Placeholder")
         )
         .sheet(
             isPresented: $viewModel.binding.isShownModal,
