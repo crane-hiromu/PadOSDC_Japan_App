@@ -43,12 +43,14 @@ extension SessionModelTest {
             
             // highlight text
             let result1 = model.attributedBodyText(with: "test")
-            AssertNotNil(result1)
-            AssertFalse(result1!.ranges(of: "test").isEmpty)
+            let value = try AssertUnwrap(result1)
+            AssertFalse(value.ranges(of: "test").isEmpty)
             
             // non highlight text
             let result2 = model.attributedBodyText(with: "xxxx")
             AssertNil(result2)
+        } catch {
+            assertionFailure("fail to unwrap")
         }
     }
 }
