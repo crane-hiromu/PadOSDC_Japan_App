@@ -10,12 +10,12 @@ struct SessionListView: View {
             sessionListWrapper
                 .toolbar { closeToolbarContent }
                 .frame(maxWidth: .infinity)
-                .navigationBarTitle(Text(""), displayMode: .inline)
+                .navigationBarTitle("Search", displayMode: .inline)
         }
         .searchable(
             text: $viewModel.binding.searchText.value, 
             placement: .navigationBarDrawer(displayMode: .always),
-            prompt: Text("SessionList_Search_Placeholder")
+            prompt: Text("タイトル、説明、登壇者")
         )
         .sheet(
             isPresented: $viewModel.binding.isShownModal,
@@ -45,9 +45,11 @@ private extension SessionListView {
         ScrollView {
             LazyVStack(spacing: 8) {
                 ForEach(viewModel.binding.models, id: \.self) { model in
-                    SessionListRow(model: model, highlightText: viewModel.binding.searchText.value) {
-                        viewModel.input.didTapSession.send(model)
-                    }
+                    SessionListRow(
+                        model: model,
+                        searchText: $viewModel.binding.searchText.value,
+                        didTap: { viewModel.input.didTapSession.send(model) }
+                    )
                 }
             }
             .padding(.all, 16)
