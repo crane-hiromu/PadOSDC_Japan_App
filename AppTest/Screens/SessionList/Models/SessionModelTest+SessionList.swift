@@ -5,16 +5,45 @@ import PlaygroundTester
 // MARK: - Test
 extension SessionModelTest {
     
+    /*
+     共通化しているので、大小文字のテストは共通関数のみで実施
+     */
     func testAttributedText() {
         let model = SessionModel(track: .a, title: "")
         
         // contains text
-        let result1 = model.attributedText(with: "test_text", and: "test")
-        AssertFalse(result1.ranges(of: "test").isEmpty)
+        do {
+            // text: lower, highlightText: lower
+            do {
+                let result = model.attributedText(with: "test_text", and: "test")
+                AssertFalse(result.ranges(of: "test").isEmpty)
+                Assert(result.ranges(of: "TEST").isEmpty)
+            }
+            // text: lower, highlightText: upper
+            do {
+                let result = model.attributedText(with: "test_text", and: "TEST")
+                AssertFalse(result.ranges(of: "test").isEmpty)
+                Assert(result.ranges(of: "TEST").isEmpty)
+            }
+            // text: upper, highlightText: lower
+            do {
+                let result = model.attributedText(with: "TEST_TEXT", and: "test")
+                Assert(result.ranges(of: "test").isEmpty)
+                AssertFalse(result.ranges(of: "TEST").isEmpty)
+            }
+            // text: upper, highlightText: upper
+            do {
+                let result = model.attributedText(with: "TEST_TEXT", and: "TEST")
+                Assert(result.ranges(of: "test").isEmpty)
+                AssertFalse(result.ranges(of: "TEST").isEmpty)
+            }
+        }
         
         // non contains text
-        let result2 = model.attributedText(with: "test_text", and: "xxxx")
-        Assert(result2.ranges(of: "yyyy").isEmpty)
+        do {
+            let result = model.attributedText(with: "test_text", and: "xxxx")
+            Assert(result.ranges(of: "xxxx").isEmpty)
+        }
     }
     
     func testAttributedTitleText() {
