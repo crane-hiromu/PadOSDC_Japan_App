@@ -12,16 +12,20 @@ struct MainApp: App {
     // MARK: Initializer
     
     init() {
-        PlaygroundTester.PlaygroundTesterConfiguration.isTesting = false
+        // if library is fixed, open code
+        // PlaygroundTester.PlaygroundTesterConfiguration.isTesting = false
     }
     
     // MARK: View
     
     var body: some Scene {
         WindowGroup {
-            PlaygroundTester.PlaygroundTesterWrapperView {
-                router.routeToRoot()
-            }
+            router.routeToRoot()
+            
+// if library is fixed, chnage code
+//            PlaygroundTester.PlaygroundTesterWrapperView {
+//                router.routeToRoot()
+//            }
         }
     }
 }
