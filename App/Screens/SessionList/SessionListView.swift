@@ -45,9 +45,11 @@ private extension SessionListView {
         ScrollView {
             LazyVStack(spacing: 8) {
                 ForEach(viewModel.binding.models, id: \.self) { model in
-                    SessionListRow(model: model, highlightText: viewModel.binding.searchText.value) {
-                        viewModel.input.didTapSession.send(model)
-                    }
+                    SessionListRow(
+                        model: model,
+                        searchText: $viewModel.binding.searchText.value,
+                        didTap: { viewModel.input.didTapSession.send(model) }
+                    )
                 }
             }
             .padding(.all, 16)
