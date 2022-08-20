@@ -9,11 +9,11 @@ final class SessionListViewModel: NSObject, ObservableObject, Storable {
     let output: Output
     @ObservedObject var binding: Binding
     
-    static let allSessions: [SessionModel] = [
-        SessionDay0Type.allCases.flatMap { $0.models }
-        + SessionDay1Type.allCases.flatMap { $0.models }
-        + SessionDay2Type.allCases.flatMap { $0.models }
-    ].flatMap { $0 }.filter { $0.user != nil }
+    static let models = (
+        SessionDay0Type.models 
+        + SessionDay1Type.models
+        + SessionDay2Type.models
+    ).filter { $0.user != nil }
     
     init(
         input: Input = .init(),
@@ -63,7 +63,7 @@ extension SessionListViewModel {
     final class Binding: ObservableObject {
         @State var searchText = CurrentValueSubject<String, Never>("")
         @Published var isShownModal = false
-        @Published var models = SessionListViewModel.allSessions.sorted {
+        @Published var models = SessionListViewModel.models.sorted {
             $0.track.name < $1.track.name 
         }
     }
@@ -105,9 +105,9 @@ private extension SessionListViewModel {
             .debounce(for: 0.2, scheduler: DispatchQueue.main)
             .map { text -> [SessionModel] in
                 guard !text.isEmpty else {
-                    return SessionListViewModel.allSessions
+                    return SessionListViewModel.models
                 }
-                return SessionListViewModel.allSessions.filter {
+                return SessionListViewModel.models.filter {
                     $0.contains(query: text)
                 }
             }

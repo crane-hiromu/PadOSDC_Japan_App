@@ -67,7 +67,7 @@ final class SessionListViewModelTest: TestCase {
             viewModel.binding.$models
                 .dropFirst()
                 .sink { models in
-                    AssertEqual(models.count, other: SessionListViewModel.allSessions.count)
+                    AssertEqual(models.count, other: SessionListViewModel.models.count)
                     expectation.fulfill()
                 }
                 .store(in: &cancellables)

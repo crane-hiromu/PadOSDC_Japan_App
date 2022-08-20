@@ -6,6 +6,7 @@ protocol SessionType {
     var index: Int { get }
     var time: String { get }
     var models: [SessionModel] { get }
+    static var models: [SessionModel] { get }
 }
 
 extension SessionType {
@@ -154,6 +155,8 @@ enum SessionDay0Type: Int, CaseIterable, SessionType {
             ]
         }
     }
+    
+    static var models: [SessionModel] = SessionDay0Type.allCases.flatMap(\.models)
 }
 
 // MARK: - SessionType 1
@@ -374,6 +377,8 @@ enum SessionDay1Type: Int, CaseIterable, SessionType {
             ]
         }
     }
+    
+    static var models: [SessionModel] = SessionDay1Type.allCases.flatMap(\.models)
 }
 
 // MARK: - SessionType 2
@@ -640,4 +645,6 @@ enum SessionDay2Type: Int, CaseIterable, SessionType {
             ]
         }
     }
+    
+    static var models: [SessionModel] = SessionDay2Type.allCases.flatMap(\.models)
 }
