@@ -65,6 +65,21 @@ or
 $ make install
 ```
 
+## 3. Generate
+
+Generate [LicensePlist](https://github.com/mono0926/LicensePlist) file.
+
+```bash
+$ make license
+```
+
+Generate [SwiftGen](https://github.com/SwiftGen/SwiftGen) file.
+
+```bash
+$ make asset
+```
+
+
 
 <br>
 
