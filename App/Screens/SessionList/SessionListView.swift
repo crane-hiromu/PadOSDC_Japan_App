@@ -15,7 +15,7 @@ struct SessionListView: View {
         .searchable(
             text: $viewModel.binding.searchText.value, 
             placement: .navigationBarDrawer(displayMode: .always),
-            prompt: Text("SessionList_Search_Placeholder")
+            prompt: Text(L10n.sessionListSearchPlaceholder)
         )
         .sheet(
             isPresented: $viewModel.binding.isShownModal,

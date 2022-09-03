@@ -38,7 +38,7 @@ private extension InfoView {
     
     var settingListView: some View {
         LazyVStack(spacing: 8) {
-            InfoSection(key: "Info_Section_Setting")
+            InfoSection(title: L10n.infoSectionSetting)
             
             InfoNavigationRow(
                 type: .appearance,
@@ -53,7 +53,7 @@ private extension InfoView {
     
     var infomationListView: some View {
         LazyVStack(spacing: 8) {
-            InfoSection(key: "Info_Section_Infomation")
+            InfoSection(title: L10n.infoSectionInfomation)
             
             InfoButtonRow(
                 type: .about,

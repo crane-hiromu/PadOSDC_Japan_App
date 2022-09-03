@@ -2,43 +2,11 @@ import SwiftUI
 
 // MARK: - Tag
 struct SessionTag: View {
-    let key: LocalizedStringKey?
-    let text: String?
+    let text: String
     let color: Color
     
-    init(
-        key: LocalizedStringKey? = nil, 
-        text: String? = nil,
-        color: Color
-    ) {
-        self.key = key
-        self.text = text
-        self.color = color
-    }
-    
     var body: some View {
-        if let key = key {
-            SessionTagText(content: { Text(key) }, color: color)
-        } else if let text = text {
-            SessionTagText(content: { Text(text) }, color: color)
-        }
-    }
-}
-
-private struct SessionTagText<Content: View>: View {
-    let content: Content
-    let color: Color
-    
-    init(
-        @ViewBuilder content: () -> Content, 
-        color: Color
-    ) {
-        self.content = content()
-        self.color = color
-    }
-    
-    var body: some View {
-        (content as? Text)?
+        Text(text)
             .fontWeight(.semibold)
             .font(.caption)
             .foregroundColor(.white)

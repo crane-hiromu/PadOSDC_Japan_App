@@ -5,23 +5,19 @@ enum InfoType {
     case appearance, language
     case about, map, staff, speaker, blog, code, privacyPolicy, license
     
-    private var key: String {
-        switch self {
-        case .appearance: return "Info_Type_Appearance"
-        case .language: return "Info_Type_Language"
-        case .map: return "Info_Type_Map"
-        case .about: return "Info_Type_About"
-        case .staff: return "Info_Type_Staff"
-        case .speaker: return "Info_Type_Speaker"
-        case .blog: return "Info_Type_Blog"
-        case .code: return "Info_Type_Source"
-        case .privacyPolicy: return "Info_Type_Privacy"
-        case .license: return "Info_Type_License"
-        }
-    }
-    
     var label: String {
-        NSLocalizedString(key, comment: "")
+        switch self {
+        case .appearance: return L10n.infoTypeAppearance
+        case .language: return L10n.infoTypeLanguage
+        case .map: return L10n.infoTypeMap
+        case .about: return L10n.infoTypeAbout
+        case .staff: return L10n.infoTypeStaff
+        case .speaker: return L10n.infoTypeSpeaker
+        case .blog: return L10n.infoTypeBlog
+        case .code: return L10n.infoTypeSource
+        case .privacyPolicy: return L10n.infoTypePrivacy
+        case .license: return L10n.infoTypeLicense
+        }
     }
     
     var icon: String {
