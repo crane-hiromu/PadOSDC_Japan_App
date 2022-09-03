@@ -10,3 +10,8 @@ strings:
   outputs:
     templateName: structured-swift5
     output: App/Resources/SwiftGen/LocalizedStrings.swift
+plist:
+  inputs: App/Resources/License
+  outputs:
+    templateName: runtime-swift5
+    output: App/Resources/SwiftGen/Plist.swift
