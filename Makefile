@@ -5,6 +5,7 @@ help:
 	@echo "    license                        to generate license plist file"
 	@echo "    install_swiftgen               to install SwiftGen"
 	@echo "    asset                          to generate Asset swift file"
+	@echo "    git_rm                         to reset gitignore cache when updating file"
 
 # Installation
 
@@ -25,3 +26,7 @@ install_swiftgen:
 
 asset:
 	swiftgen
+
+# Git
+git_rm:
+	git rm -r --cached .
