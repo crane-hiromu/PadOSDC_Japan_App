@@ -13,6 +13,22 @@ import UIKit
 @objcMembers
 final class MapViewModelTest: TestCase {
     
+    func testDidDisappear() {
+        let viewModel = MapViewModel(binding: .init(
+            offset: .init(width: 999, height: 999),
+            initialOffset: .init(width: 999, height: 999),
+            scale: 999, 
+            initialScale: 999
+        ))
+        
+        viewModel.input.didDisappear.send(())
+        
+        AssertEqual(viewModel.binding.offset, other: .zero)
+        AssertEqual(viewModel.binding.initialOffset, other: .zero)
+        AssertEqual(viewModel.binding.scale, other: 1.0)
+        AssertEqual(viewModel.binding.initialScale, other: 1.0)
+    }
+    
     func testDidChangeImageMagnification() {
         var cancellables: Set<AnyCancellable> = []
         
