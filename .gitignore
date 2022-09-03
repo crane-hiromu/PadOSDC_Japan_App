@@ -91,3 +91,7 @@ fastlane/test_output
 # https://github.com/johnno1962/injectionforxcode
 
 iOSInjectionProject/
+
+# SwiftGen
+App/Resources/SwiftGen/Assets.swift
+App/Resources/SwiftGen/LocalizedStrings.swift
