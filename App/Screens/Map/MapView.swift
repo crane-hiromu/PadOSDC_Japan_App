@@ -6,13 +6,10 @@ struct MapView: View {
     
     var body: some View {
         VStack {
-            Asset.mapUniversity.swiftUIImage
-                .resizable()
-                .aspectRatio(contentMode: .fit)
-            Asset.mapFloor.swiftUIImage
-                .resizable()
-                .aspectRatio(contentMode: .fit)
+            mapUniversityImage
+            mapFloorImage
         }
+        .onDisappear { viewModel.input.didDisappear.send(()) }
         .frame(maxWidth: 672, alignment: .center) // iPad readable width
         .offset(viewModel.binding.offset)
         .scaleEffect(viewModel.binding.scale)
@@ -23,6 +20,18 @@ struct MapView: View {
 
 // MARK: - Private
 private extension MapView {
+    
+    var mapUniversityImage: some View {
+        Asset.mapUniversity.swiftUIImage
+            .resizable()
+            .aspectRatio(contentMode: .fit)
+    }
+    
+    var mapFloorImage: some View {
+        Asset.mapFloor.swiftUIImage
+            .resizable()
+            .aspectRatio(contentMode: .fit)
+    }
     
     var magnificationGesture: some Gesture {
         MagnificationGesture()

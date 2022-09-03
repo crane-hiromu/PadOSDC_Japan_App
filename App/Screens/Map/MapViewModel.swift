@@ -26,17 +26,20 @@ final class MapViewModel: NSObject, ObservableObject, Storable {
 extension MapViewModel {
     
     final class Input {
+        let didDisappear: PassthroughSubject<(), Never>
         let didChangeImageMagnification: PassthroughSubject<CGFloat, Never>
         let didEndImageMagnification: PassthroughSubject<CGFloat, Never>
         let didChangeImageOffset: PassthroughSubject<CGSize, Never>
         let didEndImageOffset: PassthroughSubject<CGSize, Never>
         
         init(
+            didDisappear: PassthroughSubject<(), Never> = .init(),
             didChangeImageMagnification: PassthroughSubject<CGFloat, Never> = .init(),
             didEndImageMagnification: PassthroughSubject<CGFloat, Never> = .init(),
             didChangeImageOffset: PassthroughSubject<CGSize, Never> = .init(),
             didEndImageOffset: PassthroughSubject<CGSize, Never> = .init()
         ) {
+            self.didDisappear = didDisappear
             self.didChangeImageMagnification = didChangeImageMagnification
             self.didEndImageMagnification = didEndImageMagnification
             self.didChangeImageOffset = didChangeImageOffset
@@ -76,6 +79,17 @@ private extension MapViewModel {
         binding.objectWillChange
             .sink { [weak self] _ in
                 self?.objectWillChange.send()
+            }
+            .store(in: &cancellables)
+        
+        input
+            .didDisappear
+            .sink {
+                // reset image position
+                binding.offset = .zero
+                binding.initialOffset = .zero
+                binding.scale = 1.0
+                binding.initialScale = 1.0
             }
             .store(in: &cancellables)
         
