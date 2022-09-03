@@ -10,7 +10,7 @@ LightMode
 | <img src="https://user-images.githubusercontent.com/24838521/185480360-57b87dc8-45b5-48e0-92d9-dc61bd7325a2.png" width=200> | <img src="https://user-images.githubusercontent.com/24838521/185480365-6df85969-b0bf-4be1-b89f-e4d02cc7805b.png" width=200> | <img src="https://user-images.githubusercontent.com/24838521/185480372-817b0958-6e56-454e-9234-a798b6b15dfa.png" width=200> | <img src="https://user-images.githubusercontent.com/24838521/185480382-0feb3b75-0514-4fd6-8cb1-dad16c67cc1c.png" width=200> | <img src="https://user-images.githubusercontent.com/24838521/185480391-f32f052a-1485-4ead-a48d-848f02792263.png" width=200> |
 |:---:|:---:|:---:|:---:|:---:|
 
-Install [here](https://apps.apple.com/us/app/padosdc/id1637969392).
+Install from [here](https://apps.apple.com/us/app/padosdc/id1637969392) on App Store.
 
 <br>
 
