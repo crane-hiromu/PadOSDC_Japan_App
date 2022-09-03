@@ -53,6 +53,18 @@ extension MapViewModel {
         @Published var initialOffset: CGSize = .zero
         @Published var scale: CGFloat = 1.0
         @Published var initialScale: CGFloat = 1.0
+        
+        init(
+            offset: CGSize = .zero,
+            initialOffset: CGSize = .zero,
+            scale: CGFloat = 1.0,
+            initialScale: CGFloat = 1.0
+        ) {
+            self.offset = offset
+            self.initialOffset = initialOffset
+            self.scale = scale
+            self.initialScale = initialScale
+        }
     }
 }
 

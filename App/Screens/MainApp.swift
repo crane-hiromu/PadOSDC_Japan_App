@@ -12,7 +12,7 @@ struct MainApp: App {
     // MARK: Initializer
     
     init() {
-        PlaygroundTester.PlaygroundTesterConfiguration.isTesting = false
+        PlaygroundTester.PlaygroundTesterConfiguration.isTesting = true
     }
     
     // MARK: View
