@@ -83,7 +83,15 @@ private extension InfoView {
                 type: .privacyPolicy,
                 action: { viewModel.input.didTapButton.send(.privacyPolicy) }
             )
+            InfoNavigationRow(
+                type: .license,
+                destination: licenseView
+            )
         }
+    }
+    
+    var appearanceView: AppearanceSettingsView {
+        environment.router.routeToAppearanceSettings()
     }
     
     var mapView: MapView {
@@ -102,8 +110,8 @@ private extension InfoView {
         )
     }
     
-    var appearanceView: some View {
-        environment.router.routeToAppearanceSettings()
+    var licenseView: LicenseView {
+        environment.router.routeToLicense()
     }
     
     var closeToolbarContent: CloseToolbarContent {

@@ -16,6 +16,7 @@
 "Info_Type_Blog" = "ブログ";
 "Info_Type_Source" = "ソースコード";
 "Info_Type_Privacy" = "プライバシーポリシー";
+"Info_Type_License" = "ライセンス";
 "Info_Nav_Title" = "情報";
 "Info_Section_Setting" = "設定";
 "Info_Section_Infomation" = "情報";
