@@ -17,25 +17,4 @@ enum Constants {
             LanguageType(rawValue: Locale.current.languageCode ?? "")
         } 
     }
-    
-    // MARK: Resource Type
-    enum ResourceType {
-        case license
-        
-        private var fileName: String {
-            switch self {
-            case .license: return "license-list"
-            }
-        }
-        
-        private var fileExtension: String {
-            switch self {
-            case .license: return "plist"
-            }
-        }
-        
-        var fileURL: URL {
-            Bundle.main.url(forResource: fileName, withExtension: fileExtension)!
-        }
-    }
 }
