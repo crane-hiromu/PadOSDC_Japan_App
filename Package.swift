@@ -19,8 +19,8 @@ let package = Package(
             targets: ["AppModule"],
             bundleIdentifier: "hcrane.padosdc.japan.2022",
             teamIdentifier: "R82WJ5W3TV",
-            displayVersion: "1.3",
-            bundleVersion: "7",
+            displayVersion: "1.4",
+            bundleVersion: "8",
             appIcon: .asset("AppIcon"),
             accentColor: .presetColor(.blue),
             supportedDeviceFamilies: [
@@ -54,8 +54,6 @@ let package = Package(
             swiftSettings: [
                 .unsafeFlags(["-Xfrontend", "-warn-long-function-bodies=100"], .when(configuration: .debug)),
                 .unsafeFlags(["-Xfrontend", "-warn-long-expression-type-checking=100"], .when(configuration: .debug)),
-                // .unsafeFlags(["-Xfrontend", "-warn-concurrency"]),
-                // .unsafeFlags(["-Xfrontend", "-enable-actor-data-race-checks"]),
                 .define("TESTING_ENABLED", .when(configuration: .debug))
             ]
         )

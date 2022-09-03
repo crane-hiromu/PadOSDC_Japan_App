@@ -3,12 +3,13 @@ import SwiftUI
 // MARK: - Type
 enum InfoType {
     case appearance, language
-    case about, staff, speaker, blog, code, privacyPolicy
+    case about, map, staff, speaker, blog, code, privacyPolicy
     
     private var key: String {
         switch self {
         case .appearance: return "Info_Type_Appearance"
         case .language: return "Info_Type_Language"
+        case .map: return "Info_Type_Map"
         case .about: return "Info_Type_About"
         case .staff: return "Info_Type_Staff"
         case .speaker: return "Info_Type_Speaker"
@@ -26,6 +27,7 @@ enum InfoType {
         switch self {
         case .appearance: return "moon.circle"
         case .language: return "character.book.closed.hi"
+        case .map: return "mappin.and.ellipse"
         case .about: return "smiley"
         case .staff: return "person.crop.rectangle.stack"
         case .speaker: return "swift"
@@ -39,6 +41,7 @@ enum InfoType {
         switch self {
         case .appearance: return nil
         case .language: return UIApplication.openSettingsURLString
+        case .map: return nil
         case .about: return Constants.iosdcUrl
         case .staff: return nil
         case .speaker: return nil

@@ -7,6 +7,7 @@ protocol RouterProtocol {
     static func routeToSession(with scheduleType: ScheduleType) -> SessionView
     static func routeToSessionList() -> SessionListView
     static func routeToInfo() -> InfoView
+    static func routeToMap() -> MapView
     static func routeToSessionDetail(with model: SessionModel) -> SessionDetailView
     static func routeToUserList(with models: [User]) -> UserListView
     static func routeToAppearanceSettings() -> AppearanceSettingsView
@@ -48,6 +49,10 @@ enum Router: RouterProtocol {
             viewModel: .init(),
             environment: .init()
         )
+    }
+    
+    static func routeToMap() -> MapView {
+        .init()
     }
     
     static func routeToSessionDetail(with model: SessionModel) -> SessionDetailView {
