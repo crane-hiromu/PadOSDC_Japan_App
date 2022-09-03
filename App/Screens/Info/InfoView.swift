@@ -60,6 +60,10 @@ private extension InfoView {
                 action: { viewModel.input.didTapButton.send(.about) }
             )
             InfoNavigationRow(
+                type: .map,
+                destination: mapView
+            )
+            InfoNavigationRow(
                 type: .staff,
                 destination: staffListView
             )
@@ -80,6 +84,10 @@ private extension InfoView {
                 action: { viewModel.input.didTapButton.send(.privacyPolicy) }
             )
         }
+    }
+    
+    var mapView: MapView {
+        environment.router.routeToMap()
     }
     
     var staffListView: UserListView {

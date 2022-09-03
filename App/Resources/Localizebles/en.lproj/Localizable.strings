@@ -9,6 +9,7 @@
 // MARK: Info
 "Info_Type_Appearance" = "Appearance";
 "Info_Type_Language" = "Language";
+"Info_Type_Map" = "Map";
 "Info_Type_About" = "About";
 "Info_Type_Staff" = "Staff";
 "Info_Type_Speaker" = "Speaker";
