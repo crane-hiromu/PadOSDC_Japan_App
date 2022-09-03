@@ -96,3 +96,8 @@ iOSInjectionProject/
 App/Resources/SwiftGen/Assets.swift
 App/Resources/SwiftGen/LocalizedStrings.swift
 App/Resources/SwiftGen/Plist.swift
+
+# LicensePlist
+App/Resources/License/com.mono0926.LicensePlist
+App/Resources/License/com.mono0926.LicensePlist.latest_result.txt
+App/Resources/License/com.mono0926.LicensePlist.plist
