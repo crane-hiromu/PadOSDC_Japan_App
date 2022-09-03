@@ -11,7 +11,7 @@ struct EmptyView: View {
             Image(systemName: type.icon)
                 .resizable()
                 .frame(width: 60, height: 60)
-            Text(type.key)
+            Text(type.text)
             Spacer()
         }
         .frame(width: size.width, height: size.height)
@@ -28,9 +28,9 @@ enum EmptyType {
         }
     }
     
-    var key: LocalizedStringKey {
+    var text: String {
         switch self {
-        case .session: return "EmptyView_Label_Text"
+        case .session: return L10n.emptyViewLabelText
         }
     }
 }

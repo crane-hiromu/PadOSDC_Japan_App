@@ -47,7 +47,7 @@ struct SessionRowSponsorTag: View {
     
     var body: some View {
         if isSponsor {
-            SessionTag(key: "Session_Row_Tag_Sponsor", color: .green)
+            SessionTag(text: L10n.sessionRowTagSponsor, color: .green)
         }
     }
 }
@@ -59,7 +59,7 @@ struct SessionRowLtTag: View {
     
     var body: some View {
         if isLT {
-            SessionTag(key: "Session_Row_Tag_LT", color: .yellow)
+            SessionTag(text: L10n.sessionRowTagLT, color: .yellow)
         }
     }
 }

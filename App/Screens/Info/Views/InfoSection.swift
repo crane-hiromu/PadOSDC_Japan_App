@@ -2,11 +2,11 @@ import SwiftUI
 
 // MARK: - View
 struct InfoSection: View {
-    let key: LocalizedStringKey
+    let title: String
     
     var body: some View {
         HStack(spacing: 8) {
-            Text(key)
+            Text(title)
                 .padding(.top, 16)
                 .foregroundColor(.gray)
             Spacer()

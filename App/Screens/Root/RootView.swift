@@ -46,8 +46,8 @@ private extension RootView {
     
     var rootToolbarContent: some ToolbarContent {
         RootToolbarContent(
-            leading: { leadingBarItem }, 
-            trailing: { trailingBarItem }
+            leadingContent: { leadingBarItem }, 
+            trailingContent: { trailingBarItem }
         )
     }
     

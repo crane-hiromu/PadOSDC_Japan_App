@@ -34,8 +34,7 @@ extension UserListViewModel {
         let models: [User]
         let openSns: PassthroughSubject<URL, Never>
         var title: String {
-            let title = models.first is StaffUser ? "UserList_Nav_Title_Staff" : "UserList_Nav_Title_Speaker"
-            return NSLocalizedString(title, comment: "")
+            models.first is StaffUser ? L10n.userListNavTitleStaff : L10n.userListNavTitleSpeaker
         }
         
         init(

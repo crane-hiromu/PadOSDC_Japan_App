@@ -38,7 +38,7 @@ private extension InfoView {
     
     var settingListView: some View {
         LazyVStack(spacing: 8) {
-            InfoSection(key: "Info_Section_Setting")
+            InfoSection(title: L10n.infoSectionSetting)
             
             InfoNavigationRow(
                 type: .appearance,
@@ -53,7 +53,7 @@ private extension InfoView {
     
     var infomationListView: some View {
         LazyVStack(spacing: 8) {
-            InfoSection(key: "Info_Section_Infomation")
+            InfoSection(title: L10n.infoSectionInfomation)
             
             InfoButtonRow(
                 type: .about,
@@ -83,7 +83,15 @@ private extension InfoView {
                 type: .privacyPolicy,
                 action: { viewModel.input.didTapButton.send(.privacyPolicy) }
             )
+//            InfoNavigationRow(
+//                type: .license,
+//                destination: licenseView
+//            )
         }
+    }
+    
+    var appearanceView: AppearanceSettingsView {
+        environment.router.routeToAppearanceSettings()
     }
     
     var mapView: MapView {
@@ -102,8 +110,8 @@ private extension InfoView {
         )
     }
     
-    var appearanceView: some View {
-        environment.router.routeToAppearanceSettings()
+    var licenseView: LicenseView {
+        environment.router.routeToLicense()
     }
     
     var closeToolbarContent: CloseToolbarContent {

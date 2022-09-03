@@ -7,10 +7,11 @@ protocol RouterProtocol {
     static func routeToSession(with scheduleType: ScheduleType) -> SessionView
     static func routeToSessionList() -> SessionListView
     static func routeToInfo() -> InfoView
+    static func routeToAppearanceSettings() -> AppearanceSettingsView
     static func routeToMap() -> MapView
     static func routeToSessionDetail(with model: SessionModel) -> SessionDetailView
     static func routeToUserList(with models: [User]) -> UserListView
-    static func routeToAppearanceSettings() -> AppearanceSettingsView
+    static func routeToLicense() -> LicenseView
     // Web
     static func routeToWeb(with url: URL)
 }
@@ -51,6 +52,13 @@ enum Router: RouterProtocol {
         )
     }
     
+    static func routeToAppearanceSettings() -> AppearanceSettingsView {
+        .init(
+            viewModel: .init(),
+            environment: .init()
+        )
+    }
+    
     static func routeToMap() -> MapView {
         .init()
     }
@@ -69,11 +77,8 @@ enum Router: RouterProtocol {
         )
     }
     
-    static func routeToAppearanceSettings() -> AppearanceSettingsView {
-        .init(
-            viewModel: .init(),
-            environment: .init()
-        )
+    static func routeToLicense() -> LicenseView {
+        .init()
     }
     
     // MARK: Web
