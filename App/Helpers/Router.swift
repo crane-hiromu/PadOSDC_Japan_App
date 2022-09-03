@@ -60,7 +60,7 @@ enum Router: RouterProtocol {
     }
     
     static func routeToMap() -> MapView {
-        .init()
+        .init(viewModel: .init())
     }
     
     static func routeToSessionDetail(with model: SessionModel) -> SessionDetailView {

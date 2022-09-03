@@ -2,19 +2,37 @@ import SwiftUI
 
 // MARK: - View
 struct MapView: View {
+    @ObservedObject var viewModel: MapViewModel
     
     var body: some View {
-        ScrollView {
-            VStack {
-                Image("map_university")
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-                Image("map_floor")
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-            }
-            .frame(maxWidth: 672, alignment: .center)
+        VStack {
+            Asset.mapUniversity.swiftUIImage
+                .resizable()
+                .aspectRatio(contentMode: .fit)
+            Asset.mapFloor.swiftUIImage
+                .resizable()
+                .aspectRatio(contentMode: .fit)
         }
-        .navigationBarTitle(Text("Info_Type_Map"), displayMode: .inline)
+        .frame(maxWidth: 672, alignment: .center) // iPad readable width
+        .offset(viewModel.binding.offset)
+        .scaleEffect(viewModel.binding.scale)
+        .gesture(SimultaneousGesture(magnificationGesture, dragGesture))
+        .navigationBarTitle(L10n.infoTypeMap, displayMode: .inline)
+    }
+}
+
+// MARK: - Private
+private extension MapView {
+    
+    var magnificationGesture: some Gesture {
+        MagnificationGesture()
+            .onChanged { viewModel.input.didChangeImageMagnification.send($0) }
+            .onEnded { viewModel.input.didEndImageMagnification.send($0) }
+    }
+    
+    var dragGesture: some Gesture {
+        DragGesture()
+            .onChanged { viewModel.input.didChangeImageOffset.send($0.translation) }
+            .onEnded{ viewModel.input.didEndImageOffset.send($0.translation) }
     }
 }
