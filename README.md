@@ -46,21 +46,6 @@ $ git clone https://github.com/crane-hiromu/PadOSDC_Japan_App PadOSDC.swiftpm
 
 ## 2. Setup
 
-Install [Homebrew](https://brew.sh/) if needed.
-
-```bash
-$ /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-```
-
-Install [LicensePlist](https://github.com/mono0926/LicensePlist) and [SwiftGen](https://github.com/SwiftGen/SwiftGen) with [Homebrew](https://brew.sh/).
-
-```bash
-$ brew install mono0926/license-plist/license-plist
-$ brew install swiftgen
-```
-
-or 
-
 ```bash
 $ make install
 ```
@@ -78,8 +63,6 @@ Generate [SwiftGen](https://github.com/SwiftGen/SwiftGen) file.
 ```bash
 $ make asset
 ```
-
-
 
 <br>
 
