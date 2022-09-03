@@ -24,13 +24,13 @@ struct MapView: View {
 // MARK: - Private
 private extension MapView {
     
-    var magnificationGesture: MagnificationGesture {
+    var magnificationGesture: some Gesture {
         MagnificationGesture()
             .onChanged { viewModel.input.didChangeImageMagnification.send($0) }
             .onEnded { viewModel.input.didEndImageMagnification.send($0) }
     }
     
-    var dragGesture: DragGesture {
+    var dragGesture: some Gesture {
         DragGesture()
             .onChanged { viewModel.input.didChangeImageOffset.send($0.translation) }
             .onEnded{ viewModel.input.didEndImageOffset.send($0.translation) }
