@@ -109,8 +109,8 @@ private extension MapViewModel {
             .didChangeImageOffset
             .map {
                 CGSize(
-                    width: binding.initialOffset.width + $0.width,
-                    height: binding.initialOffset.height + $0.height
+                    width: binding.initialOffset.width + $0.width / binding.scale,
+                    height: binding.initialOffset.height + $0.height / binding.scale
                 )
             }
             .assign(to: \.offset, on: binding)
