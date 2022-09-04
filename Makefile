@@ -1,7 +1,3 @@
-PRODUCT_NAME := PadOSDC
-TOOLS_PACKAGE_PATH := Tools/${PRODUCT_NAME}Tools
-TOOLS_PATH := ${TOOLS_PACKAGE_PATH}/.build/release
-
 help:
 	@echo "Please use 'make <target>' where <target> is one of"
 	@echo "    install                        to install all dependencies"
@@ -18,25 +14,19 @@ install: install_licence_plist install_swiftgen
 # LicensePlist
 
 install_licence_plist:
-	$(MAKE) build-tool TOOL_NAME=license-plist
+	brew install mono0926/license-plist/license-plist
 
 license:
-	${TOOLS_PATH}/license-plist --output-path ./App/Resources/License
+	license-plist --output-path ./App/Resources/License
 
 # SwiftGen
 
 install_swiftgen:
-	$(MAKE) build-tool TOOL_NAME=swiftgen
+	brew install swiftgen
 
 asset:
-	${TOOLS_PATH}/swiftgen
-
-# SwiftPM
-
-build-tool:
-	swift build -c release --package-path ${TOOLS_PACKAGE_PATH} --product ${TOOL_NAME}
+	swiftgen
 
 # Git
-
 git_rm:
 	git rm -r --cached .
