@@ -2,9 +2,6 @@
 #
 # gitignore contributors: remember to update Global/Xcode.gitignore, Objective-C.gitignore & Swift.gitignore
 
-## SPM resolved
-Package.resolved
-
 ## User settings
 xcuserdata/
 
@@ -39,11 +36,9 @@ playground.xcworkspace
 
 # Swift Package Manager
 #
-# Add this line if you want to avoid checking in source code from Swift Package Manager dependencies.
-# Packages/
-# Package.pins
-# Package.resolved
-# *.xcodeproj
+# Swift Playground 4.1 でアプリをクローンした際に、クラッシュするため、一旦リポジトリにも含めておく
+Package.resolved
+
 #
 # Xcode automatically generates this directory with a .xcworkspacedata file and xcuserdata
 # hence it is not needed unless you have added a package configuration file to your project
