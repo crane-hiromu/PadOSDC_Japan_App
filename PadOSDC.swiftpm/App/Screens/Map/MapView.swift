@@ -5,15 +5,20 @@ struct MapView: View {
     @ObservedObject var viewModel: MapViewModel
     
     var body: some View {
-        VStack {
-            mapUniversityImage
-            mapFloorImage
+        ZStack {
+            Color(uiColor: .systemBackground)
+            
+            VStack {
+                mapUniversityImage
+                mapFloorImage
+            }
+            .frame(maxWidth: 672, alignment: .center) // iPad readable width
+            .offset(viewModel.binding.offset)
+            .scaleEffect(viewModel.binding.scale)
+            .gesture(SimultaneousGesture(magnificationGesture, dragGesture))
         }
+        .clipped()
         .onDisappear { viewModel.input.didDisappear.send(()) }
-        .frame(maxWidth: 672, alignment: .center) // iPad readable width
-        .offset(viewModel.binding.offset)
-        .scaleEffect(viewModel.binding.scale)
-        .gesture(SimultaneousGesture(magnificationGesture, dragGesture))
         .navigationBarTitle(L10n.infoTypeMap, displayMode: .inline)
     }
 }
