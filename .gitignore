@@ -42,7 +42,7 @@ playground.xcworkspace
 #
 # Xcode automatically generates this directory with a .xcworkspacedata file and xcuserdata
 # hence it is not needed unless you have added a package configuration file to your project
-# .swiftpm
+.swiftpm
 
 .build/
 
@@ -88,11 +88,11 @@ fastlane/test_output
 iOSInjectionProject/
 
 # SwiftGen
-App/Resources/SwiftGen/Assets.swift
-App/Resources/SwiftGen/LocalizedStrings.swift
-App/Resources/SwiftGen/Plist.swift
+PadOSDC.swiftpm/App/Resources/SwiftGen/Assets.swift
+PadOSDC.swiftpm/App/Resources/SwiftGen/LocalizedStrings.swift
+PadOSDC.swiftpm/App/Resources/SwiftGen/Plist.swift
 
 # LicensePlist
-App/Resources/License/com.mono0926.LicensePlist
-App/Resources/License/com.mono0926.LicensePlist.latest_result.txt
-App/Resources/License/com.mono0926.LicensePlist.plist
+PadOSDC.swiftpm/App/Resources/License/com.mono0926.LicensePlist
+PadOSDC.swiftpm/App/Resources/License/com.mono0926.LicensePlist.latest_result.txt
+PadOSDC.swiftpm/App/Resources/License/com.mono0926.LicensePlist.plist
