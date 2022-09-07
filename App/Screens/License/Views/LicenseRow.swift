@@ -8,7 +8,16 @@ struct LicenseRow<Destination: View>: View {
     var body: some View {
         NavigationLink(
             destination: destination,
-            label: { Text(name)  }
+            label: { label }
         )
     }
 }
+
+// MARK: - Private 
+private extension LicenseRow {
+    
+    var label: some View {
+        Text(name)
+            .foregroundColor(.primary)
+    }
+} 
