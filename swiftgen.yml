@@ -3,15 +3,15 @@
 xcassets:
   inputs: Assets.xcassets
   outputs:
-    templatePath: App/Resources/SwiftGen/xcassets-swift5-revision.stencil
+    templatePath: App/Resources/SwiftGen/Stencil/xcassets-swift5-revision.stencil
     output: App/Resources/SwiftGen/Assets.swift
 strings:
   inputs: App/Resources/Localizebles/en.lproj
   outputs:
-    templatePath: App/Resources/SwiftGen/strings-structured-swift5-revision.stencil
+    templatePath: App/Resources/SwiftGen/Stencil/strings-structured-swift5-revision.stencil
     output: App/Resources/SwiftGen/LocalizedStrings.swift
 plist:
   inputs: App/Resources/License
   outputs:
-    templatePath: App/Resources/SwiftGen/plist-runtime-swift5-revision.stencil
+    templatePath: App/Resources/SwiftGen/Stencil/plist-runtime-swift5-revision.stencil
     output: App/Resources/SwiftGen/Plist.swift

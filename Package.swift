@@ -19,7 +19,7 @@ let package = Package(
             targets: ["AppModule"],
             bundleIdentifier: "hcrane.padosdc.japan.2022",
             teamIdentifier: "R82WJ5W3TV",
-            displayVersion: "1.4",
+            displayVersion: "1.4.1",
             bundleVersion: "10",
             appIcon: .asset("AppIcon"),
             accentColor: .presetColor(.blue),
@@ -51,6 +51,14 @@ let package = Package(
                 .product(name: "PlaygroundTester", package: "playgroundtester")
             ],
             path: ".",
+            resources: [
+                .copy("swiftgen.yml"),
+                .copy("README.md"),
+                .copy("Makefile"),
+                .copy("App.plist"),
+                .copy("App/Resources/License"),
+                .copy("App/Resources/SwiftGen/Stencil")
+            ],
             swiftSettings: [
                 .unsafeFlags(["-Xfrontend", "-warn-long-function-bodies=100"], .when(configuration: .debug)),
                 .unsafeFlags(["-Xfrontend", "-warn-long-expression-type-checking=100"], .when(configuration: .debug)),
