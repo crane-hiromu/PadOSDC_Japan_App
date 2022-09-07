@@ -30,11 +30,11 @@ extension LicenseViewModel {
     }
     
     final class Output: ObservableObject {
-        let models: [String] = [
-            PlistFiles.CombineStorable.name,
-            PlistFiles.PlaygroundTester.name,
-            PlistFiles.SwiftUIWorkaround.name,
-            PlistFiles.ComMono0926LicensePlist.name,
+        // fixme: update stencil
+        let models: [LicenseModel] = [
+            LicenseModel(name: PlistFiles.CombineStorable.name, plist: PlistFiles.CombineStorable.preferenceSpecifiers),
+            LicenseModel(name: PlistFiles.PlaygroundTester.name, plist: PlistFiles.PlaygroundTester.preferenceSpecifiers),
+            LicenseModel(name: PlistFiles.SwiftUIWorkaround.name, plist: PlistFiles.SwiftUIWorkaround.preferenceSpecifiers)
         ] 
     }
     
@@ -48,6 +48,12 @@ extension LicenseViewModel {
 private extension LicenseViewModel {
     
     func bind(input: Input, output: Output, binding: Binding) {
-        // NOP
+        // 親孫でのbindを可能にする
+        binding.objectWillChange
+            .sink { [weak self] _ in
+                self?.objectWillChange.send()
+            }
+            .store(in: &cancellables)
     }
 }
+
