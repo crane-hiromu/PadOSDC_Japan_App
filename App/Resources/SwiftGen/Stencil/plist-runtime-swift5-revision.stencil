@@ -17,6 +17,7 @@ import Foundation
   {% if document.metadata.type == "Array" %}
   {{accessModifier}} static let items: {{rootType}} = arrayFromPlist(at: "{% call transformPath file.path %}")
   {% elif document.metadata.type == "Dictionary" %}
+  static let name = "{% call transformPath file.path %}"
   private static let _document = PlistDocument(path: "{% call transformPath file.path %}")
   {% for key,value in document.metadata.properties %}
   {{accessModifier}} {%+ call propertyBlock key value %}

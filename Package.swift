@@ -51,13 +51,15 @@ let package = Package(
                 .product(name: "PlaygroundTester", package: "playgroundtester")
             ],
             path: ".",
+            exclude: [
+                "swiftgen.yml",
+                "README.md",
+                "Makefile",
+                "App/Resources/SwiftGen/Stencil"
+            ],
             resources: [
-                .copy("swiftgen.yml"),
-                .copy("README.md"),
-                .copy("Makefile"),
-                .copy("App.plist"),
-                .copy("App/Resources/License"),
-                .copy("App/Resources/SwiftGen/Stencil")
+                .process("App/Resources/License"),
+                .copy("App.plist")
             ],
             swiftSettings: [
                 .unsafeFlags(["-Xfrontend", "-warn-long-function-bodies=100"], .when(configuration: .debug)),

@@ -83,10 +83,10 @@ private extension InfoView {
                 type: .privacyPolicy,
                 action: { viewModel.input.didTapButton.send(.privacyPolicy) }
             )
-//            InfoNavigationRow(
-//                type: .license,
-//                destination: licenseView
-//            )
+            InfoNavigationRow(
+                type: .license,
+                destination: licenseView
+            )
         }
     }
     

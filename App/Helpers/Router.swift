@@ -78,7 +78,7 @@ enum Router: RouterProtocol {
     }
     
     static func routeToLicense() -> LicenseView {
-        .init()
+        .init(viewModel: .init())
     }
     
     // MARK: Web
