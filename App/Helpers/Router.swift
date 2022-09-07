@@ -12,6 +12,7 @@ protocol RouterProtocol {
     static func routeToSessionDetail(with model: SessionModel) -> SessionDetailView
     static func routeToUserList(with models: [User]) -> UserListView
     static func routeToLicense() -> LicenseView
+    static func routeToLicenseDetail(with model: LicenseModel) -> LicenseDetailView
     // Web
     static func routeToWeb(with url: URL)
 }
@@ -78,7 +79,15 @@ enum Router: RouterProtocol {
     }
     
     static func routeToLicense() -> LicenseView {
-        .init()
+        .init(viewModel: .init(), environment: .init())
+    }
+    
+    static func routeToLicenseDetail(with model: LicenseModel) -> LicenseDetailView {
+        .init(
+            viewModel: .init(
+                output: .init(model: model)
+            )
+        )
     }
     
     // MARK: Web
