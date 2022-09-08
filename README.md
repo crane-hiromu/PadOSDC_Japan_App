@@ -47,6 +47,8 @@ Install [Swift Playgrounds](https://www.apple.com/jp/swift/playgrounds/) and ope
 $ git clone https://github.com/crane-hiromu/PadOSDC_Japan_App PadOSDC.swiftpm
 ```
 
+Don't forget `.swiftpm` at the end!
+
 ## 2. Setup
 
 Install [Homebrew](https://brew.sh/) if needed.
