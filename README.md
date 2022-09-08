@@ -51,6 +51,13 @@ Don't forget `.swiftpm` at the end!
 
 ## 2. Setup
 
+Navigate to the project directory.
+
+```bash
+$ cd PadOSDC.swiftpm
+```
+
+
 Install [Homebrew](https://brew.sh/) if needed.
 
 ```bash
