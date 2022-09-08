@@ -19,7 +19,7 @@ let package = Package(
             targets: ["AppModule"],
             bundleIdentifier: "hcrane.padosdc.japan.2022",
             teamIdentifier: "R82WJ5W3TV",
-            displayVersion: "1.5",
+            displayVersion: "1.4.1",
             bundleVersion: "10",
             appIcon: .asset("AppIcon"),
             accentColor: .presetColor(.blue),
@@ -51,7 +51,12 @@ let package = Package(
                 .product(name: "PlaygroundTester", package: "playgroundtester")
             ],
             path: ".",
-            exclude: ["swiftgen.yml", "README.md", "Makefile", "App/Resources/SwiftGen/Stencil"],
+            exclude: [
+                "swiftgen.yml",
+                "README.md",
+                "Makefile",
+                "App/Resources/SwiftGen/Stencil"
+            ],
             resources: [
                 .process("App/Resources/License"),
                 .copy("App.plist")
