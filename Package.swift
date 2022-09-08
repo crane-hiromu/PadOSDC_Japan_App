@@ -34,7 +34,7 @@ let package = Package(
                 .portraitUpsideDown(.when(deviceFamilies: [.pad]))
             ],
             appCategory: .reference,
-            additionalInfoPlistContentFilePath: "App.plist"
+            additionalInfoPlistContentFilePath: "Resources/Plist/App.plist"
         )
     ],
     dependencies: [
@@ -51,15 +51,9 @@ let package = Package(
                 .product(name: "PlaygroundTester", package: "playgroundtester")
             ],
             path: ".",
-            exclude: [
-                "swiftgen.yml",
-                "README.md",
-                "Makefile",
-                "App/Resources/SwiftGen/Stencil"
-            ],
+            exclude: ["swiftgen.yml", "README.md", "Makefile", "Resources/Stencil"],
             resources: [
-                .process("App/Resources/License"),
-                .copy("App.plist")
+                .process("Resources")
             ],
             swiftSettings: [
                 .unsafeFlags(["-Xfrontend", "-warn-long-function-bodies=100"], .when(configuration: .debug)),

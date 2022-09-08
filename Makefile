@@ -17,7 +17,7 @@ install_licence_plist:
 	brew install mono0926/license-plist/license-plist
 
 license:
-	license-plist --output-path ./App/Resources/License
+	license-plist --output-path ./Resources/Lisence
 
 # SwiftGen
 
