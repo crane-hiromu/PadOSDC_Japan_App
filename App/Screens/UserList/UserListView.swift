@@ -8,7 +8,7 @@ struct UserListView: View {
     var body: some View {
         ScrollView { userList }
             .frame(maxWidth: .infinity)
-            .navigationBarTitle(viewModel.output.title, displayMode: .inline)
+            .navigationBarTitle(" ", displayMode: .inline)
             .onReceive(viewModel.output.openSns) {
                 environment.router.routeToWeb(with: $0)
             }

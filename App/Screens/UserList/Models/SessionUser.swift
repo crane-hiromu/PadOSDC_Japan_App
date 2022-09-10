@@ -31,8 +31,14 @@ extension SessionUser: Hashable {
     }
 }
 
+// MARK: - Common Protocol
+protocol UserType {
+    var name: String { get }
+    var twAccount: String? { get }
+}
+
 // MARK: - Type
-enum SessionUserType: String, CaseIterable {
+enum SessionUserType: String, CaseIterable, UserType {
     case user1, user2, user3, user4, user5, 
          user6, user7, user8, user9, user10,
          user11, user12, user13, user14, user15, 
@@ -53,8 +59,7 @@ enum SessionUserType: String, CaseIterable {
          user86, user87,         user89, user90,
          user91, user92, user93, user94, user95
     
-    
-    private var name: String {
+    var name: String {
         switch self {
         case .user1: return "かっくん"
         case .user2: return "あつや"
@@ -152,7 +157,7 @@ enum SessionUserType: String, CaseIterable {
         }
     }
     
-    private var twAccount: String? {
+    var twAccount: String? {
         switch self {
         case .user1: return "fromkk"
         case .user2: return "n_atmark"

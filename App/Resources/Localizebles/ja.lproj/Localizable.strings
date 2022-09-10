@@ -33,5 +33,11 @@
 "UserList_Nav_Title_Staff" = "スタッフ";
 "UserList_Nav_Title_Speaker" = "スピーカー";
 
+// MARK: StaffType
+"StaffType_Name_Core" = "コア";
+"StaffType_Name_Temporary" = "当日";
+"StaffType_Name_Network" = "ネットワーク";
+"StaffType_Title_Staff" = "スタッフ";
+
 // MARK: - Views
 "EmptyView_Label_Text" = "該当するセッションが見つかりませんでした。";

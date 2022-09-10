@@ -13,6 +13,7 @@ protocol RouterProtocol {
     static func routeToUserList(with models: [User]) -> UserListView
     static func routeToLicense() -> LicenseView
     static func routeToLicenseDetail(with model: LicenseModel) -> LicenseDetailView
+    static func routeToStaffType() -> StaffTypeView
     // Web
     static func routeToWeb(with url: URL)
 }
@@ -88,6 +89,10 @@ enum Router: RouterProtocol {
                 output: .init(model: model)
             )
         )
+    }
+    
+    static func routeToStaffType() -> StaffTypeView {
+        .init(environment: .init())
     }
     
     // MARK: Web
