@@ -18,7 +18,7 @@ enum SessionDay0Type: Int, CaseIterable, SessionType {
     case t1620_1635,
          t1640_1700, 
          t1715_1755,
-         t1810_1830, 
+         t1810_1830,
          t1845_1905, 
          t1920_1940,
          t1950_2000
@@ -138,8 +138,8 @@ enum SessionDay0Type: Int, CaseIterable, SessionType {
                       user: SessionUserType.user19.user,
                       isSponsor: true),
                 .init(track: .d,
-                      title: "2022年の新規アプリ開発で採用した技術",
-                      description: "メドピア株式会社では、2022年2月にアプリ slis[スリス] をリリースしました。\n\n0からの新規開発ということで既存関連の制約などはなく、Swift Package Manager、Swift Concurrency、Xcode Cloud など新しいものを取り入れて開発しています。\n\nこのセッションではこれら採用した技術を中心に今回の新規開発について紹介します。",
+                      title: "医師がつくったテックカンパニー メドピアを紹介します",
+                      description: "メドピア VPoEから会社の紹介をさせてください！",
                       user: SessionUserType.user20.user,
                       isSponsor: true),
                 .init(track: .e,
@@ -171,6 +171,7 @@ enum SessionDay1Type: Int, CaseIterable, SessionType {
          t1555_1640, 
          t1650_1710, 
          t1720_1730
+//         unconference
     
     var index: Int { 
         rawValue
@@ -188,6 +189,7 @@ enum SessionDay1Type: Int, CaseIterable, SessionType {
         case .t1555_1640: return "15:55~16:40"
         case .t1650_1710: return "16:50~17:10" 
         case .t1720_1730: return "17:20~17:30"
+//        case .unconference: return "13:00~14:45"
         }
     }
     var models: [SessionModel] { 
@@ -359,11 +361,6 @@ enum SessionDay1Type: Int, CaseIterable, SessionType {
                       description: "AirインボイスのiOS開発チームは、AirインボイスiOSアプリをSwiftUIで開発しています。\n\nWWDC2022でiOS16が発表され、iOS14以上をサポートとすることができるアプリが増えたことで、本格的にSwiftUIの導入を検討している方も多いと思います。しかし、最新のOSのみをサポートするのではなく、iOS14系や15系もサポートするとなると、そこには数多くのハマりどころが存在します。また、要件によってはSwiftUIでの実現に工夫が必要なポイントも数多く存在します。\n\n本トークでは、iOS14以上を対象としたAirインボイスiOSアプリにおいてSwiftUIを用いてさまざまな要件を実現するにあたり、はまったポイントやそれらをどのように回避したかを共有します。",
                       user: SessionUserType.user52.user,
                       isSponsor: true),
-                .init(track: .d,
-                      title: "実例で学ぶ GraphQL Persisted Query",
-                      description: "スタディサプリ中学講座のクライアント・サーバ間はGraphQLを用いた通信を行っています。こちらのセッションでは、GraphQLの機能の一つであるPersisted Queryについてお話しします。\n\nPersisted Queryの主な利点としてはQueryのリクエストサイズを減らすことが挙げられますが、その利点に加えて、GraphQLを安全に運用するための取り組みや困りごとなど、私たちのチームの実例を交えてPersisted Queryの魅力についてお話ししたいと思います。\n\nGraphQLも誕生から10年が経過し、iOSでも導入されているプロダクトも増えているのでは無いかと思います。既にGraphQLを用いたプロダクトを運用されている方はもちろん、いざGraphQLを利用することになった時にも少しでも馴染みあるものになれば幸いです。",
-                      user: SessionUserType.user53.user,
-                      isSponsor: true),
                 .init(track: .e,
                       title: "レガシーなプロダクトからドメイン層を再設計する",
                       description: "タウンワークiOSアプリは、10年以上開発が続いています。度重なる機能追加や仕様変更によって、プロダクトは徐々に複雑に、レガシーになっていきました。そのため、Clean Architectureの導入によるレガシーからの脱却を図りました。\n\nClean Architectureに則りドメイン層を分離してみましたが、いくつか不明な点があり、技術顧問の和田卓人氏に相談したところ、そもそも我々のモデリングにたくさんの改善点があることがわかりました。\n\nそこから、チームの中で既存コードからドメインモデルを発掘し、再設計する旅が始まりました。\n\nこのセッションでは、ドメイン層が何をするかよくわからない、設計に困っている人に向けて、アプリにとってのドメインとは何か、どのように見つけ出し設計すればよいか、そして評価の方法について私たちの経験を交えてお話します。",
@@ -375,6 +372,12 @@ enum SessionDay1Type: Int, CaseIterable, SessionType {
                 .init(track: .a,
                       title: "Today's Update")
             ]
+//        case .unconference:
+//            return [
+//                .init(track: .e,
+//                      title: "スタートアップへの挑戦",
+//                      description: "理工学術院 教授 朝日透 ほか5名\n\n13:00-13:20 Greater Tokyo Innovation Ecosystem (GTIE)の紹介　理工学術院　教授 朝日透\n13:20-13:30 Urth CEO 田中大貴\n13:30-13:40 amulapo CEO 田中克明\n13:40-13:50 レイワセダ CEO 畠山祥\n13:50-14:05 休憩\n14:05-14:15 Ubiq CEO 日野真幸\n14:15-14:25 StatHack CEO 松葉亮人\n14:25-14:35 TBD\n14:35-14:45 TBD")
+//            ]
         }
     }
     
@@ -562,14 +565,14 @@ enum SessionDay2Type: Int, CaseIterable, SessionType {
         case .t1505_1545: 
             return [
                 .init(track: .a,
-                      title: "JailBreakと向き合おう",
-                      description: "昔はiOSのJailBreakはよく行われていましたが、最近はiOSのアップデートによりJailBreakは少なくなったような印象です。\n\nとはいえ何もしないのではなく、やれることはやっておいたほうがいいと思います。\n\n本LTでは、JailBreakはどのような手段があるのか、アプリはどのような対策ができるのか、自分なりに調べた結果を共有したいと思います。",
-                      user: SessionUserType.user83.user,
-                      isLT: true),
-                .init(track: .a,
                       title: "CarPlay向けのアプリって開発できるの？ ",
                       description: "CarPlayを利用したことはありますでしょうか。\n\nCarPlayはiPhoneがあるだけで登録した地点までのナビをする、好きな音楽を再生するなど、車をすぐに自分の空間にすることができます。\n\n便利なCarPlayですが、ハードルが高く実際に触ってみたりアプリを作る機会は少ないのではないでしょうか。ですが最近はiPhoneを繋いで動作するシミュレータや、安価なカーオーディオがあったりします。\n\nまたUIもTemplatesが用意されていたり試すのは意外と簡単だったりします。\n\n本LTでは、CarPlayの開発に必要な知識を振り返りつつ、簡単なアプリを動かせたらと思います。\n\n[ゴール]\n・CarPlayに興味が湧いて触ってみようかな、という気になる\n\n[アジェンダ]（検討中）\n・CarPlayとは\n・開発するために・・\n・シミュレータを触ってみよう\n・簡単なアプリを作ってみよう",
                       user: SessionUserType.user84.user,
+                      isLT: true),
+                .init(track: .a,
+                      title: "JailBreakと向き合おう",
+                      description: "昔はiOSのJailBreakはよく行われていましたが、最近はiOSのアップデートによりJailBreakは少なくなったような印象です。\n\nとはいえ何もしないのではなく、やれることはやっておいたほうがいいと思います。\n\n本LTでは、JailBreakはどのような手段があるのか、アプリはどのような対策ができるのか、自分なりに調べた結果を共有したいと思います。",
+                      user: SessionUserType.user83.user,
                       isLT: true),
                 .init(track: .a,
                       title: "鉄道アプリを支えるテクノロジー",
@@ -636,6 +639,11 @@ enum SessionDay2Type: Int, CaseIterable, SessionType {
                       title: "音声プラットフォーム「Voicy」のiOS開発について ",
                       description: "日本最大級の音声プラットフォームを運営するVoicyでは、リスナー向けアプリの「Voicy」とパーソナリティ向けアプリの「VoicyStudio」の2種類のアプリがあり、日々開発を進めています。\n\nさまざまな改善を重ねつつ、生放送、アプリ内課金などの新規機能をリリースしてきました。\n\n本セッションでは、改善を重ねつつ新規機能をリリースしている2つのアプリを開発しているVoicyの開発体制、プロセスについてご紹介します。",
                       user: SessionUserType.user95.user,
+                      isSponsor: true),
+                .init(track: .e,
+                      title: "Parallel testing of iOS UI on a large scale",
+                      description: "BitriseでAppleシリコンベースの仮想化CI/CD環境とビルドパイプラインの提供が開始され、より高速なiOSビルド及び並列UIテストが可能になりました。\nそれに加え、ビルドとテストパフォーマンス/安定性のデータを可視化するInsightsPROを利用すれば、よりエラーの少ない、安全なiOSアプリ開発ワークフローが実現できます。\n\n本トークでは、Bitriseの機能を活用して大規模なiOS UI並列テストの実現方法などCI/CDプロセスの高速化する方法を紹介します。\n\n・Appleシリコンベースの仮想化CI/CD環境 (M1 stack)によるビルド高速化\n・ビルドパイプラインの概要、及び導入によるiOS UI並列テストの実現方法\n・Insights PROによるアプリ開発ワークフローの改善方法\n\n本トークは英語で行う予定です。",
+                      user: SessionUserType.user96.user,
                       isSponsor: true)
             ]
         case .t1720_1800:
