@@ -57,7 +57,8 @@ enum SessionUserType: String, CaseIterable, UserType {
          user76, user77, user78, user79, user80,
          user81, user82, user83, user84, user85,
          user86, user87,         user89, user90,
-         user91, user92, user93, user94, user95
+         user91, user92, user93, user94, user95, 
+         user96
     
     var name: String {
         switch self {
@@ -80,7 +81,7 @@ enum SessionUserType: String, CaseIterable, UserType {
         case .user17: return "日向強"
         case .user18: return "matsue"
         case .user19: return "アンドレカンドレ"
-        case .user20: return "新井 美香"
+        case .user20: return "平川弘通"
         case .user21: return "倉井 龍太郎"
         case .user22: return "岸川克己"
         case .user23: return "shiz"
@@ -154,6 +155,7 @@ enum SessionUserType: String, CaseIterable, UserType {
         case .user93: return "AkkeyLab"
         case .user94: return "くどかい"
         case .user95: return "立花和也"
+        case .user96: return "Tzuhan Hsu"
         }
     }
     
@@ -178,7 +180,7 @@ enum SessionUserType: String, CaseIterable, UserType {
         case .user17: return "coffeegyunyu"
         case .user18: return "base_front"
         case .user19: return "andrekandore"
-        case .user20: return "satsukiasa"
+        case .user20: return "arihh"
         case .user21: return "kurain"
         case .user22: return "k_katsumi"
         case .user23: return "stzn3"
@@ -252,6 +254,7 @@ enum SessionUserType: String, CaseIterable, UserType {
         case .user93: return "AkkeyLab"
         case .user94: return "kudokai00"
         case .user95: return "kzytcbn315"
+        case .user96: return "BitriseJ"
         }
     }
     
