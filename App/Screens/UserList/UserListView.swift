@@ -37,3 +37,29 @@ private extension UserListView {
         .padding(.all, 16)
     }
 }
+
+// TODO move
+enum UserListSection {
+    case core, temporary, network
+    
+    private var name: String {
+        switch self {
+        case .core: return "コア"
+        case .temporary: return "当日"
+        case .network: return "ネットワーク"
+        }
+    }
+    
+    var title: String { "\(name)スタッフ" }
+}
+
+
+//shimastripe
+//
+//sugiken
+//
+//Zucchi
+//
+//しもとり
+//
+//とある鶴

@@ -100,7 +100,7 @@ private extension InfoView {
     
     var staffListView: UserListView {
         environment.router.routeToUserList(
-            with: StaffUserType.allCases.map(\.user)
+            with: CoreStaffUserType.allCases.map(\.user)
         )
     }
     
