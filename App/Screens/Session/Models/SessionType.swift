@@ -412,7 +412,7 @@ enum SessionDay2Type: Int, CaseIterable, SessionType {
         case .t1430_1450: return "14:30~14:50"
         case .t1505_1545: return "15:05~15:45"
         case .t1555_1640: return "15:55~16:40"
-        case .t1650_1710: return "16;50~17:10"
+        case .t1650_1710: return "16:50~17:10"
         case .t1720_1800: return "17:20~18:00"
         }
     }

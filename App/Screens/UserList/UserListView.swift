@@ -8,7 +8,7 @@ struct UserListView: View {
     var body: some View {
         ScrollView { userList }
             .frame(maxWidth: .infinity)
-            .navigationBarTitle(viewModel.output.title, displayMode: .inline)
+            .navigationBarTitle(" ", displayMode: .inline)
             .onReceive(viewModel.output.openSns) {
                 environment.router.routeToWeb(with: $0)
             }
@@ -37,29 +37,3 @@ private extension UserListView {
         .padding(.all, 16)
     }
 }
-
-// TODO move
-enum UserListSection {
-    case core, temporary, network
-    
-    private var name: String {
-        switch self {
-        case .core: return "コア"
-        case .temporary: return "当日"
-        case .network: return "ネットワーク"
-        }
-    }
-    
-    var title: String { "\(name)スタッフ" }
-}
-
-
-//shimastripe
-//
-//sugiken
-//
-//Zucchi
-//
-//しもとり
-//
-//とある鶴

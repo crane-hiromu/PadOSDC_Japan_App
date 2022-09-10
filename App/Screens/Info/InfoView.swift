@@ -65,7 +65,7 @@ private extension InfoView {
             )
             InfoNavigationRow(
                 type: .staff,
-                destination: staffListView
+                destination: staffTypeView
             )
             InfoNavigationRow(
                 type: .speaker,
@@ -98,10 +98,8 @@ private extension InfoView {
         environment.router.routeToMap()
     }
     
-    var staffListView: UserListView {
-        environment.router.routeToUserList(
-            with: CoreStaffUserType.allCases.map(\.user)
-        )
+    var staffTypeView: StaffTypeView {
+        environment.router.routeToStaffType()
     }
     
     var speakerListView: UserListView {

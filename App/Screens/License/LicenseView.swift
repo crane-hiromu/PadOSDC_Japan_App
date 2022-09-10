@@ -7,7 +7,7 @@ struct LicenseView: View {
 
     var body: some View {
         List(viewModel.output.models, id: \.id) {
-            LicenseRow(
+            NavigationRow(
                 name: $0.name,
                 destination: environment.router.routeToLicenseDetail(with: $0)
             )

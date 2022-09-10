@@ -1,7 +1,7 @@
 import SwiftUI
 
 // MARK: - Row
-struct LicenseRow<Destination: View>: View {
+struct NavigationRow<Destination: View>: View {
     let name: String
     let destination: Destination
     
@@ -14,7 +14,7 @@ struct LicenseRow<Destination: View>: View {
 }
 
 // MARK: - Private 
-private extension LicenseRow {
+private extension NavigationRow {
     
     var label: some View {
         Text(name)

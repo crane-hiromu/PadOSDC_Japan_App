@@ -29,32 +29,6 @@ final class UserListViewModelTest: TestCase {
         
         AssertExpectations([expectation], timeout: 1)
     }
-    
-    func testTitle() {
-        // user is StaffUser
-        do {
-            let user = StaffUser(name: "")
-            let viewModel = UserListViewModel(output: .init(models: [user]))
-            
-            switch Constants.LanguageType.current {
-            case .en: AssertEqual(viewModel.output.title, other: "Staff")
-            case .ja: AssertEqual(viewModel.output.title, other: "スタッフ")
-            case .none: assertionFailure("non supported")
-            }
-        }
-        
-        // user is SessionUser
-        do {
-            let user = SessionUser(name: "")
-            let viewModel = UserListViewModel(output: .init(models: [user]))
-            
-            switch Constants.LanguageType.current {
-            case .en: AssertEqual(viewModel.output.title, other: "Speaker")
-            case .ja: AssertEqual(viewModel.output.title, other: "スピーカー")
-            case .none: assertionFailure("non supported")
-            }
-        }
-    }
 }
 
 #endif

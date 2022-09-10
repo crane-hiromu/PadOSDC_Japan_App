@@ -33,9 +33,6 @@ extension UserListViewModel {
     final class Output {
         let models: [User]
         let openSns: PassthroughSubject<URL, Never>
-        var title: String {
-            models.first is StaffUser ? L10n.userListNavTitleStaff : L10n.userListNavTitleSpeaker
-        }
         
         init(
             models: [User], 
