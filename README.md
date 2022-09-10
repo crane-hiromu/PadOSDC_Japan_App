@@ -77,6 +77,8 @@ or
 $ make install
 ```
 
+If you can't install licenseplist, please try `brew install licenseplist`.
+
 ## 3. Generate
 
 Generate [LicensePlist](https://github.com/mono0926/LicensePlist) file.
