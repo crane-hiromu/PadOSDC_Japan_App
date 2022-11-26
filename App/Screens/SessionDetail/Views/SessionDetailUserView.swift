@@ -10,10 +10,12 @@ struct SessionDetailUserView: View {
             HStack(spacing: 8) {
                 SessionDetailUserImage(icon: user.icon)
                 SessionDetailUserNameLabel(name: user.name)
-                SessionDetailUserSnsButton(
+                SessionDetailUserTwitterButton(
                     account: user.twAccount,
                     didTap: didTapSns
                 )
+                Spacer().frame(width: 8)
+                SessionDetailUserYoutubeButton()
             }
         }
     }
@@ -50,7 +52,7 @@ private struct SessionDetailUserNameLabel: View {
 }
 
 // MARK: - Button
-private struct SessionDetailUserSnsButton: View {
+private struct SessionDetailUserTwitterButton: View {
     let account: String?
     let didTap: () -> Void
     
@@ -65,6 +67,18 @@ private struct SessionDetailUserSnsButton: View {
                         .font(.headline)
                         .foregroundColor(.cyan)
                 }
+            }
+        }
+    }
+}
+
+private struct SessionDetailUserYoutubeButton: View {
+    var body: some View {
+        Button(action: { print("tap youtube button") }) {
+            HStack(spacing: 8) {
+                Image("logo_youtube")
+                    .resizable()
+                    .frame(width: 20, height: 20)
             }
         }
     }
