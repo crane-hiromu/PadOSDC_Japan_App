@@ -7,6 +7,7 @@ struct SessionModel: Identifiable {
     let title: String
     let description: String?
     let user: SessionUser?
+    let archiveParameter: String?
     let isSponsor: Bool
     let isLT: Bool
     
@@ -14,8 +15,9 @@ struct SessionModel: Identifiable {
         id: UUID = .init(),
         track: TrackType,
         title: String,
-        description: String? = nil, 
+        description: String? = nil,
         user: SessionUser? = nil,
+        archiveParameter: String? = nil,
         isSponsor: Bool = false,
         isLT: Bool = false
     ) {
@@ -24,6 +26,7 @@ struct SessionModel: Identifiable {
         self.title = title
         self.description = description
         self.user = user
+        self.archiveParameter = archiveParameter
         self.isSponsor = isSponsor
         self.isLT = isLT
     }
