@@ -14,8 +14,6 @@ struct SessionDetailUserView: View {
                     account: user.twAccount,
                     didTap: didTapSns
                 )
-                Spacer().frame(width: 8)
-                SessionDetailUserYoutubeButton()
             }
         }
     }
@@ -67,18 +65,6 @@ private struct SessionDetailUserTwitterButton: View {
                         .font(.headline)
                         .foregroundColor(.cyan)
                 }
-            }
-        }
-    }
-}
-
-private struct SessionDetailUserYoutubeButton: View {
-    var body: some View {
-        Button(action: { print("tap youtube button") }) {
-            HStack(spacing: 8) {
-                Image("logo_youtube")
-                    .resizable()
-                    .frame(width: 20, height: 20)
             }
         }
     }

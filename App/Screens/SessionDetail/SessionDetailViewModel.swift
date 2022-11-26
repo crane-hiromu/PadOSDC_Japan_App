@@ -24,13 +24,16 @@ extension SessionDetailViewModel {
     
     final class Input {
         let didTapSns: PassthroughSubject<Void, Never>
+        let didTapYoutube: PassthroughSubject<Void, Never>
         let didTapClose: PassthroughSubject<Void, Never>
         
         init(
             didTapSns: PassthroughSubject<Void, Never> = .init(),
+            didTapYoutube: PassthroughSubject<Void, Never> = .init(),
             didTapClose: PassthroughSubject<Void, Never> = .init()
         ) {
             self.didTapSns = didTapSns
+            self.didTapYoutube = didTapYoutube
             self.didTapClose = didTapClose
         }
     }
@@ -41,7 +44,7 @@ extension SessionDetailViewModel {
         let dismissView: PassthroughSubject<Void, Never>
         
         init(
-            model: SessionModel, 
+            model: SessionModel,
             openSns: PassthroughSubject<URL, Never> = .init(),
             dismissView: PassthroughSubject<Void, Never> = .init()
         ) {
@@ -60,6 +63,13 @@ private extension SessionDetailViewModel {
             .didTapSns
             .compactMap { output.model.user?.twAccount }
             .compactMap { URL(string: "\(Constants.twitterBaseUrl)/\($0)") }
+            .sink { output.openSns.send($0) }
+            .store(in: &cancellables)
+        
+        input
+            .didTapYoutube
+            .compactMap { output.model.archiveParameter }
+            .compactMap { URL(string: "\(Constants.youtubeBaseUrl)\($0)") }
             .sink { output.openSns.send($0) }
             .store(in: &cancellables)
         

@@ -26,10 +26,17 @@ private extension SessionDetailView {
             SessionDetailNameLabel(
                 text: viewModel.output.model.title
             )
-            SessionDetailUserView(
-                user: viewModel.output.model.user,
-                didTapSns: { viewModel.input.didTapSns.send(()) }
-            )
+            HStack(spacing: 16) {
+                SessionDetailUserView(
+                    user: viewModel.output.model.user,
+                    didTapSns: { viewModel.input.didTapSns.send(()) }
+                )
+                if viewModel.output.model.user != nil {
+                    SessionDetailUserYoutubeButton(
+                        didTap: { viewModel.input.didTapYoutube.send(()) }
+                    )
+                }
+            }
             SessionDetailDescriptionLabel(
                 text: viewModel.output.model.description
             )
@@ -38,7 +45,7 @@ private extension SessionDetailView {
     }
     
     var closeToolbarContent: CloseToolbarContent {
-        .init { 
+        .init {
             viewModel.input.didTapClose.send(())
         }
     }
@@ -66,6 +73,21 @@ private struct SessionDetailDescriptionLabel: View {
                 .padding(.all, 16)
                 .background(Color.secondarySystemBackground)
                 .cornerRadius(12)
+        }
+    }
+}
+
+// MARK: - Button
+private struct SessionDetailUserYoutubeButton: View {
+    let didTap: () -> Void
+    
+    var body: some View {
+        Button(action: didTap) {
+            HStack(spacing: 8) {
+                Image("logo_youtube")
+                    .resizable()
+                    .frame(width: 25, height: 25)
+            }
         }
     }
 }
