@@ -31,11 +31,10 @@ private extension SessionDetailView {
                     user: viewModel.output.model.user,
                     didTapSns: { viewModel.input.didTapSns.send(()) }
                 )
-                if viewModel.output.model.user != nil {
-                    SessionDetailUserYoutubeButton(
-                        didTap: { viewModel.input.didTapYoutube.send(()) }
-                    )
-                }
+                SessionDetailUserYoutubeButton(
+                    user: viewModel.output.model.user,
+                    didTap: { viewModel.input.didTapYoutube.send(()) }
+                )
             }
             SessionDetailDescriptionLabel(
                 text: viewModel.output.model.description
@@ -79,14 +78,17 @@ private struct SessionDetailDescriptionLabel: View {
 
 // MARK: - Button
 private struct SessionDetailUserYoutubeButton: View {
+    let user: SessionUser?
     let didTap: () -> Void
     
     var body: some View {
-        Button(action: didTap) {
-            HStack(spacing: 8) {
-                Image("logo_youtube")
-                    .resizable()
-                    .frame(width: 28.4, height: 20)
+        if let user = user {
+            Button(action: didTap) {
+                HStack(spacing: 8) {
+                    Image("logo_youtube")
+                        .resizable()
+                        .frame(width: 28.4, height: 20)
+                }
             }
         }
     }
