@@ -86,7 +86,7 @@ private struct SessionDetailUserYoutubeButton: View {
             HStack(spacing: 8) {
                 Image("logo_youtube")
                     .resizable()
-                    .frame(width: 25, height: 25)
+                    .frame(width: 28.4, height: 20)
             }
         }
     }
