@@ -10,7 +10,7 @@ struct SessionDetailUserView: View {
             HStack(spacing: 8) {
                 SessionDetailUserImage(icon: user.icon)
                 SessionDetailUserNameLabel(name: user.name)
-                SessionDetailUserSnsButton(
+                SessionDetailUserTwitterButton(
                     account: user.twAccount,
                     didTap: didTapSns
                 )
@@ -50,7 +50,7 @@ private struct SessionDetailUserNameLabel: View {
 }
 
 // MARK: - Button
-private struct SessionDetailUserSnsButton: View {
+private struct SessionDetailUserTwitterButton: View {
     let account: String?
     let didTap: () -> Void
     
