@@ -191,8 +191,8 @@ enum SessionDay1Type: Int, CaseIterable, SessionType {
          t1505_1545,
          t1555_1640,
          t1650_1710,
-         t1720_1730
-//         unconference
+         t1720_1730,
+         unconference
     
     var index: Int {
         rawValue
@@ -210,7 +210,7 @@ enum SessionDay1Type: Int, CaseIterable, SessionType {
         case .t1555_1640: return "15:55~16:40"
         case .t1650_1710: return "16:50~17:10"
         case .t1720_1730: return "17:20~17:30"
-//        case .unconference: return "13:00~14:45"
+        case .unconference: return "13:00~14:45"
         }
     }
     var models: [SessionModel] {
@@ -426,12 +426,14 @@ enum SessionDay1Type: Int, CaseIterable, SessionType {
                 .init(track: .a,
                       title: "Today's Update")
             ]
-//        case .unconference:
-//            return [
-//                .init(track: .e,
-//                      title: "スタートアップへの挑戦",
-//                      description: "理工学術院 教授 朝日透 ほか5名\n\n13:00-13:20 Greater Tokyo Innovation Ecosystem (GTIE)の紹介　理工学術院　教授 朝日透\n13:20-13:30 Urth CEO 田中大貴\n13:30-13:40 amulapo CEO 田中克明\n13:40-13:50 レイワセダ CEO 畠山祥\n13:50-14:05 休憩\n14:05-14:15 Ubiq CEO 日野真幸\n14:15-14:25 StatHack CEO 松葉亮人\n14:25-14:35 TBD\n14:35-14:45 TBD")
-//            ]
+        case .unconference:
+            return [
+                .init(track: .e,
+                      title: "スタートアップへの挑戦",
+                      description: "理工学術院 教授 朝日透 ほか5名\n\n13:00-13:20 Greater Tokyo Innovation Ecosystem (GTIE)の紹介 理工学術院 教授 朝日透\n13:20-13:30 Urth CEO 田中大貴\n13:30-13:40 amulapo CEO 田中克明\n13:40-13:50 レイワセダ CEO 畠山祥\n13:50-14:05 休憩\n14:05-14:15 Ubiq CEO 日野真幸\n14:15-14:25 StatHack CEO 松葉亮人\n14:25-14:35 EAGLYS CSO 丸山祐丞",
+                      user: SessionUserType.user97.user,
+                      archiveParameter: "88PE_N4WJX0")
+            ]
         }
     }
     

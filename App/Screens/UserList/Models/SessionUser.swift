@@ -58,7 +58,7 @@ enum SessionUserType: String, CaseIterable, UserType {
          user81, user82, user83, user84, user85,
          user86, user87,         user89, user90,
          user91, user92, user93, user94, user95, 
-         user96
+         user96, user97
     
     var name: String {
         switch self {
@@ -156,6 +156,7 @@ enum SessionUserType: String, CaseIterable, UserType {
         case .user94: return "くどかい"
         case .user95: return "立花和也"
         case .user96: return "Tzuhan Hsu"
+        case .user97: return "理工学術院 教授 朝日透"
         }
     }
     
@@ -255,6 +256,7 @@ enum SessionUserType: String, CaseIterable, UserType {
         case .user94: return "kudokai00"
         case .user95: return "kzytcbn315"
         case .user96: return "BitriseJ"
+        case .user97: return "asahilab"
         }
     }
     

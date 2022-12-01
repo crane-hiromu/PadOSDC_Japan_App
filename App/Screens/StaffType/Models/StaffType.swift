@@ -13,7 +13,7 @@ enum StaffType: Int, CaseIterable {
     }
     
     var title: String { 
-        "\(name) \(L10n.staffTypeTitleStaff)" 
+        "\(name)\(L10n.staffTypeTitleStaff)" 
     }
     
     var users: [User] {

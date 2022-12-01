@@ -82,7 +82,7 @@ private struct SessionDetailUserYoutubeButton: View {
     let didTap: () -> Void
     
     var body: some View {
-        if let user = user {
+        if let _ = user {
             Button(action: didTap) {
                 HStack(spacing: 8) {
                     Image("logo_youtube")
