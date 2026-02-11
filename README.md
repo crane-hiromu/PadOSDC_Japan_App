@@ -93,11 +93,3 @@ Generate [SwiftGen](https://github.com/SwiftGen/SwiftGen) file.
 $ make asset
 ```
 
-
-
-<br>
-
-# Test
-
-Testing is performed using a library called [PlaygroundTester](https://github.com/Losiowaty/PlaygroundTester).
-

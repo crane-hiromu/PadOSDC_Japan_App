@@ -10,24 +10,6 @@
       }
     },
     {
-      "identity" : "difference",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/krzysztofzablocki/Difference",
-      "state" : {
-        "revision" : "02fe1111edc8318c4f8a0da96336fcbcc201f38b",
-        "version" : "1.0.1"
-      }
-    },
-    {
-      "identity" : "playgroundtester",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/Losiowaty/PlaygroundTester.git",
-      "state" : {
-        "revision" : "1444c7e0d2f15be1e4c75bdaa6ecc3139d3c3a83",
-        "version" : "0.3.1"
-      }
-    },
-    {
       "identity" : "swiftuiworkaround",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/noppefoxwolf/SwiftUIWorkaround",
