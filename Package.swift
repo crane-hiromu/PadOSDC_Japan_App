@@ -11,7 +11,7 @@ let package = Package(
     name: "PadOSDC",
     defaultLocalization: "en",
     platforms: [
-        .iOS("15.2")
+        .iOS("18.1")
     ],
     products: [
         .iOSApplication(
@@ -19,7 +19,7 @@ let package = Package(
             targets: ["AppModule"],
             bundleIdentifier: "hcrane.padosdc.japan.2022",
             teamIdentifier: "R82WJ5W3TV",
-            displayVersion: "1.7",
+            displayVersion: "1.8",
             bundleVersion: "10",
             appIcon: .asset("AppIcon"),
             accentColor: .presetColor(.blue),
